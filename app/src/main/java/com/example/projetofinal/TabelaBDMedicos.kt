@@ -6,7 +6,13 @@ import android.provider.BaseColumns
 class TabelaBDMedicos(val db: SQLiteDatabase) {
 
     fun cria() {
-        db.execSQL("CREATE TABLE $NOME (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $CAMPO_NOME TEXT NOT NULL, $CAMPO_ESPECIALIDADE TEXT NOT NULL, $CAMPO_TELEMOVEL INTEGER NOT NULL, $CAMPO_EMAIL TEXT NOT NULL, $CAMPO_SEXO TEXT NOT NULL, $CAMPO_CARTAO_CIDADAO INTEGER NOT NULL)")
+        db.execSQL("CREATE TABLE $NOME (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "$CAMPO_NOME TEXT NOT NULL, " +
+                "$CAMPO_ESPECIALIDADE TEXT NOT NULL, " +
+                "$CAMPO_TELEMOVEL INTEGER NOT NULL, " +
+                "$CAMPO_EMAIL TEXT NOT NULL, " +
+                "$CAMPO_SEXO TEXT NOT NULL, " +
+                "$CAMPO_CARTAO_CIDADAO INTEGER NOT NULL)")
     }
 
     companion object{
