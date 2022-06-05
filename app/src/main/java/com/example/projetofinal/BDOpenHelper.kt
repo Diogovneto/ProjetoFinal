@@ -9,6 +9,9 @@ class BDOpenHelper (context: Context?) : SQLiteOpenHelper(context, NOME, null, V
     override fun onCreate(db: SQLiteDatabase?) {
         requireNotNull(db)
 
+        TabelaBDMedicos(db).cria()
+        TabelaBDConsultas(db).cria()
+
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
