@@ -34,6 +34,11 @@ class BaseDadosTest {
         Assert.assertNotEquals(-1, paciente.id)
     }
 
+    private fun insereConsulta(db: SQLiteDatabase, consulta: Consulta) {
+        consulta.id = TabelaBDConsultas(db).insert(consulta.toContentValues())
+        Assert.assertNotEquals(-1, consulta.id)
+    }
+
     @Before
     fun apagaBaseDados() {
         appContext().deleteDatabase(BDOpenHelper.NOME)
@@ -118,7 +123,7 @@ class BaseDadosTest {
         inserePaciente(db, paciente)
 
 
-        val Consulta = Consulta(
+        val consulta = Consulta(
             "07/06/2022",
             "Infantil",
             "Amarela",
@@ -127,9 +132,8 @@ class BaseDadosTest {
             medico.id,
             paciente.id)
 
-        Consulta.id = TabelaBDConsultas(db).insert(Consulta.toContentValues())
+        insereConsulta(db, consulta)
 
-        Assert.assertNotEquals(-3, Consulta.id)
 
         db.close()
     }
