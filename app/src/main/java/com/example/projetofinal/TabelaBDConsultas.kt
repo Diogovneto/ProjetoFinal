@@ -12,6 +12,7 @@ class TabelaBDConsultas(db: SQLiteDatabase) : TabelaBD(db, NOME) {
                 "$CAMPO_PULSEIRA_PACIENTE TEXT NOT NULL, " +
                 "$CAMPO_PRECO FLOAT NOT NULL, " +
                 "$CAMPO_MEDICO_ID INTEGER NOT NULL, " +
+                "$CAMPO_PACIENTE_ID INTEGER NOT NULL," +
                 "FOREIGN KEY ($CAMPO_MEDICO_ID) REFERENCES ${TabelaBDMedicos.NOME}(${BaseColumns._ID}) ON DELETE RESTRICT, " +
                 "FOREIGN KEY ($CAMPO_PACIENTE_ID) REFERENCES ${TabelaBDPacientes.NOME}(${BaseColumns._ID}) ON DELETE RESTRICT)")
     }
