@@ -4,12 +4,13 @@ import android.content.ContentValues
 
 
 class Consulta(
-    var data: Long,
+    var data: String,
     var tipo: String,
     var pulseira_paciente: String,
     var descricao: String,
-    var preco: Float,
-    var id: Long = -1) {
+    var preco: Long,
+    var id: Long = -1,
+    var id2: Long = -1) {
 
     fun toContentValues() : ContentValues {
         val valores = ContentValues()

@@ -3,6 +3,7 @@ package com.example.projetofinal
 import android.database.sqlite.SQLiteDatabase
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
+import org.junit.Assert
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
@@ -23,6 +24,12 @@ class BaseDadosTest {
         return openHelper.writableDatabase
     }
 
+    private fun insereMedico(db: SQLiteDatabase, medico: Medico) {
+        medico.id = TabelaBDMedicos(db).insert(medico.toContentValues())
+        Assert.assertNotEquals(-1, medico.id)
+    }
+
+
     @Before
     fun apagaBaseDados() {
         appContext().deleteDatabase(BDOpenHelper.NOME)
@@ -42,15 +49,62 @@ class BaseDadosTest {
     fun consegueInserirMedico() {
         val db = getWritableDatabase()
 
-        val categoria = Medico(
-            "Américo Vaz",
-            "Cirurgião",
-            923654766,
+        insereMedico(db, Medico(
+            "Teste 1",
+        "Consulta",
+        934563467,
+        "teste@gmail.com",
+        "Masculino",
+        14537834))
+
+        insereMedico(db, Medico(
+            "Teste 2",
+            "Consulta",
+            928754328,
+            "teste2@gmail.com",
+            "Feminino",
+            13764567))
+
+        db.close()
+    }
+
+    @Test
+    fun consegueInserirConsulta() {
+        val db = getWritableDatabase()
+
+        val medico = Medico(
+                "Teste 1",
+            "Consulta",
+            934563467,
             "teste@gmail.com",
             "Masculino",
-            14537834,)
+            14537834)
 
-        TabelaBDMedicos(db).insert(categoria.toContentValues())
+        insereMedico(db, medico)
+
+        val paciente = Paciente(
+            "Diogo Neto",
+            "27/07/2001",
+            "Masculino",
+            "Rua Teste n285",
+            "3750-598",
+            938059434,
+            "dvnetoubz@gmail.com",
+            14537834,
+            238316050)
+
+
+        val Consulta = Consulta("07/06/2022",
+            "Infantil",
+            "Amarela",
+            "Garganta Inflamada",
+            15,
+            medico.id,
+            paciente.id)
+
+        Consulta.id = TabelaBDConsultas(db).insert(Consulta.toContentValues())
+
+        Assert.assertNotEquals(-3, Consulta.id)
 
         db.close()
     }

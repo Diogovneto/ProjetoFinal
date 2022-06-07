@@ -4,10 +4,10 @@ import android.content.ContentValues
 
 class Paciente(
     var nome: String,
-    var data_nascimento: Long,
+    var data_nascimento: String,
     var sexo: String,
     var morada: String,
-    var codigo_postal: Long,
+    var codigo_postal: String,
     var telemovel: Long,
     var email: String,
     var cartao_cidadao: Long,
