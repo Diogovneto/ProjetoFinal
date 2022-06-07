@@ -20,6 +20,8 @@ class Consulta(
         valores.put(TabelaBDConsultas.CAMPO_PULSEIRA_PACIENTE, pulseira_paciente)
         valores.put(TabelaBDConsultas.CAMPO_DESCRICAO, descricao)
         valores.put(TabelaBDConsultas.CAMPO_PRECO, preco)
+        valores.put(TabelaBDConsultas.CAMPO_MEDICO_ID, id)
+        valores.put(TabelaBDConsultas.CAMPO_PACIENTE_ID, id2)
 
 
         return valores

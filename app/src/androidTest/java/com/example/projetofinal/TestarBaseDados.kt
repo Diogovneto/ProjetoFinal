@@ -29,6 +29,10 @@ class BaseDadosTest {
         Assert.assertNotEquals(-1, medico.id)
     }
 
+    private fun inserePaciente(db: SQLiteDatabase, paciente: Paciente) {
+        paciente.id = TabelaBDPacientes(db).insert(paciente.toContentValues())
+        Assert.assertNotEquals(-1, paciente.id)
+    }
 
     @Before
     fun apagaBaseDados() {
@@ -69,13 +73,31 @@ class BaseDadosTest {
     }
 
     @Test
+    fun consegueInserirPaciente() {
+        val db = getWritableDatabase()
+
+        inserePaciente(db, Paciente(
+            "Diogo Neto",
+            "27/07/2001",
+            "Masculino",
+            "Rua Teste n285",
+            "3750-598",
+            938059434,
+            "dvnetoubz@gmail.com",
+            14537834,
+            238316050))
+
+        db.close()
+    }
+
+    @Test
     fun consegueInserirConsulta() {
         val db = getWritableDatabase()
 
         val medico = Medico(
                 "Teste 1",
             "Consulta",
-            934563467,
+            928754328,
             "teste@gmail.com",
             "Masculino",
             14537834)
@@ -83,7 +105,7 @@ class BaseDadosTest {
         insereMedico(db, medico)
 
         val paciente = Paciente(
-            "Diogo Neto",
+            "Diogo Neto123",
             "27/07/2001",
             "Masculino",
             "Rua Teste n285",
@@ -93,8 +115,11 @@ class BaseDadosTest {
             14537834,
             238316050)
 
+        inserePaciente(db, paciente)
 
-        val Consulta = Consulta("07/06/2022",
+
+        val Consulta = Consulta(
+            "07/06/2022",
             "Infantil",
             "Amarela",
             "Garganta Inflamada",
