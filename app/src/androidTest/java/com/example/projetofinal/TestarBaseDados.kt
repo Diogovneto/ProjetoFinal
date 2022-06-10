@@ -253,14 +253,14 @@ class BaseDadosTest {
             "verde",
             "Dores de cabeça e febre",
             10,
-            medicoCirurgiao.id,
+            medicoDomicilio.id,
             pacienteCrianca.id)
 
         insereConsulta(db, consulta)
 
         consulta.pulseira_paciente = "amarela"
         consulta.descricao = "vários sintomas COVID-19"
-        pacienteCrianca.id = pacienteAdulto.id
+        medicoDomicilio.id = medicoCirurgiao.id
 
 
 
@@ -304,4 +304,44 @@ class BaseDadosTest {
 
         db.close()
     }
+
+    @Test
+    fun consegueEliminarPaciente() {
+        val db = getWritableDatabase()
+
+        val paciente = Paciente(
+            "Diogo Neto",
+            "27/07/2001",
+            "Masculino",
+            "Rua teste n285",
+            "3750-598",
+            938059434,
+            "dvnetoubz@gmail.com",
+            14537834,
+            238316050)
+
+        inserePaciente(db, paciente)
+
+        val paciente2 = Paciente(
+            "Rui Pedro",
+            "06/08/2001",
+            "Masculino",
+            "Avenida teste Bloco 2",
+            "3750-500",
+            933648765,
+            "ruipedro@gmail.com",
+            15436789,
+            867345095)
+
+        inserePaciente(db, paciente2)
+
+        val registosEliminados = TabelaBDPacientes(db).delete(
+            "${BaseColumns._ID}=?",
+            arrayOf("${paciente.id}"))
+
+        Assert.assertEquals(1, registosEliminados)
+
+        db.close()
+    }
+    
 }
