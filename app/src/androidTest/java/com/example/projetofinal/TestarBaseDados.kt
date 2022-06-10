@@ -273,4 +273,35 @@ class BaseDadosTest {
 
         db.close()
     }
+
+    @Test
+    fun consegueEliminarMedico() {
+        val db = getWritableDatabase()
+
+        val medico = Medico(
+            "João Tavares",
+            "Domicilio",
+            123456789,
+            "teste@gmail.com",
+            "Masculino",
+            13579246)
+        insereMedico(db, medico)
+
+        val medico2 = Medico(
+            "José Santos",
+            "Cirurgião",
+            987654321,
+            "teste123@gmail.com",
+            "Masculino",
+            24680135)
+        insereMedico(db, medico2)
+
+        val registosEliminados = TabelaBDMedicos(db).delete(
+            "${BaseColumns._ID}=?",
+            arrayOf("${medico.id}"))
+
+        Assert.assertEquals(1, registosEliminados)
+
+        db.close()
+    }
 }
