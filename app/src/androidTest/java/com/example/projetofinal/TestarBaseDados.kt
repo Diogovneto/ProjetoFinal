@@ -450,4 +450,57 @@ class BaseDadosTest {
         Assert.assertEquals(paciente, pacienteBD)
     }
 
+    @Test
+    fun consegueLerConsultas() {
+        val db = getWritableDatabase()
+
+        val medico = Medico("Rogério Alves",
+            "Infantil",
+            934765437,
+            "rogerioalvez@gmail.com",
+            "Masculino",
+            14765478)
+        insereMedico(db, medico)
+
+        val paciente = Paciente(
+            "Diogo Neto",
+            "27/07/2001",
+            "Masculino",
+            "Rua teste n285",
+            "3750-598",
+            938059434,
+            "dvnetoubz@gmail.com",
+            14537834,
+            238316050)
+        inserePaciente(db, paciente)
+
+        val consulta = Consulta(
+            "27/07/2022",
+            "Urgência",
+            "vermelho",
+            "Paciente com perna partida",
+            10,
+            medico.id,
+            paciente.id)
+        insereConsulta(db, consulta)
+
+        val cursor = TabelaBDConsultas(db).query(
+            TabelaBDConsultas.TODAS_COLUNAS,
+            "${BaseColumns._ID}=?",
+            arrayOf("${consulta.id}"),
+            null,
+            null,
+            null
+        )
+
+        Assert.assertEquals(1, cursor.count)
+        assertTrue(cursor.moveToNext())
+
+        val consultaBD = Consulta.fromCursor(cursor)
+
+        Assert.assertEquals(consulta, consultaBD)
+
+        db.close()
+    }
+
 }
