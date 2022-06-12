@@ -29,5 +29,16 @@ class TabelaBDPacientes (db: SQLiteDatabase) : TabelaBD(db, NOME) {
         const val CAMPO_EMAIL = "Email"
         const val CAMPO_CARTAO_CIDADAO = "CartaoCidadao"
         const val CAMPO_CONTRIBUINTE = "Contribuinte"
+
+        val TODAS_COLUNAS = arrayOf(BaseColumns._ID,
+            CAMPO_NOME,
+            CAMPO_DATA_NASCIMENTO,
+            CAMPO_SEXO, CAMPO_MORADA,
+            CAMPO_CODIGO_POSTAL,
+            CAMPO_TELEMOVEL,
+            CAMPO_EMAIL,
+            CAMPO_CARTAO_CIDADAO,
+            CAMPO_CONTRIBUINTE)
+
     }
 }
