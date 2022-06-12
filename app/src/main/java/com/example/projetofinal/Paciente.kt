@@ -1,6 +1,8 @@
 package com.example.projetofinal
 
 import android.content.ContentValues
+import android.database.Cursor
+import android.provider.BaseColumns
 
 class Paciente(
     var nome: String,
@@ -30,4 +32,33 @@ class Paciente(
 
         return valores
     }
+
+    companion object {
+        fun fromCursor(cursor: Cursor): Paciente {
+            val posId = cursor.getColumnIndex(BaseColumns._ID)
+            val posNome = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_NOME)
+            val posDataNascimento = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_DATA_NASCIMENTO)
+            val posSexo = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_SEXO)
+            val posMorada = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_MORADA)
+            val posCodigoPostal = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_CODIGO_POSTAL)
+            val postelemovel = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_TELEMOVEL)
+            val posEmail = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_EMAIL)
+            val posCartaoCidadao = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_CARTAO_CIDADAO)
+            val posContribuinte = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_CONTRIBUINTE)
+
+            val id = cursor.getLong(posId)
+            val nome = cursor.getString(posNome)
+            val data_nascimento = cursor.getString(posDataNascimento)
+            val sexo = cursor.getString(posSexo)
+            val morada = cursor.getString(posMorada)
+            val codigo_postal = cursor.getString(posCodigoPostal)
+            val telemovel = cursor.getLong(postelemovel)
+            val email = cursor.getString(posEmail)
+            val cartao_cidadao = cursor.getLong(posCartaoCidadao)
+            val contribuinte = cursor.getLong(posContribuinte)
+
+            return Paciente(nome, data_nascimento, sexo, morada, codigo_postal, telemovel, email, cartao_cidadao, contribuinte, id)
+        }
+    }
+
 }
