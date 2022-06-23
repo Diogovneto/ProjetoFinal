@@ -5,6 +5,7 @@ import android.provider.BaseColumns
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Assert
+import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
@@ -409,12 +410,12 @@ class BaseDadosTest {
             null
         )
 
-        Assert.assertEquals(1, cursor.count)
+        assertEquals(1, cursor.count)
         assertTrue(cursor.moveToNext())
 
         val medicoBD = Medico.fromCursor(cursor)
 
-        Assert.assertEquals(medico, medicoBD)
+        assertEquals(medico, medicoBD)
     }
 
     @Test
@@ -442,12 +443,12 @@ class BaseDadosTest {
             null
         )
 
-        Assert.assertEquals(1, cursor.count)
+        assertEquals(1, cursor.count)
         assertTrue(cursor.moveToNext())
 
         val pacienteBD = Paciente.fromCursor(cursor)
 
-        Assert.assertEquals(paciente, pacienteBD)
+        assertEquals(paciente, pacienteBD)
     }
 
     @Test
@@ -493,12 +494,12 @@ class BaseDadosTest {
             null
         )
 
-        Assert.assertEquals(1, cursor.count)
+        assertEquals(1, cursor.count)
         assertTrue(cursor.moveToNext())
 
         val consultaBD = Consulta.fromCursor(cursor)
 
-        Assert.assertEquals(consulta, consultaBD)
+        assertEquals(consulta, consultaBD)
 
         db.close()
     }
