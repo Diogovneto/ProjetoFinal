@@ -3,8 +3,8 @@ package com.example.projetofinal
 import android.database.sqlite.SQLiteDatabase
 import android.provider.BaseColumns
 
-class TabelaBDPulseiras(val db: SQLiteDatabase) {
-    fun cria(){
+class TabelaBDPulseiras(db: SQLiteDatabase) : TabelaBD(db, NOME) {
+    override fun cria(){
         db.execSQL("CREATE TABLE $NOME(${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $CAMPO_PULSEIRA TEXT NOT NULL)")
     }
 
