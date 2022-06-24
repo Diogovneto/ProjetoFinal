@@ -14,6 +14,7 @@ class Paciente(
     var email: String,
     var cartao_cidadao: Long,
     var contribuinte: Long,
+    var id_pulseira: Long,
     var id: Long = -1) {
 
     fun toContentValues() : ContentValues {
@@ -28,6 +29,7 @@ class Paciente(
         valores.put(TabelaBDPacientes.CAMPO_EMAIL, email)
         valores.put(TabelaBDPacientes.CAMPO_CARTAO_CIDADAO, cartao_cidadao)
         valores.put(TabelaBDPacientes.CAMPO_CONTRIBUINTE, contribuinte)
+        valores.put(TabelaBDPacientes.CAMPO_PULSEIRA_ID, id_pulseira)
 
 
         return valores
@@ -45,6 +47,7 @@ class Paciente(
             val posEmail = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_EMAIL)
             val posCartaoCidadao = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_CARTAO_CIDADAO)
             val posContribuinte = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_CONTRIBUINTE)
+            val posIdPulseira = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_PULSEIRA_ID)
 
             val id = cursor.getLong(posId)
             val nome = cursor.getString(posNome)
@@ -56,8 +59,9 @@ class Paciente(
             val email = cursor.getString(posEmail)
             val cartao_cidadao = cursor.getLong(posCartaoCidadao)
             val contribuinte = cursor.getLong(posContribuinte)
+            val id_pulseira = cursor.getLong(posIdPulseira)
 
-            return Paciente(nome, data_nascimento, sexo, morada, codigo_postal, telemovel, email, cartao_cidadao, contribuinte, id)
+            return Paciente(nome, data_nascimento, sexo, morada, codigo_postal, telemovel, email, cartao_cidadao, contribuinte, id_pulseira, id)
         }
     }
 

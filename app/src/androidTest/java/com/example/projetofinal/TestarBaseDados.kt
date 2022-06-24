@@ -80,6 +80,8 @@ class BaseDadosTest {
         fun consegueInserirPaciente() {
             val db = getWritableDatabase()
 
+            val pulseira = Pulseira("Verde")
+
             inserePaciente(
                 db, Paciente(
                     "Diogo Neto",
@@ -90,8 +92,8 @@ class BaseDadosTest {
                     938059434,
                     "dvnetoubz@gmail.com",
                     14537834,
-                    238316050
-                )
+                    238316050,
+                    pulseira.id)
             )
 
             db.close()
@@ -100,6 +102,8 @@ class BaseDadosTest {
         @Test
         fun consegueInserirConsulta() {
             val db = getWritableDatabase()
+
+            val pulseira = Pulseira("Laranja")
 
             val medico = Medico(
                 "Teste 1",
@@ -121,7 +125,8 @@ class BaseDadosTest {
                 938059434,
                 "dvnetoubz@gmail.com",
                 14537834,
-                238316050
+                238316050,
+                pulseira.id
             )
 
             inserePaciente(db, paciente)
@@ -130,7 +135,6 @@ class BaseDadosTest {
             val consulta = Consulta(
                 "07/06/2022",
                 "Infantil",
-                "Amarela",
                 "Garganta Inflamada",
                 15,
                 medico.id,
@@ -186,6 +190,10 @@ class BaseDadosTest {
     fun consegueAlterarPaciente() {
         val db = getWritableDatabase()
 
+        val pulseira_vermelho = Pulseira("Vermelho")
+
+        val pulseira_amarela = Pulseira("Amarelo")
+
         val paciente = Paciente(
             "Teste",
             "27/07/2001",
@@ -195,12 +203,14 @@ class BaseDadosTest {
             123456789,
             "teste@gmail.com",
             87654321,
-            834729457
+            834729457,
+            pulseira_vermelho.id
         )
         inserePaciente(db, paciente)
 
         paciente.nome = "Raul Pereira"
         paciente.morada = "Avenida Teste Bloco 2"
+        pulseira_vermelho.id = pulseira_amarela.id
 
         val registosAlterados = TabelaBDPacientes(db).update(
             paciente.toContentValues(),
@@ -237,6 +247,8 @@ class BaseDadosTest {
 
         insereMedico(db, medicoCirurgiao)
 
+        val pulseira_crianca = Pulseira("Vermelho")
+
         val pacienteCrianca = Paciente(
             "Diogo Neto",
             "27/07/2001",
@@ -246,9 +258,12 @@ class BaseDadosTest {
             938059434,
             "dvnetoubz@gmail.com",
             14537834,
-            238316050)
+            238316050,
+            pulseira_crianca.id)
 
         inserePaciente(db, pacienteCrianca)
+
+        val pulseira_adulto = Pulseira("Amarelo")
 
         val pacienteAdulto = Paciente(
             "Rui Pedro",
@@ -259,14 +274,14 @@ class BaseDadosTest {
             933648765,
             "ruipedro@gmail.com",
             15436789,
-            867345095)
+            867345095,
+            pulseira_adulto.id)
 
         inserePaciente(db, pacienteAdulto)
 
         val consulta = Consulta(
             "08/06/2022",
             "Infantil",
-            "verde",
             "Dores de cabeça e febre",
             10,
             medicoDomicilio.id,
@@ -274,7 +289,6 @@ class BaseDadosTest {
 
         insereConsulta(db, consulta)
 
-        consulta.pulseira_paciente = "amarela"
         consulta.descricao = "vários sintomas COVID-19"
         medicoDomicilio.id = medicoCirurgiao.id
 
@@ -339,6 +353,8 @@ class BaseDadosTest {
     fun consegueEliminarPaciente() {
         val db = getWritableDatabase()
 
+        val pulseira = Pulseira("Verde")
+
         val paciente = Paciente(
             "Diogo Neto",
             "27/07/2001",
@@ -348,7 +364,8 @@ class BaseDadosTest {
             938059434,
             "dvnetoubz@gmail.com",
             14537834,
-            238316050)
+            238316050,
+            pulseira.id)
 
         inserePaciente(db, paciente)
 
@@ -361,7 +378,8 @@ class BaseDadosTest {
             933648765,
             "ruipedro@gmail.com",
             15436789,
-            867345095)
+            867345095,
+            pulseira.id)
 
         inserePaciente(db, paciente2)
 
@@ -387,6 +405,8 @@ class BaseDadosTest {
             13579246)
         insereMedico(db, medico)
 
+        val pulseira = Pulseira("Azul")
+
         val paciente = Paciente(
             "Diogo Neto",
             "27/07/2001",
@@ -396,13 +416,13 @@ class BaseDadosTest {
             938059434,
             "dvnetoubz@gmail.com",
             14537834,
-            238316050)
+            238316050,
+            pulseira.id)
         inserePaciente(db, paciente)
 
         val consulta = Consulta(
             "27/07/2022",
             "Urgência",
-            "vermelho",
             "Paciente com perna partida",
             10,
             medico.id,
@@ -467,6 +487,8 @@ class BaseDadosTest {
     fun consegueLerPacientes() {
         val db = getWritableDatabase()
 
+        val pulseira = Pulseira("Verde")
+
         val paciente = Paciente(
             "Diogo Neto",
             "27/07/2001",
@@ -476,7 +498,8 @@ class BaseDadosTest {
             938059434,
             "dvnetoubz@gmail.com",
             14537834,
-            238316050)
+            238316050,
+            pulseira.id)
         inserePaciente(db, paciente)
 
         val cursor = TabelaBDPacientes(db).query(
@@ -508,6 +531,8 @@ class BaseDadosTest {
             14765478)
         insereMedico(db, medico)
 
+        val pulseira = Pulseira("Laranja")
+
         val paciente = Paciente(
             "Diogo Neto",
             "27/07/2001",
@@ -517,13 +542,13 @@ class BaseDadosTest {
             938059434,
             "dvnetoubz@gmail.com",
             14537834,
-            238316050)
+            238316050,
+            pulseira.id)
         inserePaciente(db, paciente)
 
         val consulta = Consulta(
             "27/07/2022",
             "Urgência",
-            "vermelho",
             "Paciente com perna partida",
             10,
             medico.id,

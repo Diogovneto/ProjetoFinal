@@ -9,7 +9,6 @@ class TabelaBDConsultas(db: SQLiteDatabase) : TabelaBD(db, NOME) {
                 " $CAMPO_DATA DATE NOT NULL, " +
                 "$CAMPO_TIPO TEXT NOT NULL, " +
                 "$CAMPO_DESCRICAO TEXT NOT NULL, " +
-                "$CAMPO_PULSEIRA_PACIENTE TEXT NOT NULL, " +
                 "$CAMPO_PRECO FLOAT NOT NULL, " +
                 "$CAMPO_MEDICO_ID INTEGER NOT NULL, " +
                 "$CAMPO_PACIENTE_ID INTEGER NOT NULL," +
@@ -22,12 +21,17 @@ class TabelaBDConsultas(db: SQLiteDatabase) : TabelaBD(db, NOME) {
         const val CAMPO_DATA = "Data"
         const val CAMPO_TIPO = "Tipo"
         const val CAMPO_DESCRICAO = "Descricao"
-        const val CAMPO_PULSEIRA_PACIENTE = "PulseiraPaciente"
         const val CAMPO_PRECO = "Preco"
         const val CAMPO_MEDICO_ID = "Medicoid"
         const val CAMPO_PACIENTE_ID = "Pacienteid"
 
-        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, CAMPO_DATA, CAMPO_TIPO, CAMPO_DESCRICAO, CAMPO_PULSEIRA_PACIENTE, CAMPO_PRECO, CAMPO_MEDICO_ID, CAMPO_PACIENTE_ID)
+        val TODAS_COLUNAS = arrayOf(BaseColumns._ID,
+            CAMPO_DATA,
+            CAMPO_TIPO,
+            CAMPO_DESCRICAO,
+            CAMPO_PRECO,
+            CAMPO_MEDICO_ID,
+            CAMPO_PACIENTE_ID)
 
     }
 }
