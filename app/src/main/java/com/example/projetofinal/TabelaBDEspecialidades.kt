@@ -3,7 +3,7 @@ package com.example.projetofinal
 import android.database.sqlite.SQLiteDatabase
 import android.provider.BaseColumns
 
-class TabelaBDEspecialidades (db: SQLiteDatabase) : TabelaBD(db, TabelaBDEspecialidades.NOME){
+class TabelaBDEspecialidades (db: SQLiteDatabase) : TabelaBD(db, NOME){
     override fun cria(){
         db.execSQL("CREATE TABLE $NOME(${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "$CAMPO_ESPECIALIDADE TEXT NOT NULL)")
