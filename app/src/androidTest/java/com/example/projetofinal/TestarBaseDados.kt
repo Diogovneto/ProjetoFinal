@@ -291,6 +291,20 @@ class BaseDadosTest {
     }
 
     @Test
+    fun consegueAlterarPulseira() {
+        val db = getWritableDatabase()
+
+        val pulseira = Pulseira("Vermelha")
+        inserePulseira(db, pulseira)
+
+        pulseira.pulseira = "Amarela"
+
+        val registosAlterados = TabelaBDPulseiras(db).update(pulseira.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf("${pulseira.id}"))
+    }
+
+    @Test
     fun consegueEliminarMedico() {
         val db = getWritableDatabase()
 
