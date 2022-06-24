@@ -13,6 +13,7 @@ class BDOpenHelper (context: Context?) : SQLiteOpenHelper(context, NOME, null, V
         TabelaBDConsultas(db).cria()
         TabelaBDPacientes(db).cria()
         TabelaBDPulseiras(db).cria()
+        TabelaBDEspecialidades(db).cria()
 
     }
 
