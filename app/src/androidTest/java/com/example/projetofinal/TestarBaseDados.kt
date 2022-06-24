@@ -419,6 +419,22 @@ class BaseDadosTest {
     }
 
     @Test
+    fun consegueEliminarPulseiras(){
+        val db = getWritableDatabase()
+
+        val pulseira = Pulseira("Vermelho")
+        inserePulseira(db, pulseira)
+
+        val registosEliminados = TabelaBDPulseiras(db).delete(
+            "${BaseColumns._ID}=?",
+            arrayOf("${pulseira.id}"))
+
+        assertEquals(1, registosEliminados)
+
+        db.close()
+    }
+
+    @Test
     fun consegueLerMedicos() {
         val db = getWritableDatabase()
 
