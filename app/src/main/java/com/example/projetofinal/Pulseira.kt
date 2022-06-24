@@ -2,8 +2,7 @@ package com.example.projetofinal
 
 import android.content.ContentValues
 
-class Pulseira(var id: Long,
-               var pulseira: String) {
+class Pulseira(var pulseira: String, var id: Long = -1) {
     fun toContentValues() : ContentValues {
         val valores = ContentValues()
 

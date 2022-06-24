@@ -41,6 +41,10 @@ class BaseDadosTest {
         Assert.assertNotEquals(-1, consulta.id)
     }
 
+    private fun inserePulseira(db: SQLiteDatabase, pulseira: Pulseira){
+        pulseira.id = TabelaBDPulseiras(db).insert(pulseira.toContentValues())
+    }
+
     @Before
     fun apagaBaseDados() {
         appContext().deleteDatabase(BDOpenHelper.NOME)
@@ -135,6 +139,17 @@ class BaseDadosTest {
 
             insereConsulta(db, consulta)
 
+
+            db.close()
+        }
+
+        @Test
+        fun consegueInserirPulseira(){
+            val db = getWritableDatabase()
+
+            val pulseira = Pulseira("Vermelho")
+
+            inserePulseira(db, pulseira)
 
             db.close()
         }
