@@ -549,4 +549,28 @@ class BaseDadosTest {
         db.close()
     }
 
+    @Test
+    fun consegueLerPulseira() {
+        val db = getWritableDatabase()
+
+        val pulseira = Pulseira("Verde")
+        inserePulseira(db, pulseira)
+
+        val cursor = TabelaBDPulseiras(db).query(
+            TabelaBDPulseiras.TODAS_COLUNAS,
+            "${BaseColumns._ID}=?",
+            arrayOf("${pulseira.id}"),
+            null,
+            null,
+            null
+        )
+
+        assertEquals(1, cursor.count)
+        assertTrue(cursor.moveToNext())
+
+        val pulseiraBD = Pulseira.fromCursor(cursor)
+
+        assertEquals(pulseira, pulseiraBD)
+    }
+
 }
