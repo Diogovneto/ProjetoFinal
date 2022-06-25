@@ -484,6 +484,22 @@ class BaseDadosTest {
     }
 
     @Test
+    fun consegueEliminarEspecialidades() {
+        val db = getWritableDatabase()
+
+        val especialidade = Especialidade("Domicilio")
+        insereEspecialidade(db, especialidade)
+
+        val registosEliminados = TabelaBDEspecialidades(db).delete(
+            "${BaseColumns._ID}=?",
+            arrayOf("${especialidade.id}"))
+
+        assertEquals(1, registosEliminados)
+
+        db.close()
+    }
+
+    @Test
     fun consegueLerMedicos() {
         val db = getWritableDatabase()
 
