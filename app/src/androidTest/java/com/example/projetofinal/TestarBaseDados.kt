@@ -334,6 +334,20 @@ class BaseDadosTest {
     }
 
     @Test
+    fun consegueAlterarEspecialidade(){
+        val db = getWritableDatabase()
+
+        val especialidade = Especialidade("Cardiologista")
+        insereEspecialidade(db, especialidade)
+
+        especialidade.especialidade = "Cirurgião"
+
+        val registosAlterados = TabelaBDEspecialidades(db).update(especialidade.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf("${especialidade.id}"))
+    }
+
+    @Test
     fun consegueEliminarMedico() {
         val db = getWritableDatabase()
 
