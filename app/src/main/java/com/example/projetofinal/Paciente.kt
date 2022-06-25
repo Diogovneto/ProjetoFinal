@@ -14,7 +14,7 @@ class Paciente(
     var email: String,
     var cartao_cidadao: Long,
     var contribuinte: Long,
-    var id_pulseira: Long,
+    var id_pulseira: Long = -1,
     var id: Long = -1) {
 
     fun toContentValues() : ContentValues {

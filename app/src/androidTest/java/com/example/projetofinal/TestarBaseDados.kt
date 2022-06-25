@@ -68,14 +68,17 @@ class BaseDadosTest {
     fun consegueInserirMedico() {
         val db = getWritableDatabase()
 
+        val especialidade = Especialidade("Domicilio")
+        insereEspecialidade(db,especialidade)
+
         insereMedico(
             db, Medico(
                 "Teste 1",
-                "Consulta",
                 934563467,
                 "teste@gmail.com",
                 "Masculino",
-                14537834
+                14537834,
+                especialidade.id
             )
         )
     }
@@ -85,6 +88,7 @@ class BaseDadosTest {
             val db = getWritableDatabase()
 
             val pulseira = Pulseira("Verde")
+            inserePulseira(db, pulseira)
 
             inserePaciente(
                 db, Paciente(
@@ -107,18 +111,21 @@ class BaseDadosTest {
         fun consegueInserirConsulta() {
             val db = getWritableDatabase()
 
-            val pulseira = Pulseira("Laranja")
+            val especialidade = Especialidade("Cardiologista")
+            insereEspecialidade(db,especialidade)
 
             val medico = Medico(
                 "Teste 1",
-                "Consulta",
                 928754328,
                 "teste@gmail.com",
                 "Masculino",
-                14537834
+                14537834,
+                especialidade.id
             )
-
             insereMedico(db, medico)
+
+            val pulseira = Pulseira("Laranja")
+            inserePulseira(db, pulseira)
 
             val paciente = Paciente(
                 "Diogo Neto123",
@@ -132,7 +139,6 @@ class BaseDadosTest {
                 238316050,
                 pulseira.id
             )
-
             inserePaciente(db, paciente)
 
 
@@ -177,18 +183,24 @@ class BaseDadosTest {
         fun consegueAlterarMedico() {
             val db = getWritableDatabase()
 
+            val especialidade_cardiologista = Especialidade("Cardiologista")
+            insereEspecialidade(db,especialidade_cardiologista)
+
+            val especialidade_cirurgiao = Especialidade("Cirurgião")
+            insereEspecialidade(db, especialidade_cirurgiao)
+
             val medico = Medico(
-                "Teste",
                 "Teste",
                 999999999,
                 "asd@gmail.com",
                 "Feminino",
-                11111111
+                11111111,
+                especialidade_cardiologista.id
             )
             insereMedico(db, medico)
 
             medico.nome = "Raul Pereira"
-            medico.especialidade = "Cirurgião"
+            especialidade_cardiologista.id = especialidade_cirurgiao.id
 
             val registosAlterados = TabelaBDMedicos(db).update(
                 medico.toContentValues(),
@@ -206,8 +218,10 @@ class BaseDadosTest {
         val db = getWritableDatabase()
 
         val pulseira_vermelho = Pulseira("Vermelho")
+        inserePulseira(db, pulseira_vermelho)
 
         val pulseira_amarela = Pulseira("Amarelo")
+        inserePulseira(db, pulseira_amarela)
 
         val paciente = Paciente(
             "Teste",
@@ -242,27 +256,33 @@ class BaseDadosTest {
     fun consegueAlterarConsulta() {
         val db = getWritableDatabase()
 
+        val especialidade_domicilio = Especialidade("Domicilio")
+        insereEspecialidade(db,especialidade_domicilio)
+
         val medicoDomicilio = Medico(
             "João Tavares",
-            "Domicilio",
             123456789,
             "teste@gmail.com",
             "Masculino",
-            13579246)
-
+            13579246,
+            especialidade_domicilio.id)
         insereMedico(db, medicoDomicilio)
+
+        val especialidade_cirurgiao = Especialidade("Cirurgião")
+        insereEspecialidade(db,especialidade_cirurgiao)
 
         val medicoCirurgiao = Medico(
             "José Santos",
-            "Cirurgião",
             987654321,
             "teste123@gmail.com",
             "Masculino",
-            24680135)
+            24680135,
+        especialidade_cirurgiao.id)
 
         insereMedico(db, medicoCirurgiao)
 
         val pulseira_crianca = Pulseira("Vermelho")
+        inserePulseira(db, pulseira_crianca)
 
         val pacienteCrianca = Paciente(
             "Diogo Neto",
@@ -279,6 +299,7 @@ class BaseDadosTest {
         inserePaciente(db, pacienteCrianca)
 
         val pulseira_adulto = Pulseira("Amarelo")
+        inserePulseira(db, pulseira_adulto)
 
         val pacienteAdulto = Paciente(
             "Rui Pedro",
@@ -351,22 +372,28 @@ class BaseDadosTest {
     fun consegueEliminarMedico() {
         val db = getWritableDatabase()
 
+        val especialidade_cardiologista = Especialidade("Cardiologista")
+        insereEspecialidade(db,especialidade_cardiologista)
+
         val medico = Medico(
             "João Tavares",
-            "Domicilio",
             123456789,
             "teste@gmail.com",
             "Masculino",
-            13579246)
+            13579246,
+            especialidade_cardiologista.id)
         insereMedico(db, medico)
+
+        val especialidade_cirurgiao = Especialidade("Cirurgião")
+        insereEspecialidade(db,especialidade_cirurgiao)
 
         val medico2 = Medico(
             "José Santos",
-            "Cirurgião",
             987654321,
             "teste123@gmail.com",
             "Masculino",
-            24680135)
+            24680135,
+            especialidade_cirurgiao.id)
         insereMedico(db, medico2)
 
         val registosEliminados = TabelaBDMedicos(db).delete(
@@ -383,6 +410,7 @@ class BaseDadosTest {
         val db = getWritableDatabase()
 
         val pulseira = Pulseira("Verde")
+        inserePulseira(db, pulseira)
 
         val paciente = Paciente(
             "Diogo Neto",
@@ -425,16 +453,20 @@ class BaseDadosTest {
     fun consegueEliminarConsulta() {
         val db = getWritableDatabase()
 
+        val especialidade = Especialidade("Cardiologista")
+        insereEspecialidade(db,especialidade)
+
         val medico = Medico(
             "João Tavares",
-            "Domicilio",
             123456789,
             "teste@gmail.com",
             "Masculino",
-            13579246)
+            13579246,
+            especialidade.id)
         insereMedico(db, medico)
 
-        val pulseira = Pulseira("Azul")
+        val pulseira = Pulseira("Laranja")
+        inserePulseira(db, pulseira)
 
         val paciente = Paciente(
             "Diogo Neto",
@@ -503,12 +535,15 @@ class BaseDadosTest {
     fun consegueLerMedicos() {
         val db = getWritableDatabase()
 
+        val especialidade = Especialidade("Cardiologista")
+        insereEspecialidade(db,especialidade)
+
         val medico = Medico("Rogério Alves",
-        "Infantil",
         934765437,
         "rogerioalvez@gmail.com",
         "Masculino",
-        14765478)
+        14765478,
+        especialidade.id)
         insereMedico(db, medico)
 
         val cursor = TabelaBDMedicos(db).query(
@@ -533,6 +568,7 @@ class BaseDadosTest {
         val db = getWritableDatabase()
 
         val pulseira = Pulseira("Verde")
+        inserePulseira(db, pulseira)
 
         val paciente = Paciente(
             "Diogo Neto",
@@ -568,15 +604,19 @@ class BaseDadosTest {
     fun consegueLerConsultas() {
         val db = getWritableDatabase()
 
+        val especialidade = Especialidade("Cardiologista")
+        insereEspecialidade(db, especialidade)
+
         val medico = Medico("Rogério Alves",
-            "Infantil",
             934765437,
             "rogerioalvez@gmail.com",
             "Masculino",
-            14765478)
+            14765478,
+            especialidade.id)
         insereMedico(db, medico)
 
         val pulseira = Pulseira("Laranja")
+        inserePulseira(db, pulseira)
 
         val paciente = Paciente(
             "Diogo Neto",
