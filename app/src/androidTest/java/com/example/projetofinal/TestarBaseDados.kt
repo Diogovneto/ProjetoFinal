@@ -45,6 +45,10 @@ class BaseDadosTest {
         pulseira.id = TabelaBDPulseiras(db).insert(pulseira.toContentValues())
     }
 
+    private fun insereEspecialidade(db: SQLiteDatabase, especialidade: Especialidade){
+        especialidade.id = TabelaBDEspecialidades(db).insert(especialidade.toContentValues())
+    }
+
     @Before
     fun apagaBaseDados() {
         appContext().deleteDatabase(BDOpenHelper.NOME)
@@ -154,6 +158,17 @@ class BaseDadosTest {
             val pulseira = Pulseira("Vermelho")
 
             inserePulseira(db, pulseira)
+
+            db.close()
+        }
+
+        @Test
+        fun consegueInserirEspecialidade(){
+            val db = getWritableDatabase()
+
+            val especialidade = Especialidade("Cardiologista")
+
+            insereEspecialidade(db,especialidade)
 
             db.close()
         }

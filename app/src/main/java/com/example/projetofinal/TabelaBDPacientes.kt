@@ -15,9 +15,10 @@ class TabelaBDPacientes (db: SQLiteDatabase) : TabelaBD(db, NOME) {
                 "$CAMPO_TELEMOVEL INTEGER NOT NULL, " +
                 "$CAMPO_EMAIL TEXT NOT NULL, " +
                 "$CAMPO_CARTAO_CIDADAO INTEGER NOT NULL, " +
-                "$CAMPO_CONTRIBUINTE INTEGER NOT NULL)," +
+                "$CAMPO_CONTRIBUINTE INTEGER NOT NULL," +
                 "$CAMPO_PULSEIRA_ID INTEGER NOT NULL," +
-                "FOREIGN KEY (${CAMPO_PULSEIRA_ID}) REFERENCES ${TabelaBDPulseiras.NOME}(${BaseColumns._ID}) ON DELETE RESTRICT)")
+                "FOREIGN KEY ($CAMPO_PULSEIRA_ID) REFERENCES ${TabelaBDPulseiras.NOME}(${BaseColumns._ID}) ON DELETE RESTRICT)")
+
     }
 
     companion object {
