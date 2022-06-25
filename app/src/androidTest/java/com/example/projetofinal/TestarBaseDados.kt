@@ -643,4 +643,28 @@ class BaseDadosTest {
         assertEquals(pulseira, pulseiraBD)
     }
 
+    @Test
+    fun consegueLerEspecialidade(){
+        val db = getWritableDatabase()
+
+        val especialidade = Especialidade("Cirurgião")
+        insereEspecialidade(db, especialidade)
+
+        val cursor = TabelaBDEspecialidades(db).query(
+            TabelaBDEspecialidades.TODAS_COLUNAS,
+            "${BaseColumns._ID}=?",
+            arrayOf("${especialidade.id}"),
+            null,
+            null,
+            null
+        )
+
+        assertEquals(1, cursor.count)
+        assertTrue(cursor.moveToNext())
+
+        val especialidadeBD = Especialidade.fromCursor(cursor)
+
+        assertEquals(especialidade, especialidadeBD)
+    }
+
 }
