@@ -5,12 +5,13 @@ import android.content.ContentValues
 import android.content.UriMatcher
 import android.database.Cursor
 import android.net.Uri
+import android.provider.BaseColumns
 
 class ContentProviderConsultas : ContentProvider() {
-    var db : BDOpenHelper? = null
+    var dbOpenH : BDOpenHelper? = null
 
     override fun onCreate(): Boolean {
-        db = BDOpenHelper(context)
+        dbOpenH = BDOpenHelper(context)
 
         return true
     }
@@ -22,7 +23,27 @@ class ContentProviderConsultas : ContentProvider() {
         selectionArgs: Array<out String>?,
         sortOrder: String?
     ): Cursor? {
-        TODO("Not yet implemented")
+        val db = dbOpenH!!.readableDatabase
+
+        val colunas = projection as Array<String>
+        val selArgs = selectionArgs as Array<String>
+
+        val id = uri.lastPathSegment
+
+        return when (getUriMatcher().match(uri)) {
+            URI_MEDICOS -> TabelaBDMedicos(db).query(colunas, selection, selArgs,null,null, sortOrder)
+            URI_PACIENTES -> TabelaBDPacientes(db).query(colunas, selection, selArgs, null, null, sortOrder)
+            URI_CONSULTAS -> TabelaBDConsultas(db).query(colunas, selection, selArgs, null, null, sortOrder)
+            URI_PULSEIRAS -> TabelaBDPulseiras(db).query(colunas, selection, selArgs, null, null, sortOrder)
+            URI_ESPECIALIDADES -> TabelaBDEspecialidades(db).query(colunas, selection, selArgs, null, null, sortOrder)
+            URI_MEDICO_ESPECIFICO -> TabelaBDMedicos(db).query(colunas, "${BaseColumns._ID}=?", arrayOf("$id"), null, null, null)
+            URI_PACIENTE_ESPECIFICO -> TabelaBDPacientes(db).query(colunas,"${BaseColumns._ID}=?", arrayOf("$id"), null, null, null)
+            URI_CONSULTA_ESPECIFICA -> TabelaBDConsultas(db).query(colunas,"${BaseColumns._ID}=?", arrayOf("$id"), null, null, null)
+            URI_PULSEIRA_ESPECIFICA -> TabelaBDPulseiras(db).query(colunas,"${BaseColumns._ID}=?", arrayOf("$id"), null, null, null)
+            URI_ESPECIALIDADE_ESPECIFICA -> TabelaBDEspecialidades(db).query(colunas,"${BaseColumns._ID}=?", arrayOf("$id"), null, null, null)
+            else -> null
+
+        }
     }
 
     override fun getType(uri: Uri): String? =
