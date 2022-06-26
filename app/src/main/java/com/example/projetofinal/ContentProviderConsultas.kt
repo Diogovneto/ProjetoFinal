@@ -103,7 +103,20 @@ class ContentProviderConsultas : ContentProvider() {
         selection: String?,
         selectionArgs: Array<out String>?
     ): Int {
-        TODO("Not yet implemented")
+        requireNotNull(values)
+
+        val db = dbOpenH!!.writableDatabase
+
+        val id = uri.lastPathSegment
+
+        return when (getUriMatcher().match(uri)) {
+            URI_MEDICO_ESPECIFICO -> TabelaBDMedicos(db).update(values, "${BaseColumns._ID}=?", arrayOf("$id"))
+            URI_PACIENTE_ESPECIFICO -> TabelaBDPacientes(db).update(values,"${BaseColumns._ID}=?", arrayOf("$id"))
+            URI_CONSULTA_ESPECIFICA -> TabelaBDConsultas(db).update(values,"${BaseColumns._ID}=?", arrayOf("$id"))
+            URI_PULSEIRA_ESPECIFICA -> TabelaBDPulseiras(db).update(values,"${BaseColumns._ID}=?", arrayOf("$id"))
+            URI_ESPECIALIDADE_ESPECIFICA -> TabelaBDEspecialidades(db).update(values,"${BaseColumns._ID}=?", arrayOf("$id"))
+            else -> 0
+        }
     }
 
     companion object {
