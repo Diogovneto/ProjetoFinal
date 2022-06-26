@@ -55,6 +55,10 @@ class ContentProviderConsultas : ContentProvider() {
         const val URI_PACIENTE_ESPECIFICO = 201
         const val URI_CONSULTAS = 300
         const val URI_CONSULTA_ESPECIFICA = 301
+        const val URI_PULSEIRAS = 400
+        const val URI_PULSEIRA_ESPECIFICA = 401
+        const val URI_ESPECIALIDADES = 500
+        const val URI_ESPECIALIDADE_ESPECIFICA = 501
 
         fun getUriMatcher() : UriMatcher {
             var uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
@@ -65,6 +69,10 @@ class ContentProviderConsultas : ContentProvider() {
             uriMatcher.addURI(AUTHORITY, "${TabelaBDPacientes.NOME}/#", URI_PACIENTE_ESPECIFICO)
             uriMatcher.addURI(AUTHORITY, TabelaBDConsultas.NOME, URI_CONSULTAS)
             uriMatcher.addURI(AUTHORITY, "${TabelaBDConsultas.NOME}/#", URI_CONSULTA_ESPECIFICA)
+            uriMatcher.addURI(AUTHORITY, TabelaBDPulseiras.NOME, URI_PULSEIRAS)
+            uriMatcher.addURI(AUTHORITY, "${TabelaBDPulseiras.NOME}/#", URI_PULSEIRA_ESPECIFICA)
+            uriMatcher.addURI(AUTHORITY, TabelaBDEspecialidades.NOME, URI_ESPECIALIDADES)
+            uriMatcher.addURI(AUTHORITY, "${TabelaBDEspecialidades.NOME}/#", URI_ESPECIALIDADE_ESPECIFICA)
 
             return uriMatcher
         }
