@@ -64,7 +64,22 @@ class ContentProviderConsultas : ContentProvider() {
 
 
     override fun insert(uri: Uri, values: ContentValues?): Uri? {
-        TODO("Not yet implemented")
+        val db = dbOpenH!!.writableDatabase
+
+        requireNotNull(values)
+
+        val id = when(getUriMatcher().match(uri)){
+            URI_MEDICOS -> TabelaBDMedicos(db).insert(values)
+            URI_PACIENTES -> TabelaBDPacientes(db).insert(values)
+            URI_CONSULTAS -> TabelaBDConsultas(db).insert(values)
+            URI_PULSEIRAS -> TabelaBDPulseiras(db).insert(values)
+            URI_ESPECIALIDADES -> TabelaBDEspecialidades(db).insert(values)
+            else -> -1
+        }
+
+        if (id == -1L) return null
+
+        return Uri.withAppendedPath(uri, "$id")
     }
 
     override fun delete(uri: Uri, selection: String?, selectionArgs: Array<out String>?): Int {
