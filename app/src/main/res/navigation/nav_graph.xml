@@ -3,26 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/MenuprincipalFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
+        android:id="@+id/MenuprincipalFragment"
         android:name="com.example.projetofinal.MenuPrincipalFragment"
-        android:label="@string/first_fragment_label"
+        android:label="@string/menu_principal_label"
         tools:layout="@layout/fragment_menu_principal">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_MenuPrincipalFragment_to_ListaMedicosFragment"
+            app:destination="@id/ListaMedicosFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.projetofinal.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:id="@+id/ListaMedicosFragment"
+        android:name="com.example.projetofinal.ListaMedicosFragment"
+        android:label="@string/lista_medicos_label"
+        tools:layout="@layout/fragment_medicos_label">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_ListaMedicosFragment_to_MenuPrincipalFragment"
+            app:destination="@id/MenuprincipalFragment" />
     </fragment>
 </navigation>
