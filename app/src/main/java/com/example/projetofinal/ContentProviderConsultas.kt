@@ -122,7 +122,7 @@ class ContentProviderConsultas : ContentProvider() {
     }
 
     companion object {
-        const val AUTHORITY = "com.example.projetofinal"
+        const val AUTORIDADE = "com.example.projetofinal"
 
         const val URI_MEDICOS = 100
         const val URI_MEDICO_ESPECIFICO = 101
@@ -138,19 +138,26 @@ class ContentProviderConsultas : ContentProvider() {
         private const val UNICO_REGISTO = "vnd.android.cursor.item"
         private const val MULTIPLOS_REGISTOS = "vnd.android.cursor.dir"
 
+        val ENDERECO_BASE = Uri.parse("content://$AUTORIDADE")
+        val ENDERECO_MEDICOS = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDMedicos.NOME)
+        val ENDERECO_PACIENTES = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDPacientes.NOME)
+        val ENDERECO_CONSULTAS = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDConsultas.NOME)
+        val ENDERECO_PULSEIRAS = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDPulseiras.NOME)
+        val ENDERECO_ESPECIALIDADES = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDEspecialidades.NOME)
+
         fun getUriMatcher() : UriMatcher {
             var uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
 
-            uriMatcher.addURI(AUTHORITY, TabelaBDMedicos.NOME, URI_MEDICOS)
-            uriMatcher.addURI(AUTHORITY, "${TabelaBDMedicos.NOME}/#", URI_MEDICO_ESPECIFICO)
-            uriMatcher.addURI(AUTHORITY, TabelaBDPacientes.NOME, URI_PACIENTES)
-            uriMatcher.addURI(AUTHORITY, "${TabelaBDPacientes.NOME}/#", URI_PACIENTE_ESPECIFICO)
-            uriMatcher.addURI(AUTHORITY, TabelaBDConsultas.NOME, URI_CONSULTAS)
-            uriMatcher.addURI(AUTHORITY, "${TabelaBDConsultas.NOME}/#", URI_CONSULTA_ESPECIFICA)
-            uriMatcher.addURI(AUTHORITY, TabelaBDPulseiras.NOME, URI_PULSEIRAS)
-            uriMatcher.addURI(AUTHORITY, "${TabelaBDPulseiras.NOME}/#", URI_PULSEIRA_ESPECIFICA)
-            uriMatcher.addURI(AUTHORITY, TabelaBDEspecialidades.NOME, URI_ESPECIALIDADES)
-            uriMatcher.addURI(AUTHORITY, "${TabelaBDEspecialidades.NOME}/#", URI_ESPECIALIDADE_ESPECIFICA)
+            uriMatcher.addURI(AUTORIDADE, TabelaBDMedicos.NOME, URI_MEDICOS)
+            uriMatcher.addURI(AUTORIDADE, "${TabelaBDMedicos.NOME}/#", URI_MEDICO_ESPECIFICO)
+            uriMatcher.addURI(AUTORIDADE, TabelaBDPacientes.NOME, URI_PACIENTES)
+            uriMatcher.addURI(AUTORIDADE, "${TabelaBDPacientes.NOME}/#", URI_PACIENTE_ESPECIFICO)
+            uriMatcher.addURI(AUTORIDADE, TabelaBDConsultas.NOME, URI_CONSULTAS)
+            uriMatcher.addURI(AUTORIDADE, "${TabelaBDConsultas.NOME}/#", URI_CONSULTA_ESPECIFICA)
+            uriMatcher.addURI(AUTORIDADE, TabelaBDPulseiras.NOME, URI_PULSEIRAS)
+            uriMatcher.addURI(AUTORIDADE, "${TabelaBDPulseiras.NOME}/#", URI_PULSEIRA_ESPECIFICA)
+            uriMatcher.addURI(AUTORIDADE, TabelaBDEspecialidades.NOME, URI_ESPECIALIDADES)
+            uriMatcher.addURI(AUTORIDADE, "${TabelaBDEspecialidades.NOME}/#", URI_ESPECIALIDADE_ESPECIFICA)
 
             return uriMatcher
         }
