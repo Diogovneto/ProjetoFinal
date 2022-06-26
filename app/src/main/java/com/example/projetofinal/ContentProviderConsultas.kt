@@ -23,6 +23,8 @@ class ContentProviderConsultas : ContentProvider() {
         selectionArgs: Array<out String>?,
         sortOrder: String?
     ): Cursor? {
+        requireNotNull(projection)
+
         val db = dbOpenH!!.readableDatabase
 
         val colunas = projection as Array<String>
