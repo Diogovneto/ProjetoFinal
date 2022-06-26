@@ -39,7 +39,7 @@ class ListaMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
         LoaderManager.getInstance(this).initLoader(ID_LOADER_MEDICOS, null, this)
 
-        adapterMedicos = AdapterMedicos()
+        adapterMedicos = AdapterMedicos(this)
         binding.recyclerViewMedicos.adapter = adapterMedicos
         binding.recyclerViewMedicos.layoutManager = LinearLayoutManager(requireContext())
     }

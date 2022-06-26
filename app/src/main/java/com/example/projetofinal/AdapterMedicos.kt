@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterMedicos : RecyclerView.Adapter<AdapterMedicos.ViewHolderMedicos>() {
+class AdapterMedicos(val fragment: ListaMedicosFragment) : RecyclerView.Adapter<AdapterMedicos.ViewHolderMedicos>() {
 
     var cursor: Cursor? = null
         get() = field
@@ -22,7 +22,8 @@ class AdapterMedicos : RecyclerView.Adapter<AdapterMedicos.ViewHolderMedicos>() 
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderMedicos {
-        TODO("Not yet implemented")
+        val itemMedico = fragment.layoutInflater.inflate(R.layout.item_medico, parent, false)
+        return ViewHolderMedicos(itemMedico)
     }
 
 
