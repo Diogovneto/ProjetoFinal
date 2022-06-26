@@ -25,9 +25,22 @@ class ContentProviderConsultas : ContentProvider() {
         TODO("Not yet implemented")
     }
 
-    override fun getType(uri: Uri): String? {
-        TODO("Not yet implemented")
-    }
+    override fun getType(uri: Uri): String? =
+        when(getUriMatcher().match(uri)) {
+            URI_MEDICOS -> "$MULTIPLOS_REGISTOS/${TabelaBDMedicos.NOME}"
+            URI_PACIENTES -> "$MULTIPLOS_REGISTOS/${TabelaBDPacientes.NOME}"
+            URI_CONSULTAS -> "$MULTIPLOS_REGISTOS/${TabelaBDConsultas.NOME}"
+            URI_PULSEIRAS -> "$MULTIPLOS_REGISTOS/${TabelaBDPulseiras.NOME}"
+            URI_ESPECIALIDADES -> "$MULTIPLOS_REGISTOS/${TabelaBDEspecialidades.NOME}"
+            URI_MEDICO_ESPECIFICO -> "$UNICO_REGISTO/${TabelaBDMedicos.NOME}"
+            URI_PACIENTE_ESPECIFICO -> "$UNICO_REGISTO/${TabelaBDPacientes.NOME}"
+            URI_CONSULTA_ESPECIFICA -> "$UNICO_REGISTO/${TabelaBDConsultas.NOME}"
+            URI_PULSEIRA_ESPECIFICA -> "$UNICO_REGISTO/${TabelaBDPulseiras.NOME}"
+            URI_ESPECIALIDADE_ESPECIFICA -> "$UNICO_REGISTO/${TabelaBDEspecialidades.NOME}"
+            else -> null
+        }
+
+
 
     override fun insert(uri: Uri, values: ContentValues?): Uri? {
         TODO("Not yet implemented")
@@ -59,6 +72,9 @@ class ContentProviderConsultas : ContentProvider() {
         const val URI_PULSEIRA_ESPECIFICA = 401
         const val URI_ESPECIALIDADES = 500
         const val URI_ESPECIALIDADE_ESPECIFICA = 501
+
+        private const val UNICO_REGISTO = "vnd.android.cursor.item"
+        private const val MULTIPLOS_REGISTOS = "vnd.android.cursor.dir"
 
         fun getUriMatcher() : UriMatcher {
             var uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
