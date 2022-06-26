@@ -10,6 +10,7 @@
         <entry key="app/src/main/res/layout/fragment_medicos_label.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/fragment_menu_principal.xml" value="0.2572463768115942" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.3858695652173913" />
+        <entry key="app/src/main/res/layout/item_medico.xml" value="0.3890625" />
       </map>
     </option>
   </component>
