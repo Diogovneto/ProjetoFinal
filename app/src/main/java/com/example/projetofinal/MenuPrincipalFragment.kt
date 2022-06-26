@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.projetofinal.databinding.FragmentMenuPrincipalBinding
 
 /**
@@ -31,9 +32,9 @@ class MenuPrincipalFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //binding.buttonFirst.setOnClickListener {
-        //    findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        //}
+        binding.buttonMedicos.setOnClickListener {
+            findNavController().navigate(R.id.action_MenuPrincipalFragment_to_ListaMedicosFragment)
+        }
     }
 
     override fun onDestroyView() {
