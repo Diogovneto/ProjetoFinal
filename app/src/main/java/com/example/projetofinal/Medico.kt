@@ -5,7 +5,7 @@ import android.database.Cursor
 import android.provider.BaseColumns
 
 data class Medico(
-    var nome: String,
+    var nome: String? = null,
     var telemovel: Long,
     var email: String,
     var sexo: String,

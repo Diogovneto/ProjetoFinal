@@ -65,4 +65,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewSexo"
         tools:text="14537834" />
 
+    <TextView
+        android:id="@+id/textViewEspecialidade"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/teal_200"
+        app:layout_constraintEnd_toEndOf="@+id/textViewCartaoCidadao"
+        app:layout_constraintStart_toStartOf="@+id/textViewCartaoCidadao"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCartaoCidadao"
+        tools:text="14537834" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
