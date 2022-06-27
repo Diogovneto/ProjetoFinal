@@ -35,6 +35,8 @@ class MenuPrincipalFragment : Fragment() {
         binding.buttonMedicos.setOnClickListener {
             findNavController().navigate(R.id.action_MenuPrincipalFragment_to_ListaMedicosFragment)
         }
+
+        (activity as MainActivity).idMenuAtual = R.menu.menu_main
     }
 
     override fun onDestroyView() {

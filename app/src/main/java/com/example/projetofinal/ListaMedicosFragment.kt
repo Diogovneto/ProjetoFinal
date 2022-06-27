@@ -42,6 +42,8 @@ class ListaMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         adapterMedicos = AdapterMedicos(this)
         binding.recyclerViewMedicos.adapter = adapterMedicos
         binding.recyclerViewMedicos.layoutManager = LinearLayoutManager(requireContext())
+
+        (activity as MainActivity).idMenuAtual = R.menu.menu_lista
     }
 
     override fun onDestroyView() {
