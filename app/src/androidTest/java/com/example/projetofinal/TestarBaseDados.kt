@@ -199,7 +199,7 @@ class BaseDadosTest {
             insereMedico(db, medico)
 
             medico.nome = "Raul Pereira"
-            especialidade_cardiologista.id = especialidade_cirurgiao.id
+            medico.especialidade = especialidade_cirurgiao
 
             val registosAlterados = TabelaBDMedicos(db).update(
                 medico.toContentValues(),
