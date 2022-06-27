@@ -1,6 +1,8 @@
 package com.example.projetofinal
 
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteQueryBuilder
 import android.provider.BaseColumns
 
 class TabelaBDMedicos(db: SQLiteDatabase) : TabelaBD(db, NOME) {
@@ -16,8 +18,24 @@ class TabelaBDMedicos(db: SQLiteDatabase) : TabelaBD(db, NOME) {
                 "FOREIGN KEY ($CAMPO_ESPECIALIDADE_ID) REFERENCES ${TabelaBDEspecialidades.NOME}(${BaseColumns._ID}) ON DELETE RESTRICT)")
     }
 
+    override fun query(
+        columns: Array<String>,
+        selection: String?,
+        selectionArgs: Array<String>?,
+        groupBy: String?,
+        having: String?,
+        orderBy: String?
+    ): Cursor {
+        val queryBuilder = SQLiteQueryBuilder()
+        queryBuilder.tables = "$NOME INNER JOIN ${TabelaBDEspecialidades.NOME} ON ${TabelaBDEspecialidades.NOME}.${BaseColumns._ID} = ${CAMPO_ESPECIALIDADE_ID}"
+
+        return queryBuilder.query(db, columns, selection, selectionArgs, groupBy, having, orderBy)
+    }
+
     companion object{
         const val NOME = "medicos"
+
+        const val CAMPO_ID = "$NOME.${BaseColumns._ID}"
         const val CAMPO_NOME = "nome"
         const val CAMPO_TELEMOVEL = "telemovel"
         const val CAMPO_EMAIL = "email"

@@ -11,6 +11,8 @@ class TabelaBDPulseiras(db: SQLiteDatabase) : TabelaBD(db, NOME) {
 
     companion object{
         const val NOME = "pulseiras"
+
+        const val CAMPO_ID = "$NOME.${BaseColumns._ID}"
         const val CAMPO_PULSEIRA = "cor"
 
         val TODAS_COLUNAS = arrayOf(BaseColumns._ID, CAMPO_PULSEIRA)

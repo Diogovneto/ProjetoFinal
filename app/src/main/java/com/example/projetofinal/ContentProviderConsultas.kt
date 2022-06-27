@@ -122,23 +122,23 @@ class ContentProviderConsultas : ContentProvider() {
     }
 
     companion object {
-        const val AUTORIDADE = "com.example.projetofinal"
+        private const val AUTORIDADE = "com.example.projetofinal"
 
-        const val URI_MEDICOS = 100
-        const val URI_MEDICO_ESPECIFICO = 101
-        const val URI_PACIENTES = 200
-        const val URI_PACIENTE_ESPECIFICO = 201
-        const val URI_CONSULTAS = 300
-        const val URI_CONSULTA_ESPECIFICA = 301
-        const val URI_PULSEIRAS = 400
-        const val URI_PULSEIRA_ESPECIFICA = 401
-        const val URI_ESPECIALIDADES = 500
-        const val URI_ESPECIALIDADE_ESPECIFICA = 501
+        private const val URI_MEDICOS = 100
+        private const val URI_MEDICO_ESPECIFICO = 101
+        private const val URI_PACIENTES = 200
+        private const val URI_PACIENTE_ESPECIFICO = 201
+        private const val URI_CONSULTAS = 300
+        private const val URI_CONSULTA_ESPECIFICA = 301
+        private const val URI_PULSEIRAS = 400
+        private const val URI_PULSEIRA_ESPECIFICA = 401
+        private const val URI_ESPECIALIDADES = 500
+        private const val URI_ESPECIALIDADE_ESPECIFICA = 501
 
         private const val UNICO_REGISTO = "vnd.android.cursor.item"
         private const val MULTIPLOS_REGISTOS = "vnd.android.cursor.dir"
 
-        val ENDERECO_BASE = Uri.parse("content://$AUTORIDADE")
+        private val ENDERECO_BASE = Uri.parse("content://$AUTORIDADE")
         val ENDERECO_MEDICOS = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDMedicos.NOME)
         val ENDERECO_PACIENTES = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDPacientes.NOME)
         val ENDERECO_CONSULTAS = Uri.withAppendedPath(ENDERECO_BASE, TabelaBDConsultas.NOME)

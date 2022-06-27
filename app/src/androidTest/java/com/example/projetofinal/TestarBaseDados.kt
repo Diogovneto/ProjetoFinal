@@ -1,7 +1,6 @@
 package com.example.projetofinal
 
 import android.database.sqlite.SQLiteDatabase
-import android.provider.BaseColumns
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Assert
@@ -204,7 +203,7 @@ class BaseDadosTest {
 
             val registosAlterados = TabelaBDMedicos(db).update(
                 medico.toContentValues(),
-                "${BaseColumns._ID}=?",
+                "${TabelaBDMedicos.CAMPO_ID}=?",
                 arrayOf("${medico.id}")
             )
 
@@ -243,7 +242,7 @@ class BaseDadosTest {
 
         val registosAlterados = TabelaBDPacientes(db).update(
             paciente.toContentValues(),
-            "${BaseColumns._ID}=?",
+            "${TabelaBDPacientes.CAMPO_ID}=?",
             arrayOf("${paciente.id}")
         )
 
@@ -332,7 +331,7 @@ class BaseDadosTest {
 
         val registosAlterados = TabelaBDConsultas(db).update(
             consulta.toContentValues(),
-            "${BaseColumns._ID}=?",
+            "${TabelaBDConsultas.CAMPO_ID}=?",
             arrayOf("${consulta.id}"))
 
         Assert.assertEquals(1, registosAlterados)
@@ -350,7 +349,7 @@ class BaseDadosTest {
         pulseira.pulseira = "Amarela"
 
         val registosAlterados = TabelaBDPulseiras(db).update(pulseira.toContentValues(),
-            "${BaseColumns._ID}=?",
+            "${TabelaBDPulseiras.CAMPO_ID}=?",
             arrayOf("${pulseira.id}"))
     }
 
@@ -364,7 +363,7 @@ class BaseDadosTest {
         especialidade.especialidade = "Cirurgião"
 
         val registosAlterados = TabelaBDEspecialidades(db).update(especialidade.toContentValues(),
-            "${BaseColumns._ID}=?",
+            "${TabelaBDEspecialidades.CAMPO_ID}=?",
             arrayOf("${especialidade.id}"))
     }
 
@@ -397,7 +396,7 @@ class BaseDadosTest {
         insereMedico(db, medico2)
 
         val registosEliminados = TabelaBDMedicos(db).delete(
-            "${BaseColumns._ID}=?",
+            "${TabelaBDMedicos.CAMPO_ID}=?",
             arrayOf("${medico.id}"))
 
         Assert.assertEquals(1, registosEliminados)
@@ -441,7 +440,7 @@ class BaseDadosTest {
         inserePaciente(db, paciente2)
 
         val registosEliminados = TabelaBDPacientes(db).delete(
-            "${BaseColumns._ID}=?",
+            "${TabelaBDPacientes.CAMPO_ID}=?",
             arrayOf("${paciente.id}"))
 
         Assert.assertEquals(1, registosEliminados)
@@ -491,7 +490,7 @@ class BaseDadosTest {
         insereConsulta(db, consulta)
 
         val registosEliminados = TabelaBDConsultas(db).delete(
-            "${BaseColumns._ID}=?",
+            "${TabelaBDConsultas.CAMPO_ID}=?",
             arrayOf("${consulta.id}"))
 
         Assert.assertEquals(1, registosEliminados)
@@ -507,7 +506,7 @@ class BaseDadosTest {
         inserePulseira(db, pulseira)
 
         val registosEliminados = TabelaBDPulseiras(db).delete(
-            "${BaseColumns._ID}=?",
+            "${TabelaBDPulseiras.CAMPO_ID}=?",
             arrayOf("${pulseira.id}"))
 
         assertEquals(1, registosEliminados)
@@ -523,7 +522,7 @@ class BaseDadosTest {
         insereEspecialidade(db, especialidade)
 
         val registosEliminados = TabelaBDEspecialidades(db).delete(
-            "${BaseColumns._ID}=?",
+            "${TabelaBDEspecialidades.CAMPO_ID}=?",
             arrayOf("${especialidade.id}"))
 
         assertEquals(1, registosEliminados)
@@ -548,7 +547,7 @@ class BaseDadosTest {
 
         val cursor = TabelaBDMedicos(db).query(
             TabelaBDMedicos.TODAS_COLUNAS,
-            "${BaseColumns._ID}=?",
+            "${TabelaBDMedicos.CAMPO_ID}=?",
             arrayOf("${medico.id}"),
             null,
             null,
@@ -585,7 +584,7 @@ class BaseDadosTest {
 
         val cursor = TabelaBDPacientes(db).query(
             TabelaBDPacientes.TODAS_COLUNAS,
-            "${BaseColumns._ID}=?",
+            "${TabelaBDPacientes.CAMPO_ID}=?",
             arrayOf("${paciente.id}"),
             null,
             null,
@@ -642,7 +641,7 @@ class BaseDadosTest {
 
         val cursor = TabelaBDConsultas(db).query(
             TabelaBDConsultas.TODAS_COLUNAS,
-            "${BaseColumns._ID}=?",
+            "${TabelaBDConsultas.CAMPO_ID}=?",
             arrayOf("${consulta.id}"),
             null,
             null,
@@ -668,7 +667,7 @@ class BaseDadosTest {
 
         val cursor = TabelaBDPulseiras(db).query(
             TabelaBDPulseiras.TODAS_COLUNAS,
-            "${BaseColumns._ID}=?",
+            "${TabelaBDPulseiras.CAMPO_ID}=?",
             arrayOf("${pulseira.id}"),
             null,
             null,
@@ -692,7 +691,7 @@ class BaseDadosTest {
 
         val cursor = TabelaBDEspecialidades(db).query(
             TabelaBDEspecialidades.TODAS_COLUNAS,
-            "${BaseColumns._ID}=?",
+            "${TabelaBDEspecialidades.CAMPO_ID}=?",
             arrayOf("${especialidade.id}"),
             null,
             null,

@@ -1,6 +1,8 @@
 package com.example.projetofinal
 
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteQueryBuilder
 import android.provider.BaseColumns
 
 class TabelaBDPacientes (db: SQLiteDatabase) : TabelaBD(db, NOME) {
@@ -21,8 +23,24 @@ class TabelaBDPacientes (db: SQLiteDatabase) : TabelaBD(db, NOME) {
 
     }
 
+    override fun query(
+        columns: Array<String>,
+        selection: String?,
+        selectionArgs: Array<String>?,
+        groupBy: String?,
+        having: String?,
+        orderBy: String?
+    ): Cursor {
+        val queryBuilder = SQLiteQueryBuilder()
+        queryBuilder.tables = "$NOME INNER JOIN ${TabelaBDPulseiras.NOME} ON ${TabelaBDPulseiras.NOME}.${BaseColumns._ID} = ${CAMPO_PULSEIRA_ID}"
+
+        return queryBuilder.query(db, columns, selection, selectionArgs, groupBy, having, orderBy)
+    }
+
     companion object {
         const val NOME = "Pacientes"
+
+        const val CAMPO_ID = "$NOME.${BaseColumns._ID}"
         const val CAMPO_NOME = "Nome"
         const val CAMPO_DATA_NASCIMENTO = "DataNascimento"
         const val CAMPO_SEXO = "Sexo"
