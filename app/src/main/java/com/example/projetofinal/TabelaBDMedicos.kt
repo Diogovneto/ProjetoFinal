@@ -43,7 +43,7 @@ class TabelaBDMedicos(db: SQLiteDatabase) : TabelaBD(db, NOME) {
         const val CAMPO_CARTAO_CIDADAO = "cartaocidadao"
         const val CAMPO_ESPECIALIDADE_ID = "Especialidadeid"
 
-        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, CAMPO_NOME, CAMPO_TELEMOVEL, CAMPO_EMAIL, CAMPO_SEXO, CAMPO_CARTAO_CIDADAO)
+        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, CAMPO_NOME, CAMPO_TELEMOVEL, CAMPO_EMAIL, CAMPO_SEXO, CAMPO_CARTAO_CIDADAO, CAMPO_ESPECIALIDADE_ID, TabelaBDEspecialidades.CAMPO_ESPECIALIDADE)
     }
 }
 

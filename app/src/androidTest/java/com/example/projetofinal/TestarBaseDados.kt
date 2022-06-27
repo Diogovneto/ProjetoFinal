@@ -50,7 +50,7 @@ class BaseDadosTest {
 
     @Before
     fun apagaBaseDados() {
-        appContext().deleteDatabase(BDOpenHelper.NOME)
+        //appContext().deleteDatabase(BDOpenHelper.NOME)
     }
 
     @Test
@@ -77,7 +77,7 @@ class BaseDadosTest {
                 "teste@gmail.com",
                 "Masculino",
                 14537834,
-                especialidade.id
+                especialidade
             )
         )
     }
@@ -119,7 +119,7 @@ class BaseDadosTest {
                 "teste@gmail.com",
                 "Masculino",
                 14537834,
-                especialidade.id
+                especialidade
             )
             insereMedico(db, medico)
 
@@ -194,7 +194,7 @@ class BaseDadosTest {
                 "asd@gmail.com",
                 "Feminino",
                 11111111,
-                especialidade_cardiologista.id
+                especialidade_cardiologista
             )
             insereMedico(db, medico)
 
@@ -264,7 +264,7 @@ class BaseDadosTest {
             "teste@gmail.com",
             "Masculino",
             13579246,
-            especialidade_domicilio.id)
+            especialidade_domicilio)
         insereMedico(db, medicoDomicilio)
 
         val especialidade_cirurgiao = Especialidade("Cirurgião")
@@ -276,7 +276,7 @@ class BaseDadosTest {
             "teste123@gmail.com",
             "Masculino",
             24680135,
-        especialidade_cirurgiao.id)
+        especialidade_cirurgiao)
 
         insereMedico(db, medicoCirurgiao)
 
@@ -380,7 +380,7 @@ class BaseDadosTest {
             "teste@gmail.com",
             "Masculino",
             13579246,
-            especialidade_cardiologista.id)
+            especialidade_cardiologista)
         insereMedico(db, medico)
 
         val especialidade_cirurgiao = Especialidade("Cirurgião")
@@ -392,7 +392,7 @@ class BaseDadosTest {
             "teste123@gmail.com",
             "Masculino",
             24680135,
-            especialidade_cirurgiao.id)
+            especialidade_cirurgiao)
         insereMedico(db, medico2)
 
         val registosEliminados = TabelaBDMedicos(db).delete(
@@ -461,7 +461,7 @@ class BaseDadosTest {
             "teste@gmail.com",
             "Masculino",
             13579246,
-            especialidade.id)
+            especialidade)
         insereMedico(db, medico)
 
         val pulseira = Pulseira("Laranja")
@@ -542,7 +542,7 @@ class BaseDadosTest {
         "rogerioalvez@gmail.com",
         "Masculino",
         14765478,
-        especialidade.id)
+        especialidade)
         insereMedico(db, medico)
 
         val cursor = TabelaBDMedicos(db).query(
@@ -611,7 +611,7 @@ class BaseDadosTest {
             "rogerioalvez@gmail.com",
             "Masculino",
             14765478,
-            especialidade.id)
+            especialidade)
         insereMedico(db, medico)
 
         val pulseira = Pulseira("Laranja")

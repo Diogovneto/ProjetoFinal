@@ -10,7 +10,7 @@ data class Medico(
     var email: String,
     var sexo: String,
     var cartao_cidadao: Long,
-    var id_especialidade: Long = -1,
+    var especialidade: Especialidade,
     var id: Long = -1) {
 
     fun toContentValues() : ContentValues {
@@ -21,7 +21,7 @@ data class Medico(
         valores.put(TabelaBDMedicos.CAMPO_EMAIL, email)
         valores.put(TabelaBDMedicos.CAMPO_SEXO, sexo)
         valores.put(TabelaBDMedicos.CAMPO_CARTAO_CIDADAO, cartao_cidadao)
-        valores.put(TabelaBDMedicos.CAMPO_ESPECIALIDADE_ID, id_especialidade)
+        valores.put(TabelaBDMedicos.CAMPO_ESPECIALIDADE_ID, especialidade.id)
 
         return valores
     }
@@ -35,6 +35,7 @@ data class Medico(
             val posSexo = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_SEXO)
             val posCartaoCidadao = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_CARTAO_CIDADAO)
             val posIdEspecialidade = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_ESPECIALIDADE_ID)
+            val posNomeEspecialidade = cursor.getColumnIndex(TabelaBDEspecialidades.CAMPO_ESPECIALIDADE)
 
             val id = cursor.getLong(posId)
             val nome = cursor.getString(posNome)
@@ -43,8 +44,11 @@ data class Medico(
             val sexo = cursor.getString(posSexo)
             val cartao_cidadao = cursor.getLong(posCartaoCidadao)
             val id_especialidade = cursor.getLong(posIdEspecialidade)
+            val nomeEspecialidade = cursor.getString(posNomeEspecialidade)
 
-            return Medico(nome, telemovel, email, sexo, cartao_cidadao,id_especialidade, id)
+            val especialidade = Especialidade(nomeEspecialidade, id_especialidade)
+
+            return Medico(nome, telemovel, email, sexo, cartao_cidadao,especialidade, id)
         }
     }
 

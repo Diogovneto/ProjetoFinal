@@ -35,7 +35,7 @@ class AdapterMedicos(val fragment: ListaMedicosFragment) : RecyclerView.Adapter<
                 textViewEmail.text = medico?.email ?: ""
                 textViewSexo.text = medico?.sexo ?: ""
                 textViewCartaoCidadao.text = (medico?.cartao_cidadao ?: "") as CharSequence?
-                textViewEspecialidade.text = "${medico?.id_especialidade}"
+                textViewEspecialidade.text = medico?.especialidade?.especialidade ?: ""
 
             }
     }
