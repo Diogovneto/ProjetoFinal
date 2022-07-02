@@ -6,17 +6,14 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SimpleCursorAdapter
 import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
+import com.example.projetofinal.databinding.FragmentInserirMedicoBinding
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -25,12 +22,23 @@ private const val ARG_PARAM2 = "param2"
  */
 class InserirMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
+    private var _binding: FragmentInserirMedicoBinding? = null
+
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_inserir_medico, container, false)
+        _binding = FragmentInserirMedicoBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -62,17 +70,24 @@ class InserirMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         CursorLoader(
             requireContext(),
             ContentProviderConsultas.ENDERECO_ESPECIALIDADES,
-            TabelaBDMedicos.TODAS_COLUNAS,
+            TabelaBDEspecialidades.TODAS_COLUNAS,
             null,
             null,
             TabelaBDEspecialidades.CAMPO_ESPECIALIDADE
         )
 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
-        TODO("Not yet implemented")
+        binding.spinnerEspecialidades.adapter = SimpleCursorAdapter(
+            requireContext(),
+            android.R.layout.simple_list_item_1,
+            data,
+            arrayOf(TabelaBDEspecialidades.CAMPO_ESPECIALIDADE),
+            intArrayOf(android.R.id.text1),
+            0
+        )
     }
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
-        TODO("Not yet implemented")
+        binding.spinnerEspecialidades.adapter = null
     }
 }
