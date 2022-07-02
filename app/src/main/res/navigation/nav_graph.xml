@@ -24,5 +24,17 @@
         <action
             android:id="@+id/action_ListaMedicosFragment_to_MenuPrincipalFragment"
             app:destination="@id/MenuprincipalFragment" />
+        <action
+            android:id="@+id/action_ListaMedicosFragment_to_InserirMedicosFragment"
+            app:destination="@id/InserirMedicosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/InserirMedicosFragment"
+        android:name="com.example.projetofinal.InserirMedicosFragment"
+        android:label="fragment_inserir_livro"
+        tools:layout="@layout/fragment_inserir_medico" >
+        <action
+            android:id="@+id/action_InserirMedicosFragment_to_ListaMedicosFragment"
+            app:destination="@id/ListaMedicosFragment" />
     </fragment>
 </navigation>
