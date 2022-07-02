@@ -4,17 +4,28 @@
     <!-- Strings used for fragments for navigation -->
     <string name="menu_principal_label">Menu Principal</string>
     <string name="lista_medicos_label">Médicos</string>
+    <string name="inserir_medico_label">Médicos</string>
+
+
     <string name="Medicos">Médicos</string>
     <string name="Pacientes">Pacientes</string>
     <string name="Consultas">Consultas</string>
     <string name="Pulseiras">Pulseiras</string>
     <string name="Especialidades">Especialidades</string>
-    <string name="previous">Previous</string>
+
+
+    <string name="previous">Voltar</string>
 
     <string name="inserir">Inserir</string>
     <string name="alterar">Alterar</string>
     <string name="eliminar">Eliminar</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nome">Nome</string>
+    <string name="telemovel">Telemovel</string>
+    <string name="email">Email</string>
+    <string name="sexo">Sexo</string>
+    <string name="cartaocidadao">Cartao Cidadao</string>
+    <string name="especialidade">Especialidade</string>
+
+
 </resources>
