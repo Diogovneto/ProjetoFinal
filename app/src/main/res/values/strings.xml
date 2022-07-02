@@ -27,5 +27,7 @@
     <string name="cartaocidadao">Cartao Cidadao</string>
     <string name="especialidade">Especialidade</string>
 
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
 
 </resources>

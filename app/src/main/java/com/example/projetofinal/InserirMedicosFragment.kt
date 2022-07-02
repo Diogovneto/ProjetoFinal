@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -49,6 +50,11 @@ class InserirMedicosFragment : Fragment() {
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.action_guardar -> true
+            R.id.action_cancelar -> {
+                findNavController().navigate(R.id.action_InserirMedicosFragment_to_ListaMedicosFragment)
+                true
+            }
             else -> false
         }
     }
