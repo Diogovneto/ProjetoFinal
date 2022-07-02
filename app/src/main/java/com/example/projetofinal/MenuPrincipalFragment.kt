@@ -2,6 +2,7 @@ package com.example.projetofinal
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -36,7 +37,16 @@ class MenuPrincipalFragment : Fragment() {
             findNavController().navigate(R.id.action_MenuPrincipalFragment_to_ListaMedicosFragment)
         }
 
-        (activity as MainActivity).idMenuAtual = R.menu.menu_main
+        val activity = activity as MainActivity
+        activity.fragment = this
+        activity.idMenuAtual = R.menu.menu_main
+    }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_settings -> true
+            else -> false
+        }
     }
 
     override fun onDestroyView() {

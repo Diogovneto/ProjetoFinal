@@ -3,12 +3,14 @@ package com.example.projetofinal
 import android.database.Cursor
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projetofinal.databinding.FragmentMedicosLabelBinding
 
@@ -43,7 +45,21 @@ class ListaMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         binding.recyclerViewMedicos.adapter = adapterMedicos
         binding.recyclerViewMedicos.layoutManager = LinearLayoutManager(requireContext())
 
-        (activity as MainActivity).idMenuAtual = R.menu.menu_lista
+        val activity = activity as MainActivity
+        activity.fragment = this
+        activity.idMenuAtual = R.menu.menu_lista
+    }
+
+    fun processaOpcaoMenu(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_inserir -> {
+                findNavController().navigate(R.id.action_ListaMedicosFragment_to_InserirMedicosFragment)
+                return true
+            }
+            R.id.action_alterar -> true
+            R.id.action_eliminar -> true
+            else -> false
+        }
     }
 
     override fun onDestroyView() {

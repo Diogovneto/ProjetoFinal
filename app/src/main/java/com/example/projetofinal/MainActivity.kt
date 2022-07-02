@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -14,6 +15,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+
+    var fragment : Fragment? = null
+
 
     var idMenuAtual = R.menu.menu_main
         get() = field
@@ -47,9 +51,23 @@ class MainActivity : AppCompatActivity() {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
+
+        val opcaoProcessada : Boolean
+
+        if (fragment is MenuPrincipalFragment) {
+            opcaoProcessada = (fragment as MenuPrincipalFragment).processaOpcaoMenu(item)
+        } else if (fragment is ListaMedicosFragment) {
+            opcaoProcessada = (fragment as ListaMedicosFragment).processaOpcaoMenu(item)
+        } else if (fragment is InserirMedicosFragment) {
+            opcaoProcessada = (fragment as InserirMedicosFragment).processaOpcaoMenu(item)
+        } else {
+            opcaoProcessada = false
+        }
+
+        return if (opcaoProcessada) {
+            true
+        } else {
+            super.onOptionsItemSelected(item)
         }
     }
 
