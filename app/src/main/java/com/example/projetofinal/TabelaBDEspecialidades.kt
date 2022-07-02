@@ -15,6 +15,6 @@ class TabelaBDEspecialidades (db: SQLiteDatabase) : TabelaBD(db, NOME){
         const val CAMPO_ID = "$NOME.${BaseColumns._ID}"
         const val CAMPO_ESPECIALIDADE = "Especialidade"
 
-        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, CAMPO_ESPECIALIDADE)
+        val TODAS_COLUNAS = arrayOf(CAMPO_ID, CAMPO_ESPECIALIDADE)
     }
 }

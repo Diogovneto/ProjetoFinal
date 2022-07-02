@@ -28,7 +28,7 @@ class ContentProviderConsultas : ContentProvider() {
         val db = dbOpenH!!.readableDatabase
 
         val colunas = projection as Array<String>
-        val selArgs = selectionArgs as Array<String>
+        val selArgs = selectionArgs as Array<String>?
 
         val id = uri.lastPathSegment
 

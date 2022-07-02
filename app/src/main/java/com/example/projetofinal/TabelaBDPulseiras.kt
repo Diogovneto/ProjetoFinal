@@ -15,6 +15,6 @@ class TabelaBDPulseiras(db: SQLiteDatabase) : TabelaBD(db, NOME) {
         const val CAMPO_ID = "$NOME.${BaseColumns._ID}"
         const val CAMPO_PULSEIRA = "cor"
 
-        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, CAMPO_PULSEIRA)
+        val TODAS_COLUNAS = arrayOf(CAMPO_ID, CAMPO_PULSEIRA)
     }
 }

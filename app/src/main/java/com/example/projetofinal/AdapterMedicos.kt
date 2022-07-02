@@ -31,10 +31,10 @@ class AdapterMedicos(val fragment: ListaMedicosFragment) : RecyclerView.Adapter<
                 field = value
 
                 textViewNome.text = medico?.nome ?: ""
-                textViewTelemovel.text = (medico?.telemovel ?: "") as CharSequence?
+                textViewTelemovel.text = medico?.telemovel.toString()
                 textViewEmail.text = medico?.email ?: ""
                 textViewSexo.text = medico?.sexo ?: ""
-                textViewCartaoCidadao.text = (medico?.cartao_cidadao ?: "") as CharSequence?
+                textViewCartaoCidadao.text = medico?.cartao_cidadao.toString()
                 textViewEspecialidade.text = medico?.especialidade?.especialidade ?: ""
 
             }

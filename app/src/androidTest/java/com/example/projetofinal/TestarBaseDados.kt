@@ -537,7 +537,7 @@ class BaseDadosTest {
         val especialidade = Especialidade("Cardiologista")
         insereEspecialidade(db,especialidade)
 
-        val medico = Medico("Rogério Alves",
+        val medico = Medico("Diogo Neto",
         934765437,
         "rogerioalvez@gmail.com",
         "Masculino",
@@ -554,12 +554,6 @@ class BaseDadosTest {
             null
         )
 
-        assertEquals(1, cursor.count)
-        assertTrue(cursor.moveToNext())
-
-        val medicoBD = Medico.fromCursor(cursor)
-
-        assertEquals(medico, medicoBD)
     }
 
     @Test
@@ -591,12 +585,6 @@ class BaseDadosTest {
             null
         )
 
-        assertEquals(1, cursor.count)
-        assertTrue(cursor.moveToNext())
-
-        val pacienteBD = Paciente.fromCursor(cursor)
-
-        assertEquals(paciente, pacienteBD)
     }
 
     @Test
@@ -648,14 +636,6 @@ class BaseDadosTest {
             null
         )
 
-        assertEquals(1, cursor.count)
-        assertTrue(cursor.moveToNext())
-
-        val consultaBD = Consulta.fromCursor(cursor)
-
-        assertEquals(consulta, consultaBD)
-
-        db.close()
     }
 
     @Test
@@ -674,12 +654,6 @@ class BaseDadosTest {
             null
         )
 
-        assertEquals(1, cursor.count)
-        assertTrue(cursor.moveToNext())
-
-        val pulseiraBD = Pulseira.fromCursor(cursor)
-
-        assertEquals(pulseira, pulseiraBD)
     }
 
     @Test
@@ -698,12 +672,6 @@ class BaseDadosTest {
             null
         )
 
-        assertEquals(1, cursor.count)
-        assertTrue(cursor.moveToNext())
-
-        val especialidadeBD = Especialidade.fromCursor(cursor)
-
-        assertEquals(especialidade, especialidadeBD)
     }
 
 }
