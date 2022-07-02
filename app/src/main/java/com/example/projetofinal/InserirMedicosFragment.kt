@@ -1,11 +1,15 @@
 package com.example.projetofinal
 
+import android.database.Cursor
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.loader.app.LoaderManager
+import androidx.loader.content.CursorLoader
+import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 
 
@@ -19,18 +23,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [InserirMedicosFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class InserirMedicosFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+class InserirMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,6 +35,8 @@ class InserirMedicosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        LoaderManager.getInstance(this).initLoader(ID_LOADER_ESPECIALIDADES, null, this)
 
         val activity = activity as MainActivity
         activity.fragment = this
@@ -60,22 +55,24 @@ class InserirMedicosFragment : Fragment() {
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment InserirMedicosFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            InserirMedicosFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        const val ID_LOADER_ESPECIALIDADES = 0
+    }
+
+    override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> =
+        CursorLoader(
+            requireContext(),
+            ContentProviderConsultas.ENDERECO_ESPECIALIDADES,
+            TabelaBDMedicos.TODAS_COLUNAS,
+            null,
+            null,
+            TabelaBDEspecialidades.CAMPO_ESPECIALIDADE
+        )
+
+    override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onLoaderReset(loader: Loader<Cursor>) {
+        TODO("Not yet implemented")
     }
 }
