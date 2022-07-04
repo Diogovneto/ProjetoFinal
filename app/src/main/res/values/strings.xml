@@ -4,7 +4,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="menu_principal_label">Menu Principal</string>
     <string name="lista_medicos_label">Médicos</string>
-    <string name="inserir_medico_label">Médicos</string>
+    <string name="inserir_medico_label">Médico</string>
 
 
     <string name="Medicos">Médicos</string>
@@ -29,5 +29,15 @@
 
     <string name="guardar">Guardar</string>
     <string name="cancelar">Cancelar</string>
+
+    <string name="nome_obrigatorio">Preencha o nome</string>
+    <string name="telemovel_obrigatorio">Preencha o telemovel</string>
+    <string name="email_obrigatorio">Preencha o email</string>
+    <string name="sexo_obrigatorio">Preencha o sexo</string>
+    <string name="cartao_cidadao_obrigatorio">Preencha o sexo</string>
+    <string name="especialidade_obrigatoria">Escolha a especialidade</string>
+
+    <string name="medico_inserido_sucesso">Médico inserido com sucesso.</string>
+    <string name="erro_inserir_medico">Erro ao inserir médico.</string>
 
 </resources>

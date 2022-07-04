@@ -6,10 +6,10 @@ import android.provider.BaseColumns
 
 data class Medico(
     var nome: String? = null,
-    var telemovel: Long,
+    var telemovel: String,
     var email: String,
     var sexo: String,
-    var cartao_cidadao: Long,
+    var cartao_cidadao: String,
     var especialidade: Especialidade,
     var id: Long = -1) {
 
