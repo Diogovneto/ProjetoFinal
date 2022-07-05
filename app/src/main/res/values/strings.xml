@@ -39,7 +39,8 @@
     <string name="especialidade_obrigatoria">Escolha a especialidade</string>
 
     <string name="medico_inserido_sucesso">Médico inserido com sucesso.</string>
-    <string name="erro_inserir_medico">Erro ao inserir médico.</string>
+    <string name="medico_alterado_sucesso">Médico alterado com sucesso.</string>
+    <string name="erro_guardar_medico">Erro ao guardar médico.</string>
 
     <string name="medico_eliminado_sucesso">Médico eliminado com sucesso.</string>
     <string name="erro_eliminar_medico">Erro ao eliminar médico.</string>

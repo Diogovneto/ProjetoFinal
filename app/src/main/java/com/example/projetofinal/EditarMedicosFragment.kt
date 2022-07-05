@@ -1,6 +1,7 @@
 package com.example.projetofinal
 
 import android.database.Cursor
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -124,19 +125,75 @@ class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
             binding.spinnerEspecialidades.requestFocus()
             return
         }
+        if (medico == null) {
+            insereMedico(nome, telemovel.toLong(), email, sexo, cartaocidadao.toLong(), idEspecialidade)
+        } else {
+            alteraMedico(nome, telemovel.toLong(), email, sexo, cartaocidadao.toLong(), idEspecialidade)
+        }
+    }
 
-        val medico = Medico(nome, telemovel.toLong(), email, sexo, cartaocidadao.toLong(), Especialidade("",idEspecialidade))
+
+    private fun alteraMedico(nome: String, telemovel: Long, email: String, sexo: String,cartaocidadao: Long, idEspecialidade: Long) {
+        val enderecoMedico = Uri.withAppendedPath(ContentProviderConsultas.ENDERECO_MEDICOS, "${medico!!.id}")
+
+        val medico = Medico(
+            nome,
+            telemovel,
+            email,
+            sexo,
+            cartaocidadao,
+            Especialidade(
+                "",
+                idEspecialidade
+            ) // O nome da categoria não interessa porque o que é guardado é a chave estrangeira
+        )
+
+        val registosAlterados = requireActivity().contentResolver.update(
+            enderecoMedico,
+            medico.toContentValues(),
+            null,
+            null
+        )
+
+        if (registosAlterados == 1) {
+            Toast.makeText(requireContext(), R.string.medico_alterado_sucesso, Toast.LENGTH_LONG).show()
+            voltaListaMedicos()
+        } else {
+            Snackbar.make(
+                binding.editTextNome,
+                R.string.erro_guardar_medico,
+                Snackbar.LENGTH_INDEFINITE
+            ).show()
+        }
+    }
+
+    private fun insereMedico(nome: String, telemovel: Long, email: String, sexo: String,cartaocidadao: Long, idEspecialidade: Long){
+        val medico = Medico(
+            nome,
+            telemovel,
+            email,
+            sexo,
+            cartaocidadao,
+            Especialidade(
+                "",
+                idEspecialidade
+            )
+        )
 
         val endereco = requireActivity().contentResolver.insert(
             ContentProviderConsultas.ENDERECO_MEDICOS,
             medico.toContentValues()
         )
 
-        if (endereco != null) {
+        if(endereco != null){
             Toast.makeText(requireContext(), R.string.medico_inserido_sucesso, Toast.LENGTH_LONG).show()
             voltaListaMedicos()
         } else {
-            Snackbar.make(binding.editTextNome, R.string.erro_inserir_medico, Snackbar.LENGTH_INDEFINITE).show()
+            Snackbar.make(
+                binding.editTextNome,
+                R.string.erro_guardar_medico,
+                Snackbar.LENGTH_INDEFINITE
+            ).show()
         }
     }
 
@@ -151,7 +208,7 @@ class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
             TabelaBDEspecialidades.TODAS_COLUNAS,
             null,
             null,
-            "${TabelaBDEspecialidades.CAMPO_ESPECIALIDADE}=?"
+            TabelaBDEspecialidades.CAMPO_ESPECIALIDADE
         )
 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
