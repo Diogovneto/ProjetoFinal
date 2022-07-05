@@ -112,7 +112,7 @@ class InserirMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
             return
         }
 
-        val medico = Medico(nome, telemovel, email, sexo, cartaocidadao, Especialidade("",idEspecialidade))
+        val medico = Medico(nome, telemovel.toLong(), email, sexo, cartaocidadao.toLong(), Especialidade("",idEspecialidade))
 
         val endereco = requireActivity().contentResolver.insert(
             ContentProviderConsultas.ENDERECO_MEDICOS,
@@ -138,7 +138,7 @@ class InserirMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
             TabelaBDEspecialidades.TODAS_COLUNAS,
             null,
             null,
-            "${TabelaBDEspecialidades.CAMPO_ESPECIALIDADE}"
+            "${TabelaBDEspecialidades.CAMPO_ESPECIALIDADE}=?"
         )
 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
