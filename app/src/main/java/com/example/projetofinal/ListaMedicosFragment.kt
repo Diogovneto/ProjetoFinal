@@ -62,10 +62,15 @@ class ListaMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     fun processaOpcaoMenu(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_inserir -> {
-                findNavController().navigate(R.id.action_ListaMedicosFragment_to_EditarMedicosFragment)
+                val acao = ListaMedicosFragmentDirections.actionListaMedicosFragmentToEditarMedicosFragment()
+                findNavController().navigate(acao)
                 return true
             }
-            R.id.action_alterar -> true
+            R.id.action_alterar -> {
+                val acao = ListaMedicosFragmentDirections.actionListaMedicosFragmentToEditarMedicosFragment(MedicoSelecionado)
+                findNavController().navigate(acao)
+                return true
+            }
             R.id.action_eliminar -> {
                 val acao = ListaMedicosFragmentDirections.actionListaMedicoFragmentToEliminarMedicoFragment(MedicoSelecionado!!)
                 findNavController().navigate(acao)
