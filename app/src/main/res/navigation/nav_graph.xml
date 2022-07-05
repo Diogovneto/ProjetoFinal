@@ -62,7 +62,7 @@
         android:label="@string/eliminar_medico_label"
         tools:layout="@layout/fragment_eliminar_medico">
         <action
-            android:id="@+id/action_eliminarLivroFragment_to_ListaLivrosFragment"
+            android:id="@+id/action_eliminarMedicoFragment_to_ListaMedicoFragment"
             app:destination="@id/ListaMedicosFragment" />
         <argument
             android:name="medico"

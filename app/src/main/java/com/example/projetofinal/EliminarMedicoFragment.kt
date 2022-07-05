@@ -88,7 +88,7 @@ class EliminarMedicoFragment : Fragment() {
     }
 
     private fun voltaListaMedicos() {
-        val acao = EliminarMedicoFragmentDirections.actionEliminarLivroFragmentToListaLivrosFragment()
+        val acao = EliminarMedicoFragmentDirections.actionEliminarMedicoFragmentToListaMedicoFragment()
         findNavController().navigate(acao)
     }
 }
