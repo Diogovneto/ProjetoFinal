@@ -35,7 +35,7 @@ class ListaPacientesFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         super.onViewCreated(view, savedInstanceState)
 
         LoaderManager.getInstance(this).initLoader(ID_LOADER_PACIENTES, null, this)
-        adapterPacientes = AdapterPacientes()
+        adapterPacientes = AdapterPacientes(this)
         binding.recyclerViewPacientes.adapter = adapterPacientes
         binding.recyclerViewPacientes.layoutManager = LinearLayoutManager(requireContext())
     }
