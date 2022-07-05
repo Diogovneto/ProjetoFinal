@@ -53,6 +53,13 @@ class MenuPrincipalFragment : Fragment() {
         }
     }
 
+    fun processaOpcaoMenuPaciente(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_settings -> true
+            else -> false
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

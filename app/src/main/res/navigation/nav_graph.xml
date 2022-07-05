@@ -25,10 +25,10 @@
         tools:layout="@layout/fragment_lista_pacientes">
 
         <action
-            android:id="@+id/action_ListaLivrosFragment_to_MenuPrincipalFragment"
+            android:id="@+id/action_ListaPacienteFragment_to_MenuPrincipalFragment"
             app:destination="@id/MenuprincipalFragment" />
         <action
-            android:id="@+id/action_ListaLivrosFragment_to_InserirLivroFragment"
+            android:id="@+id/action_ListaPacienteFragment_to_InserirPacienteFragment"
             app:destination="@id/InserirPacienteFragment" />
     </fragment>
     <fragment
@@ -37,7 +37,7 @@
         android:label="@string/inserir_paciente_label"
         tools:layout="@layout/fragment_inserir_paciente" >
         <action
-            android:id="@+id/action_InserirLivroFragment_to_ListaLivrosFragment"
+            android:id="@+id/action_InserirPacienteFragment_to_ListaPacienteFragment"
             app:destination="@id/ListaPacientesFragment" />
     </fragment>
     <fragment
