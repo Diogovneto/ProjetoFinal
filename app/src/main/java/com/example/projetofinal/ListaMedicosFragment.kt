@@ -22,10 +22,8 @@ class ListaMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     var MedicoSelecionado: Medico? = null
         get() = field
         set(value) {
-            if (value != field) {
-                field = value
-                (requireActivity() as MainActivity).atualizaOpcoesLista(field != null)
-            }
+            field = value
+            (requireActivity() as MainActivity).atualizaOpcoesLista(field != null)
         }
 
     private var _binding: FragmentMedicosLabelBinding? = null
@@ -103,6 +101,7 @@ class ListaMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
+        if (_binding == null) return
         adapterMedicos!!.cursor = null
     }
 

@@ -34,7 +34,6 @@
     <fragment
         android:id="@+id/EditarMedicosFragment"
         android:name="com.example.projetofinal.EditarMedicosFragment"
-        android:label="@string/inserir_medico_label"
         tools:layout="@layout/fragment_editar_medico">
         <action
             android:id="@+id/action_EditarMedicosFragment_to_ListaMedicosFragment"

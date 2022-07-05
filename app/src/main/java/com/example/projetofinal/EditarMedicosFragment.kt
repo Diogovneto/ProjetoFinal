@@ -66,6 +66,8 @@ class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         }
 
         LoaderManager.getInstance(this).initLoader(ID_LOADER_ESPECIALIDADES, null, this)
+
+        activity.atualizaTitulo(if (medico == null) R.string.inserir_medico_label else R.string.alterar_medico_label)
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
@@ -239,6 +241,7 @@ class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
     }
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
+        if (_binding == null) return
         binding.spinnerEspecialidades.adapter = null
     }
 }

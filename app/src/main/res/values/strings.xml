@@ -6,6 +6,7 @@
     <string name="lista_medicos_label">Médicos</string>
     <string name="inserir_medico_label">Novo Médico</string>
     <string name="eliminar_medico_label">Eliminar Médico</string>
+    <string name="alterar_medico_label">Alterar Médico</string>
 
 
     <string name="Medicos">Médicos</string>
