@@ -46,7 +46,7 @@ class ListaPacientesFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         activity.idMenuAtual = R.menu.menu_lista
     }
 
-    fun processaOpcaoMenu(item: MenuItem): Boolean {
+    fun processaOpcaoMenuPaciente(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_inserir -> {
                 findNavController().navigate(R.id.action_ListaPacienteFragment_to_InserirPacienteFragment)
