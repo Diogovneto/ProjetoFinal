@@ -39,6 +39,11 @@
         <action
             android:id="@+id/action_EditarMedicosFragment_to_ListaMedicosFragment"
             app:destination="@id/ListaMedicosFragment" />
+        <argument
+            android:name="medico"
+            app:argType="com.example.projetofinal.Medico"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/EliminarMedicoFragment"
