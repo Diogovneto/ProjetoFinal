@@ -31,6 +31,8 @@ class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private var medico: Medico? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,11 +49,22 @@ class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        LoaderManager.getInstance(this).initLoader(ID_LOADER_ESPECIALIDADES, null, this)
-
         val activity = activity as MainActivity
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_edicao
+
+        if (arguments != null) {
+            medico = EditarMedicosFragmentArgs.fromBundle(requireArguments()).medico
+            if (medico != null) {
+                binding.editTextNome.setText(medico!!.nome)
+                binding.editTextTelemovel.setText(medico!!.telemovel.toString())
+                binding.editTextEmail.setText(medico!!.email)
+                binding.editTextSexo.setText(medico!!.sexo)
+                binding.editTextCartaoCidadao.setText(medico!!.cartao_cidadao.toString())
+            }
+        }
+
+        LoaderManager.getInstance(this).initLoader(ID_LOADER_ESPECIALIDADES, null, this)
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
@@ -150,6 +163,22 @@ class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
             intArrayOf(android.R.id.text1),
             0
         )
+
+        mostraEspecialidadeSelecionadaSpinner()
+    }
+
+    private fun mostraEspecialidadeSelecionadaSpinner() {
+        if (medico == null) return
+
+        val idEspecialidade = medico!!.especialidade.id
+
+        val ultimaEspecialidade = binding.spinnerEspecialidades.count - 1
+        for (i in 0..ultimaEspecialidade) {
+            if (idEspecialidade == binding.spinnerEspecialidades.getItemIdAtPosition(i)) {
+                binding.spinnerEspecialidades.setSelection(i)
+                return
+            }
+        }
     }
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
