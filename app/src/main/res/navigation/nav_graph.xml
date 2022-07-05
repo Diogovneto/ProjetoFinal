@@ -14,13 +14,25 @@
         <action
             android:id="@+id/action_MenuPrincipalFragment_to_ListaMedicosFragment"
             app:destination="@id/ListaMedicosFragment" />
+        <action
+            android:id="@+id/action_MenuPrincipalFragment_to_ListaPacientesFragment"
+            app:destination="@id/ListaPacientesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ListaPacientesFragment"
+        android:name="com.example.projetofinal.ListaPacientesFragment"
+        android:label="@string/lista_pacientes_label"
+        tools:layout="@layout/fragment_lista_pacientes">
+
+        <action
+            android:id="@+id/action_ListaLivrosFragment_to_MenuPrincipalFragment"
+            app:destination="@id/MenuprincipalFragment" />
     </fragment>
     <fragment
         android:id="@+id/ListaMedicosFragment"
         android:name="com.example.projetofinal.ListaMedicosFragment"
         android:label="@string/lista_medicos_label"
         tools:layout="@layout/fragment_medicos_label">
-
         <action
             android:id="@+id/action_ListaMedicosFragment_to_MenuPrincipalFragment"
             app:destination="@id/MenuprincipalFragment" />

@@ -40,6 +40,10 @@ class MenuPrincipalFragment : Fragment() {
         val activity = activity as MainActivity
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_main
+
+        binding.buttonPacientes.setOnClickListener {
+            findNavController().navigate(R.id.action_MenuPrincipalFragment_to_ListaPacientesFragment)
+        }
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
