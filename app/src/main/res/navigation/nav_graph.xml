@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_ListaMedicosFragment_to_InserirMedicosFragment"
             app:destination="@id/InserirMedicosFragment" />
+        <action
+            android:id="@+id/action_ListaMedicoFragment_to_EliminarMedicoFragment"
+            app:destination="@id/EliminarMedicoFragment" />
     </fragment>
     <fragment
         android:id="@+id/InserirMedicosFragment"
@@ -35,6 +38,15 @@
         tools:layout="@layout/fragment_inserir_medico">
         <action
             android:id="@+id/action_InserirMedicosFragment_to_ListaMedicosFragment"
+            app:destination="@id/ListaMedicosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/EliminarMedicoFragment"
+        android:name="com.example.projetofinal.EliminarMedicoFragment"
+        android:label="@string/eliminar_medico_label"
+        tools:layout="@layout/fragment_eliminar_medico">
+        <action
+            android:id="@+id/action_eliminarLivroFragment_to_ListaLivrosFragment"
             app:destination="@id/ListaMedicosFragment" />
     </fragment>
 </navigation>

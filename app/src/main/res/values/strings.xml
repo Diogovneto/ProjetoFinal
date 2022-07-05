@@ -4,7 +4,8 @@
     <!-- Strings used for fragments for navigation -->
     <string name="menu_principal_label">Menu Principal</string>
     <string name="lista_medicos_label">Médicos</string>
-    <string name="inserir_medico_label">Médico</string>
+    <string name="inserir_medico_label">Novo Médico</string>
+    <string name="eliminar_medico_label">Eliminar Médico</string>
 
 
     <string name="Medicos">Médicos</string>
@@ -39,5 +40,8 @@
 
     <string name="medico_inserido_sucesso">Médico inserido com sucesso.</string>
     <string name="erro_inserir_medico">Erro ao inserir médico.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
