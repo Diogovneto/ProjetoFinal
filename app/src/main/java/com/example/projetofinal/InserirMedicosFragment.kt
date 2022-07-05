@@ -56,7 +56,7 @@ class InserirMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_guardar -> {
+            R.id.action_eliminar -> {
                 guardar()
                 true
             }
