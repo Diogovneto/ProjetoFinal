@@ -17,13 +17,17 @@ class AdapterMedicos(val fragment: ListaMedicosFragment) : RecyclerView.Adapter<
             }
         }
 
-    class ViewHolderMedicos(itemMedico: View) : RecyclerView.ViewHolder(itemMedico){
+    class ViewHolderMedicos(itemMedico: View) : RecyclerView.ViewHolder(itemMedico), View.OnClickListener{
         val textViewNome = itemMedico.findViewById<TextView>(R.id.textViewNome)
         val textViewTelemovel = itemMedico.findViewById<TextView>(R.id.textViewTelemovel)
         val textViewEmail = itemMedico.findViewById<TextView>(R.id.textViewEmail)
         val textViewSexo = itemMedico.findViewById<TextView>(R.id.textViewSexo)
         val textViewCartaoCidadao = itemMedico.findViewById<TextView>(R.id.textViewCartaoCidadao)
         val textViewEspecialidade = itemMedico.findViewById<TextView>(R.id.textViewEspecialidade)
+
+        init {
+            itemMedico.setOnClickListener(this)
+        }
 
         var medico: Medico? = null
             get() = field
@@ -38,6 +42,24 @@ class AdapterMedicos(val fragment: ListaMedicosFragment) : RecyclerView.Adapter<
                 textViewEspecialidade.text = medico?.especialidade?.especialidade ?: ""
 
             }
+
+        override fun onClick(v: View?) {
+            seleccionado?.desseleciona()
+            this.seleciona()
+        }
+
+        private fun seleciona() {
+            seleccionado = this
+            itemView.setBackgroundResource(android.R.color.holo_orange_light)
+        }
+
+        private fun desseleciona() {
+            itemView.setBackgroundResource(android.R.color.white)
+        }
+
+        companion object {
+            var seleccionado : ViewHolderMedicos? = null
+        }
     }
 
 
