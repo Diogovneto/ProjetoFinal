@@ -27,6 +27,18 @@
         <action
             android:id="@+id/action_ListaLivrosFragment_to_MenuPrincipalFragment"
             app:destination="@id/MenuprincipalFragment" />
+        <action
+            android:id="@+id/action_ListaLivrosFragment_to_InserirLivroFragment"
+            app:destination="@id/InserirPacienteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/InserirPacienteFragment"
+        android:name="com.example.projetofinal."
+        android:label="fragment_inserir_livro"
+        tools:layout="@layout/fragment_inserir_paciente" >
+        <action
+            android:id="@+id/action_InserirLivroFragment_to_ListaLivrosFragment"
+            app:destination="@id/ListaPacientesFragment" />
     </fragment>
     <fragment
         android:id="@+id/ListaMedicosFragment"
