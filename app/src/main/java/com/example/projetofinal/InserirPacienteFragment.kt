@@ -7,12 +7,15 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SimpleCursorAdapter
+import android.widget.Spinner
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 import com.example.projetofinal.databinding.FragmentInserirPacienteBinding
+import com.google.android.material.snackbar.Snackbar
 
 class InserirPacienteFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     private var _binding: FragmentInserirPacienteBinding? = null
@@ -38,20 +41,116 @@ class InserirPacienteFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
         super.onViewCreated(view, savedInstanceState)
         LoaderManager.getInstance(this).initLoader(ID_LOADER_PULSEIRAS, null, this)
 
-        val activity = activity as MainActivity
+        val activity = requireActivity() as MainActivity
         activity.fragment = this
         //activity.idMenuAtual = R.menu.
     }
 
     fun processaOpcaoMenuPaciente(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_inserir -> {
-                findNavController().navigate(R.id.action_ListaPacienteFragment_to_InserirPacienteFragment)
-                return true
+            R.id.action_guardar -> {
+                guardar()
+                true
             }
-            R.id.action_alterar -> true
-            R.id.action_eliminar -> true
+            R.id.action_cancelar -> {
+                voltaListaPacientes()
+                true
+            }
             else -> false
+        }
+    }
+
+    private fun voltaListaPacientes() {
+        findNavController().navigate(R.id.action_InserirPacienteFragment_to_ListaPacienteFragment)
+    }
+
+    private fun guardar() {
+        val nome = binding.editTextNomePac.text.toString()
+        if (nome.isBlank()) {
+            binding.editTextNomePac.error = getString(R.string.nomeP_obrigatorio)
+            binding.editTextNomePac.requestFocus()
+            return
+        }
+
+        val datanascimento = binding.editTextDataNascimento.text.toString()
+        if (datanascimento.isBlank()) {
+            binding.editTextDataNascimento.error = getString(R.string.data_nascimento_obrigatoria)
+            binding.editTextDataNascimento.requestFocus()
+            return
+        }
+        val sexo = binding.editTextSexoPac.text.toString()
+        if (sexo.isBlank()) {
+            binding.editTextSexoPac.error = getString(R.string.sexo_obrigatorio)
+            binding.editTextSexoPac.requestFocus()
+            return
+        }
+        val morada = binding.editTextMorada.text.toString()
+        if (morada.isBlank()) {
+            binding.editTextMorada.error = getString(R.string.morada_obrigatoria)
+            binding.editTextMorada.requestFocus()
+            return
+        }
+        val codigopostal = binding.EditTextCodigoPostal.text.toString()
+        if (codigopostal.isBlank()) {
+            binding.EditTextCodigoPostal.error = getString(R.string.data_nascimento_obrigatoria)
+            binding.EditTextCodigoPostal.requestFocus()
+            return
+        }
+        val telemovel = binding.editTextTelemovelPac.text.toString()
+        if (telemovel.isBlank()) {
+            binding.editTextTelemovelPac.error = getString(R.string.telemovelP_obrigatorio)
+            binding.editTextTelemovelPac.requestFocus()
+            return
+        }
+        val email = binding.editTextEmailPac.text.toString()
+        if (email.isBlank()) {
+            binding.editTextEmailPac.error = getString(R.string.emailP_obrigatorio)
+            binding.editTextEmailPac.requestFocus()
+            return
+        }
+        val cartaocidadao = binding.editTextCartaoCidadaoPac.text.toString()
+        if (cartaocidadao.isBlank()) {
+            binding.editTextCartaoCidadaoPac.error = getString(R.string.cartao_cidadaoP_obrigatorio)
+            binding.editTextCartaoCidadaoPac.requestFocus()
+            return
+        }
+        val contribuinte = binding.editTextContribuinte.text.toString()
+        if (contribuinte.isBlank()) {
+            binding.editTextContribuinte.error = getString(R.string.contribuinte_obrigatorio)
+            binding.editTextContribuinte.requestFocus()
+            return
+        }
+
+        val idPulseira = binding.spinnerPulseira.selectedItemId
+        if (idPulseira == Spinner.INVALID_ROW_ID) {
+            binding.textViewPulseira.error = getString(R.string.pulseira_obrigatoria)
+            binding.spinnerPulseira.requestFocus()
+            return
+        }
+
+        val paciente = Paciente(
+            nome,
+            datanascimento,
+            sexo,
+            morada,
+            codigopostal,
+            telemovel.toLong(),
+            email,
+            cartaocidadao.toLong(),
+            contribuinte.toLong(),
+            Pulseira("", idPulseira) // O nome da categoria não interessa porque o que é guardado é a chave estrangeira
+        )
+
+        val endereco = requireActivity().contentResolver.insert(
+            ContentProviderConsultas.ENDERECO_PACIENTES,
+            paciente.toContentValues()
+        )
+
+        if (endereco != null) {
+            Toast.makeText(requireContext(), R.string.paciente_inserido_sucesso, Toast.LENGTH_LONG).show()
+            voltaListaPacientes()
+        } else {
+            Snackbar.make(binding.editTextNomePac, R.string.erro_inserir_paciente, Snackbar.LENGTH_INDEFINITE).show()
         }
     }
 

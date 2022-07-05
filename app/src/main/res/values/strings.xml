@@ -52,6 +52,20 @@
     <string name="cartao_cidadao_obrigatorio">Preencha o sexo</string>
     <string name="especialidade_obrigatoria">Escolha a especialidade</string>
 
+    <string name="nomeP_obrigatorio">Preencha o nome</string>
+    <string name="data_nascimento_obrigatoria">Preencha a data de nascimento </string>
+    <string name="sexoP_obrigatorio">Preencha o seco</string>
+    <string name="morada_obrigatoria">Preencha a morada</string>
+    <string name="codigo_postal_obrigatorio">Preencha o código postal</string>
+    <string name="telemovelP_obrigatorio">Preencha o telemóvel</string>
+    <string name="emailP_obrigatorio">Preencha o email</string>
+    <string name="cartao_cidadaoP_obrigatorio">Preencha o cartão de cidadão</string>
+    <string name="contribuinte_obrigatorio">Preencha o contribuinte</string>
+    <string name="pulseira_obrigatoria">Escolha a pulseira</string>
+
+    <string name="paciente_inserido_sucesso">Paciente inserido com sucesso.</string>
+    <string name="erro_inserir_paciente">Erro ao inserir paciente.</string>
+
     <string name="medico_inserido_sucesso">Médico inserido com sucesso.</string>
     <string name="medico_alterado_sucesso">Médico alterado com sucesso.</string>
     <string name="erro_guardar_medico">Erro ao guardar médico.</string>
