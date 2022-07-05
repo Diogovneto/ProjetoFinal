@@ -17,7 +17,7 @@ class AdapterMedicos(val fragment: ListaMedicosFragment) : RecyclerView.Adapter<
             }
         }
 
-    class ViewHolderMedicos(itemMedico: View) : RecyclerView.ViewHolder(itemMedico), View.OnClickListener{
+    inner class ViewHolderMedicos(itemMedico: View) : RecyclerView.ViewHolder(itemMedico), View.OnClickListener {
         val textViewNome = itemMedico.findViewById<TextView>(R.id.textViewNome)
         val textViewTelemovel = itemMedico.findViewById<TextView>(R.id.textViewTelemovel)
         val textViewEmail = itemMedico.findViewById<TextView>(R.id.textViewEmail)
@@ -50,15 +50,12 @@ class AdapterMedicos(val fragment: ListaMedicosFragment) : RecyclerView.Adapter<
 
         private fun seleciona() {
             seleccionado = this
-            itemView.setBackgroundResource(android.R.color.holo_orange_light)
+            fragment.MedicoSelecionado = medico
+            itemView.setBackgroundResource(android.R.color.holo_orange_dark)
         }
 
         private fun desseleciona() {
             itemView.setBackgroundResource(android.R.color.white)
-        }
-
-        companion object {
-            var seleccionado : ViewHolderMedicos? = null
         }
     }
 
@@ -79,5 +76,9 @@ class AdapterMedicos(val fragment: ListaMedicosFragment) : RecyclerView.Adapter<
         if (cursor == null) return 0
 
         return cursor!!.count
+    }
+
+    companion object {
+        var seleccionado : ViewHolderMedicos? = null
     }
 }

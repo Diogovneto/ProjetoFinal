@@ -19,6 +19,15 @@ import com.example.projetofinal.databinding.FragmentMedicosLabelBinding
  */
 class ListaMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
+    var MedicoSelecionado: Medico? = null
+        get() = field
+        set(value) {
+            if (value != field) {
+                field = value
+                (requireActivity() as MainActivity).atualizaOpcoesLista(field != null)
+            }
+        }
+
     private var _binding: FragmentMedicosLabelBinding? = null
     private var adapterMedicos: AdapterMedicos? = null
 
@@ -45,7 +54,7 @@ class ListaMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         binding.recyclerViewMedicos.adapter = adapterMedicos
         binding.recyclerViewMedicos.layoutManager = LinearLayoutManager(requireContext())
 
-        val activity = activity as MainActivity
+        val activity = requireActivity() as MainActivity
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_lista
     }
