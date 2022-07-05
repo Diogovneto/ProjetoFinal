@@ -100,7 +100,7 @@ class BaseDadosTest {
                     "dvnetoubz@gmail.com",
                     14537834,
                     238316050,
-                    pulseira.id)
+                    pulseira)
             )
 
             db.close()
@@ -136,7 +136,7 @@ class BaseDadosTest {
                 "dvnetoubz@gmail.com",
                 14537834,
                 238316050,
-                pulseira.id
+                pulseira
             )
             inserePaciente(db, paciente)
 
@@ -232,7 +232,7 @@ class BaseDadosTest {
             "teste@gmail.com",
             87654321,
             834729457,
-            pulseira_vermelho.id
+            pulseira_vermelho
         )
         inserePaciente(db, paciente)
 
@@ -293,7 +293,7 @@ class BaseDadosTest {
             "dvnetoubz@gmail.com",
             14537834,
             238316050,
-            pulseira_crianca.id)
+            pulseira_crianca)
 
         inserePaciente(db, pacienteCrianca)
 
@@ -310,7 +310,7 @@ class BaseDadosTest {
             "ruipedro@gmail.com",
             15436789,
             867345095,
-            pulseira_adulto.id)
+            pulseira_adulto)
 
         inserePaciente(db, pacienteAdulto)
 
@@ -421,7 +421,7 @@ class BaseDadosTest {
             "dvnetoubz@gmail.com",
             14537834,
             238316050,
-            pulseira.id)
+            pulseira)
 
         inserePaciente(db, paciente)
 
@@ -435,7 +435,7 @@ class BaseDadosTest {
             "ruipedro@gmail.com",
             15436789,
             867345095,
-            pulseira.id)
+            pulseira)
 
         inserePaciente(db, paciente2)
 
@@ -477,7 +477,7 @@ class BaseDadosTest {
             "dvnetoubz@gmail.com",
             14537834,
             238316050,
-            pulseira.id)
+            pulseira)
         inserePaciente(db, paciente)
 
         val consulta = Consulta(
@@ -573,7 +573,7 @@ class BaseDadosTest {
             "dvnetoubz@gmail.com",
             14537834,
             238316050,
-            pulseira.id)
+            pulseira)
         inserePaciente(db, paciente)
 
         val cursor = TabelaBDPacientes(db).query(
@@ -615,7 +615,7 @@ class BaseDadosTest {
             "dvnetoubz@gmail.com",
             14537834,
             238316050,
-            pulseira.id)
+            pulseira)
         inserePaciente(db, paciente)
 
         val consulta = Consulta(

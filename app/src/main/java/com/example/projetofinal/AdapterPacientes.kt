@@ -43,7 +43,7 @@ class AdapterPacientes(val fragment: ListaPacientesFragment): RecyclerView.Adapt
                 textViewEmail.text = paciente?.email ?: ""
                 textViewCartaoCidadao.text = paciente?.cartao_cidadao.toString()
                 textViewContribuinte.text = paciente?.contribuinte.toString()
-                textViewPulseira.text = "${paciente?.id_pulseira}"
+                textViewPulseira.text = paciente?.pulseira?.pulseira ?: ""
             }
     }
 

@@ -62,7 +62,7 @@ class TabelaBDPacientes (db: SQLiteDatabase) : TabelaBD(db, NOME) {
             CAMPO_EMAIL,
             CAMPO_CARTAO_CIDADAO,
             CAMPO_CONTRIBUINTE,
-            CAMPO_PULSEIRA_ID)
+            TabelaBDPulseiras.CAMPO_PULSEIRA)
 
     }
 }
