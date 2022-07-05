@@ -1,10 +1,21 @@
 package com.example.projetofinal
 
+import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 class AdapterPacientes: RecyclerView.Adapter<AdapterPacientes.ViewHolderPacientes>() {
+
+    var cursor: Cursor? = null
+        get() = field
+        set(value) {
+            if (field != value) {
+                field = value
+                notifyDataSetChanged()
+            }
+        }
+
     class ViewHolderPacientes(itemPaciente: View) : RecyclerView.ViewHolder(itemPaciente) {
     }
 
@@ -19,6 +30,8 @@ class AdapterPacientes: RecyclerView.Adapter<AdapterPacientes.ViewHolderPaciente
 
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        if (cursor == null) return 0
+
+        return cursor!!.count
     }
 }
