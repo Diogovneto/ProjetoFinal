@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textViewNome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/purple_700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="José Carlos" />
+
+    <TextView
+        android:id="@+id/textViewDataNascimento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewNome"
+        app:layout_constraintStart_toStartOf="@+id/textViewNome"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNome"
+        tools:text="16/05/2001" />
+
+    <TextView
+        android:id="@+id/textViewSexo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewDataNascimento"
+        app:layout_constraintStart_toStartOf="@+id/textViewDataNascimento"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDataNascimento"
+        tools:text="Masculino" />
+
+    <TextView
+        android:id="@+id/textViewMorada"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewSexo"
+        app:layout_constraintStart_toStartOf="@+id/textViewSexo"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSexo"
+        tools:text="Rua do Teste nº285" />
+
+    <TextView
+        android:id="@+id/textViewCodigoPostal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewMorada"
+        app:layout_constraintStart_toStartOf="@+id/textViewMorada"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMorada"
+        tools:text="3750-598" />
+
+    <TextView
+        android:id="@+id/textViewTelemovel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewCodigoPostal"
+        app:layout_constraintStart_toStartOf="@+id/textViewCodigoPostal"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCodigoPostal"
+        tools:text="918617310" />
+
+    <TextView
+        android:id="@+id/textViewEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewTelemovel"
+        app:layout_constraintStart_toStartOf="@+id/textViewTelemovel"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTelemovel"
+        tools:text="teste@gmail.com" />
+
+    <TextView
+        android:id="@+id/textViewCartaoCidadaoPaciente"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewEmail"
+        app:layout_constraintStart_toStartOf="@+id/textViewEmail"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEmail"
+        tools:text="17437568" />
+
+    <TextView
+        android:id="@+id/textViewContribuinte"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewCartaoCidadaoPaciente"
+        app:layout_constraintStart_toStartOf="@+id/textViewCartaoCidadaoPaciente"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCartaoCidadaoPaciente"
+        tools:text="238306465" />
+
+    <TextView
+        android:id="@+id/textViewPulseira"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewContribuinte"
+        app:layout_constraintStart_toStartOf="@+id/textViewContribuinte"
+        app:layout_constraintTop_toBottomOf="@+id/textViewContribuinte"
+        tools:text="Verde" />
+</androidx.constraintlayout.widget.ConstraintLayout>
