@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -42,6 +43,11 @@ class InserirPacienteFragment : Fragment() {
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.action_guardar -> true
+            R.id.action_cancelar -> {
+                findNavController().navigate(R.id.action_InserirPacienteFragment_to_ListaPacienteFragment)
+                true
+            }
             else -> false
         }
     }
