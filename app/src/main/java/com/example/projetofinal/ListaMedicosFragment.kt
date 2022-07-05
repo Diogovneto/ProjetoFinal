@@ -66,11 +66,7 @@ class ListaMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
                 return true
             }
             R.id.action_alterar -> true
-            R.id.action_eliminar -> {
-                val acao = ListaMedicosFragmentDirections.actionListaMedicoFragmentToEliminarMedicoFragment(MedicoSelecionado!!)
-                findNavController().navigate(acao)
-                true
-            }
+            R.id.action_eliminar -> true
             else -> false
         }
     }
