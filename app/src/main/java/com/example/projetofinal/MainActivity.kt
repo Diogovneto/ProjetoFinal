@@ -61,8 +61,8 @@ class MainActivity : AppCompatActivity() {
             opcaoProcessada = (fragment as MenuPrincipalFragment).processaOpcaoMenu(item)
         } else if (fragment is ListaMedicosFragment) {
             opcaoProcessada = (fragment as ListaMedicosFragment).processaOpcaoMenu(item)
-        } else if (fragment is InserirMedicosFragment) {
-            opcaoProcessada = (fragment as InserirMedicosFragment).processaOpcaoMenu(item)
+        } else if (fragment is EditarMedicosFragment) {
+            opcaoProcessada = (fragment as EditarMedicosFragment).processaOpcaoMenu(item)
         } else if (fragment is EliminarMedicoFragment) {
             opcaoProcessada = (fragment as EliminarMedicoFragment).processaOpcaoMenu(item)
         } else {

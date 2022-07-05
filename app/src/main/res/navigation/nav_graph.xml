@@ -25,19 +25,19 @@
             android:id="@+id/action_ListaMedicosFragment_to_MenuPrincipalFragment"
             app:destination="@id/MenuprincipalFragment" />
         <action
-            android:id="@+id/action_ListaMedicosFragment_to_InserirMedicosFragment"
-            app:destination="@id/InserirMedicosFragment" />
+            android:id="@+id/action_ListaMedicosFragment_to_EditarMedicosFragment"
+            app:destination="@id/EditarMedicosFragment" />
         <action
             android:id="@+id/action_ListaMedicoFragment_to_EliminarMedicoFragment"
             app:destination="@id/EliminarMedicoFragment" />
     </fragment>
     <fragment
-        android:id="@+id/InserirMedicosFragment"
-        android:name="com.example.projetofinal.InserirMedicosFragment"
+        android:id="@+id/EditarMedicosFragment"
+        android:name="com.example.projetofinal.EditarMedicosFragment"
         android:label="@string/inserir_medico_label"
-        tools:layout="@layout/fragment_inserir_medico">
+        tools:layout="@layout/fragment_editar_medico">
         <action
-            android:id="@+id/action_InserirMedicosFragment_to_ListaMedicosFragment"
+            android:id="@+id/action_EditarMedicosFragment_to_ListaMedicosFragment"
             app:destination="@id/ListaMedicosFragment" />
     </fragment>
     <fragment

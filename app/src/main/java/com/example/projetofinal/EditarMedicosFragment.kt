@@ -14,18 +14,18 @@ import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
-import com.example.projetofinal.databinding.FragmentInserirMedicoBinding
+import com.example.projetofinal.databinding.FragmentEditarMedicoBinding
 import com.google.android.material.snackbar.Snackbar
 
 
 /**
  * A simple [Fragment] subclass.
- * Use the [InserirMedicosFragment.newInstance] factory method to
+ * Use the [EditarMedicosFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class InserirMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
+class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
-    private var _binding: FragmentInserirMedicoBinding? = null
+    private var _binding: FragmentEditarMedicoBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -35,7 +35,7 @@ class InserirMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentInserirMedicoBinding.inflate(inflater, container, false)
+        _binding = FragmentEditarMedicoBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -69,7 +69,7 @@ class InserirMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
     }
 
     private fun voltaListaMedicos() {
-        findNavController().navigate(R.id.action_InserirMedicosFragment_to_ListaMedicosFragment)
+        findNavController().navigate(R.id.action_EditarMedicosFragment_to_ListaMedicosFragment)
     }
 
     private fun guardar() {
