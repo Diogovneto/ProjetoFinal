@@ -41,4 +41,10 @@
     <string name="medico_inserido_sucesso">Médico inserido com sucesso.</string>
     <string name="erro_inserir_medico">Erro ao inserir médico.</string>
 
+    <string name="medico_eliminado_sucesso">Médico eliminado com sucesso.</string>
+    <string name="erro_eliminar_medico">Erro ao eliminar médico.</string>
+
+    <string name="titulo_dialogo_apagar_medico">Apagar Médico</string>
+    <string name="confirma_apagar_medico">Tem a certeza que quer apagar o Médico?</string>
+
 </resources>
