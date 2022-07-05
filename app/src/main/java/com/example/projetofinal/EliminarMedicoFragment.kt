@@ -13,6 +13,8 @@ class EliminarMedicoFragment : Fragment() {
 
     private val binding get() = _binding!!
 
+    private lateinit var medico: Medico
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,6 +34,15 @@ class EliminarMedicoFragment : Fragment() {
             val activity = requireActivity() as MainActivity
             activity.fragment = this
             activity.idMenuAtual = R.menu.menu_eliminar
+
+            medico = EliminarMedicoFragmentArgs.fromBundle(requireArguments()).medico
+
+            binding.textViewNome.text = medico.nome
+            binding.textViewTelemovel.text = medico.telemovel.toString()
+            binding.textViewEmail.text = medico.email
+            binding.textViewSexo.text = medico.sexo
+            binding.textViewCartaoCidadao.text = medico.cartao_cidadao.toString()
+            binding.textViewEspecialidade.text = medico.especialidade.especialidade
         }
 
         fun processaOpcaoMenu(item: MenuItem): Boolean {
