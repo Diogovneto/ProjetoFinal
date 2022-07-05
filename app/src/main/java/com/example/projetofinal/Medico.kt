@@ -3,6 +3,7 @@ package com.example.projetofinal
 import android.content.ContentValues
 import android.database.Cursor
 import android.provider.BaseColumns
+import java.io.Serializable
 
 data class Medico(
     var nome: String? = null,
@@ -11,7 +12,8 @@ data class Medico(
     var sexo: String,
     var cartao_cidadao: Long,
     var especialidade: Especialidade,
-    var id: Long = -1) {
+    var id: Long = -1
+): Serializable {
 
     fun toContentValues() : ContentValues {
         val valores = ContentValues()
