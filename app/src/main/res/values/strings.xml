@@ -8,6 +8,7 @@
     <string name="inserir_medico_label">Novo Médico</string>
     <string name="eliminar_medico_label">Eliminar Médico</string>
     <string name="alterar_medico_label">Alterar Médico</string>
+    <string name="inserir_paciente_label">Novo Paciente</string>
 
 
     <string name="Medicos">Médicos</string>
@@ -29,6 +30,17 @@
     <string name="sexo">Sexo</string>
     <string name="cartaocidadao">Cartao Cidadao</string>
     <string name="especialidade">Especialidade</string>
+
+    <string name="nome_paciente">Nome</string>
+    <string name="data_nacimento_paciente">Data Nascimento</string>
+    <string name="sexo_paciente">Sexo</string>
+    <string name="morada">Morada</string>
+    <string name="codigo_postal">Código Postal</string>
+    <string name="telemovel_paciente">telemóvel</string>
+    <string name="email_paciente">Email</string>
+    <string name="cartao_cidadao_paciente">Cartão Cidadão</string>
+    <string name="contribuinte">Contribuinte</string>
+    <string name="pulseira">Pulseira</string>
 
     <string name="guardar">Guardar</string>
     <string name="cancelar">Cancelar</string>

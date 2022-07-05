@@ -34,7 +34,7 @@
     <fragment
         android:id="@+id/InserirPacienteFragment"
         android:name="com.example.projetofinal."
-        android:label="fragment_inserir_livro"
+        android:label="@string/inserir_paciente_label"
         tools:layout="@layout/fragment_inserir_paciente" >
         <action
             android:id="@+id/action_InserirLivroFragment_to_ListaLivrosFragment"
