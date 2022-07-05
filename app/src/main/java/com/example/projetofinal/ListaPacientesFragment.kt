@@ -38,6 +38,8 @@ class ListaPacientesFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         adapterPacientes = AdapterPacientes(this)
         binding.recyclerViewPacientes.adapter = adapterPacientes
         binding.recyclerViewPacientes.layoutManager = LinearLayoutManager(requireContext())
+
+        (activity as MainActivity).idMenuAtual = R.menu.menu_lista_pacientes
     }
 
     override fun onDestroyView() {
