@@ -93,6 +93,24 @@ class MainActivity : AppCompatActivity() {
         } else {
             super.onOptionsItemSelected(item)
         }
+
+        val opcaoProcessadaEspecialidade : Boolean
+
+        if (fragment is MenuPrincipalFragment) {
+            opcaoProcessadaEspecialidade = (fragment as MenuPrincipalFragment).processaOpcaoMenu(item)
+        } else if (fragment is ListaEspecialidadesFragment) {
+            opcaoProcessadaEspecialidade = (fragment as ListaEspecialidadesFragment).processaOpcaoMenuEspecialidade(item)
+        } else if (fragment is InserirEspecialidadeFragment) {
+            opcaoProcessadaEspecialidade = (fragment as InserirEspecialidadeFragment).processaOpcaoMenuEspecialidade(item)
+        } else {
+            opcaoProcessadaEspecialidade = false
+        }
+
+        return if (opcaoProcessadaEspecialidade) {
+            true
+        } else {
+            super.onOptionsItemSelected(item)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
