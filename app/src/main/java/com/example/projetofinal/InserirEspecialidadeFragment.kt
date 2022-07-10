@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -37,11 +38,16 @@ class InserirEspecialidadeFragment : Fragment() {
 
         val activity = activity as MainActivity
         activity.fragment = this
-        //activity.idMenuAtual = R.menu.
+        activity.idMenuAtual = R.menu.menu_edicao_especialidade
     }
 
     fun processaOpcaoMenuEspecialidade(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.action_guardar -> true
+            R.id.action_cancelar -> {
+                findNavController().navigate(R.id.action_InserirEspecialidadeFragment_to_ListaEspecialidadeFragment)
+                true
+            }
             else -> false
         }
     }
