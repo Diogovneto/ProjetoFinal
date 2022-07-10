@@ -43,6 +43,8 @@
     <string name="cartao_cidadao_paciente">Cartão Cidadão</string>
     <string name="contribuinte">Contribuinte</string>
 
+    <string name="Especialidade">Especialidade</string>
+
     <string name="guardar">Guardar</string>
     <string name="cancelar">Cancelar</string>
 
