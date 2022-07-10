@@ -3,6 +3,7 @@ package com.example.projetofinal
 import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class AdapterEspecialidades(val fragment: ListaEspecialidadesFragment) : RecyclerView.Adapter<AdapterEspecialidades.ViewHolderEspecialidades>() {
@@ -15,6 +16,16 @@ class AdapterEspecialidades(val fragment: ListaEspecialidadesFragment) : Recycle
             }
         }
     class ViewHolderEspecialidades(itemEspecialidade: View) : RecyclerView.ViewHolder(itemEspecialidade) {
+        val textViewEspecialidade = itemEspecialidade.findViewById<TextView>(R.id.textViewEspecialidade)
+
+        var especialidade: Especialidade? = null
+            get() = field
+            set(value) {
+                field = value
+
+                textViewEspecialidade.text = especialidade?.especialidade ?: ""
+
+            }
     }
 
 
@@ -24,7 +35,8 @@ class AdapterEspecialidades(val fragment: ListaEspecialidadesFragment) : Recycle
     }
 
     override fun onBindViewHolder(holder: ViewHolderEspecialidades, position: Int) {
-        TODO("Not yet implemented")
+        cursor!!.moveToPosition(position)
+        holder.especialidade = Especialidade.fromCursor(cursor!!)
     }
 
     override fun getItemCount(): Int {
