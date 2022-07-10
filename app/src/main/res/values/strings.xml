@@ -5,10 +5,12 @@
     <string name="menu_principal_label">Menu Principal</string>
     <string name="lista_medicos_label">Médicos</string>
     <string name="lista_pacientes_label">Pacientes</string>
+    <string name="lista_especialidades_label">Especialidades</string>
     <string name="inserir_medico_label">Novo Médico</string>
     <string name="eliminar_medico_label">Eliminar Médico</string>
     <string name="alterar_medico_label">Alterar Médico</string>
     <string name="inserir_paciente_label">Novo Paciente</string>
+    <string name="inserir_especialidade_label">Nova Especialidade</string>
 
 
     <string name="Medicos">Médicos</string>

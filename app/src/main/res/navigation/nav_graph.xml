@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_MenuPrincipalFragment_to_ListaPacientesFragment"
             app:destination="@id/ListaPacientesFragment" />
+        <action
+            android:id="@+id/action_MenuPrincipalFragment_to_ListaEspecialidadesFragment"
+            app:destination="@id/ListaPacientesFragment" />
     </fragment>
     <fragment
         android:id="@+id/ListaPacientesFragment"
@@ -33,12 +36,34 @@
     </fragment>
     <fragment
         android:id="@+id/InserirPacienteFragment"
-        android:name="com.example.projetofinal."
+        android:name="com.example.projetofinal.InserirPacienteFragment"
         android:label="@string/inserir_paciente_label"
         tools:layout="@layout/fragment_inserir_paciente" >
         <action
             android:id="@+id/action_InserirPacienteFragment_to_ListaPacienteFragment"
             app:destination="@id/ListaPacientesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ListaEspecialidadeFragment"
+        android:name="com.example.projetofinal.ListaEspecialidadesFragment"
+        android:label="@string/lista_especialidades_label"
+        tools:layout="@layout/fragment_lista_especialidades">
+
+        <action
+            android:id="@+id/action_ListaEspecialidadeFragment_to_MenuPrincipalFragment"
+            app:destination="@id/MenuprincipalFragment" />
+        <action
+            android:id="@+id/action_ListaEspecialidadeFragment_to_InserirEspecialidadeFragment"
+            app:destination="@id/InserirEspecialidadeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/InserirEspecialidadeFragment"
+        android:name="com.example.projetofinal.InserirEspecialidadeFragment"
+        android:label="@string/inserir_especialidade_label"
+        tools:layout="@layout/fragment_inserir_especialidade" >
+        <action
+            android:id="@+id/action_InserirEspecialidadeFragment_to_ListaEspecialidadeFragment"
+            app:destination="@id/ListaEspecialidadeFragment" />
     </fragment>
     <fragment
         android:id="@+id/ListaMedicosFragment"
