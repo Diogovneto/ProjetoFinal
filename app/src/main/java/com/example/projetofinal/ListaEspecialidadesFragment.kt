@@ -9,11 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projetofinal.databinding.FragmentListaEspecialidadesBinding
 
 class ListaEspecialidadesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
     private var _binding: FragmentListaEspecialidadesBinding? = null
+    private var adapterEspecialidades: AdapterEspecialidades? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -34,9 +36,9 @@ class ListaEspecialidadesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cu
 
         LoaderManager.getInstance(this).initLoader(ID_LOADER_ESPECIALIDADES, null, this)
 
-        //binding.buttonSecond.setOnClickListener {
-        //    findNavController().navigate(R.id.action_ListaEspecialidadesFragment_to_MenuPrincipalFragment)
-        //}
+        adapterEspecialidades = AdapterEspecialidades()
+        binding.recyclerViewEspecialidades.adapter = adapterEspecialidades
+        binding.recyclerViewEspecialidades.layoutManager = LinearLayoutManager(requireContext())
     }
 
     override fun onDestroyView() {
