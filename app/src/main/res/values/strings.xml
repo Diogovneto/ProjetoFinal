@@ -40,7 +40,6 @@
     <string name="email_paciente">Email</string>
     <string name="cartao_cidadao_paciente">Cartão Cidadão</string>
     <string name="contribuinte">Contribuinte</string>
-    <string name="pulseira">Pulseira</string>
 
     <string name="guardar">Guardar</string>
     <string name="cancelar">Cancelar</string>
@@ -61,7 +60,6 @@
     <string name="emailP_obrigatorio">Preencha o email</string>
     <string name="cartao_cidadaoP_obrigatorio">Preencha o cartão de cidadão</string>
     <string name="contribuinte_obrigatorio">Preencha o contribuinte</string>
-    <string name="pulseira_obrigatoria">Escolha a pulseira</string>
 
     <string name="paciente_inserido_sucesso">Paciente inserido com sucesso.</string>
     <string name="erro_inserir_paciente">Erro ao inserir paciente.</string>

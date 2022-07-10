@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SimpleCursorAdapter
-import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
@@ -43,7 +41,7 @@ class InserirPacienteFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
 
         val activity = requireActivity() as MainActivity
         activity.fragment = this
-        //activity.idMenuAtual = R.menu.
+        activity.idMenuAtual = R.menu.menu_edicao_paciente
     }
 
     fun processaOpcaoMenuPaciente(item: MenuItem): Boolean {
@@ -121,12 +119,6 @@ class InserirPacienteFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
             return
         }
 
-        val idPulseira = binding.spinnerPulseira.selectedItemId
-        if (idPulseira == Spinner.INVALID_ROW_ID) {
-            binding.textViewPulseira.error = getString(R.string.pulseira_obrigatoria)
-            binding.spinnerPulseira.requestFocus()
-            return
-        }
 
         val paciente = Paciente(
             nome,
@@ -134,10 +126,10 @@ class InserirPacienteFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
             sexo,
             morada,
             codigopostal,
-            telemovel.toLong(),
+            telemovel,
             email,
-            cartaocidadao.toLong(),
-            contribuinte.toLong(),
+            cartaocidadao,
+            contribuinte,
 
         )
 
@@ -171,17 +163,10 @@ class InserirPacienteFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
 
 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
-        binding.spinnerPulseira.adapter = SimpleCursorAdapter(
-            requireContext(),
-            android.R.layout.simple_list_item_1,
-            data,
-            arrayOf(TabelaBDPulseiras.CAMPO_PULSEIRA),
-            intArrayOf(android.R.id.text1),
-            0
-        )
+
     }
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
-        binding.spinnerPulseira.adapter = null
+
     }
 }

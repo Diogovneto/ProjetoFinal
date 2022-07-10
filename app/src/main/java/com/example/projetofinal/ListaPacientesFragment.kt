@@ -43,7 +43,7 @@ class ListaPacientesFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
 
         val activity = activity as MainActivity
         activity.fragment = this
-        activity.idMenuAtual = R.menu.menu_lista
+        activity.idMenuAtual = R.menu.menu_lista_pacientes
     }
 
     fun processaOpcaoMenuPaciente(item: MenuItem): Boolean {

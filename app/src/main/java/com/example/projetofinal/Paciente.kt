@@ -10,10 +10,10 @@ class Paciente(
     var sexo: String,
     var morada: String,
     var codigo_postal: String,
-    var telemovel: Long,
+    var telemovel: String,
     var email: String,
-    var cartao_cidadao: Long,
-    var contribuinte: Long,
+    var cartao_cidadao: String,
+    var contribuinte: String,
     var id: Long = -1) {
 
     fun toContentValues() : ContentValues {
@@ -53,10 +53,10 @@ class Paciente(
             val sexo = cursor.getString(posSexo)
             val morada = cursor.getString(posMorada)
             val codigo_postal = cursor.getString(posCodigoPostal)
-            val telemovel = cursor.getLong(postelemovel)
+            val telemovel = cursor.getString(postelemovel)
             val email = cursor.getString(posEmail)
-            val cartao_cidadao = cursor.getLong(posCartaoCidadao)
-            val contribuinte = cursor.getLong(posContribuinte)
+            val cartao_cidadao = cursor.getString(posCartaoCidadao)
+            val contribuinte = cursor.getString(posContribuinte)
 
             return Paciente(nome, data_nascimento, sexo, morada, codigo_postal, telemovel, email, cartao_cidadao, contribuinte, id)
         }

@@ -27,7 +27,6 @@ class AdapterPacientes(val fragment: ListaPacientesFragment): RecyclerView.Adapt
         val textViewEmail = itemPaciente.findViewById<TextView>(R.id.textViewEmail)
         val textViewCartaoCidadao = itemPaciente.findViewById<TextView>(R.id.textViewCartaoCidadaoPaciente)
         val textViewContribuinte = itemPaciente.findViewById<TextView>(R.id.textViewContribuinte)
-        val textViewPulseira = itemPaciente.findViewById<TextView>(R.id.textViewPulseira)
 
         var paciente: Paciente? = null
             get() = field
