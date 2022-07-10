@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
+import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import com.example.projetofinal.databinding.FragmentListaEspecialidadesBinding
 
@@ -31,6 +32,8 @@ class ListaEspecialidadesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cu
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        LoaderManager.getInstance(this).initLoader(ID_LOADER_ESPECIALIDADES, null, this)
+
         //binding.buttonSecond.setOnClickListener {
         //    findNavController().navigate(R.id.action_ListaEspecialidadesFragment_to_MenuPrincipalFragment)
         //}
@@ -42,9 +45,15 @@ class ListaEspecialidadesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cu
     }
 
 
-    override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
-        TODO("Not yet implemented")
-    }
+    override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> =
+        CursorLoader(
+            requireContext(),
+            ContentProviderConsultas.ENDERECO_ESPECIALIDADES,
+            TabelaBDEspecialidades.TODAS_COLUNAS,
+            null,
+            null,
+            TabelaBDEspecialidades.CAMPO_ESPECIALIDADE
+        )
 
 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
@@ -54,5 +63,9 @@ class ListaEspecialidadesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cu
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
         TODO("Not yet implemented")
+    }
+
+    companion object {
+        const val ID_LOADER_ESPECIALIDADES = 0
     }
 }
