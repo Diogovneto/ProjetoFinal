@@ -13,13 +13,11 @@ class TabelaBDPacientes (db: SQLiteDatabase) : TabelaBD(db, NOME) {
                 " $CAMPO_DATA_NASCIMENTO TEXT NOT NULL, " +
                 "$CAMPO_SEXO TEXT NOT NULL, " +
                 "$CAMPO_MORADA TEXT NOT NULL, " +
-                "$CAMPO_CODIGO_POSTAL INTEGER NOT NULL, " +
-                "$CAMPO_TELEMOVEL INTEGER NOT NULL, " +
+                "$CAMPO_CODIGO_POSTAL TEXT NOT NULL, " +
+                "$CAMPO_TELEMOVEL TEXT NOT NULL, " +
                 "$CAMPO_EMAIL TEXT NOT NULL, " +
-                "$CAMPO_CARTAO_CIDADAO INTEGER NOT NULL, " +
-                "$CAMPO_CONTRIBUINTE INTEGER NOT NULL," +
-                "$CAMPO_PULSEIRA_ID INTEGER NOT NULL," +
-                "FOREIGN KEY ($CAMPO_PULSEIRA_ID) REFERENCES ${TabelaBDPulseiras.NOME}(${BaseColumns._ID}) ON DELETE RESTRICT)")
+                "$CAMPO_CARTAO_CIDADAO TEXT NOT NULL, " +
+                "$CAMPO_CONTRIBUINTE TEXT NOT NULL")
 
     }
 
@@ -32,7 +30,7 @@ class TabelaBDPacientes (db: SQLiteDatabase) : TabelaBD(db, NOME) {
         orderBy: String?
     ): Cursor {
         val queryBuilder = SQLiteQueryBuilder()
-        queryBuilder.tables = "$NOME INNER JOIN ${TabelaBDPulseiras.NOME} ON ${TabelaBDPulseiras.NOME}.${BaseColumns._ID} = ${CAMPO_PULSEIRA_ID}"
+        queryBuilder.tables = "$NOME INNER JOIN ${TabelaBDPulseiras.NOME} ON ${TabelaBDPulseiras.NOME}.${BaseColumns._ID}"
 
         return queryBuilder.query(db, columns, selection, selectionArgs, groupBy, having, orderBy)
     }
@@ -50,7 +48,6 @@ class TabelaBDPacientes (db: SQLiteDatabase) : TabelaBD(db, NOME) {
         const val CAMPO_EMAIL = "Email"
         const val CAMPO_CARTAO_CIDADAO = "CartaoCidadao"
         const val CAMPO_CONTRIBUINTE = "Contribuinte"
-        const val CAMPO_PULSEIRA_ID = "Pulseiraid"
 
         val TODAS_COLUNAS = arrayOf(
             CAMPO_ID,
@@ -61,8 +58,7 @@ class TabelaBDPacientes (db: SQLiteDatabase) : TabelaBD(db, NOME) {
             CAMPO_TELEMOVEL,
             CAMPO_EMAIL,
             CAMPO_CARTAO_CIDADAO,
-            CAMPO_CONTRIBUINTE,
-            TabelaBDPulseiras.CAMPO_PULSEIRA)
+            CAMPO_CONTRIBUINTE)
 
     }
 }

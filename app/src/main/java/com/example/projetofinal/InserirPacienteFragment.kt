@@ -138,7 +138,7 @@ class InserirPacienteFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
             email,
             cartaocidadao.toLong(),
             contribuinte.toLong(),
-            Pulseira("", idPulseira) // O nome da categoria não interessa porque o que é guardado é a chave estrangeira
+
         )
 
         val endereco = requireActivity().contentResolver.insert(
