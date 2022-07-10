@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterEspecialidades : RecyclerView.Adapter<AdapterEspecialidades.ViewHolderEspecialidades>() {
+class AdapterEspecialidades(val fragment: ListaEspecialidadesFragment) : RecyclerView.Adapter<AdapterEspecialidades.ViewHolderEspecialidades>() {
     var cursor: Cursor? = null
         get() = field
         set(value) {
@@ -19,7 +19,8 @@ class AdapterEspecialidades : RecyclerView.Adapter<AdapterEspecialidades.ViewHol
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderEspecialidades {
-        TODO("Not yet implemented")
+        val itemEspecialidade = fragment.layoutInflater.inflate(R.layout.item_especialidade, parent, false)
+        return ViewHolderEspecialidades(itemEspecialidade)
     }
 
     override fun onBindViewHolder(holder: ViewHolderEspecialidades, position: Int) {

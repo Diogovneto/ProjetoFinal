@@ -36,7 +36,7 @@ class ListaEspecialidadesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cu
 
         LoaderManager.getInstance(this).initLoader(ID_LOADER_ESPECIALIDADES, null, this)
 
-        adapterEspecialidades = AdapterEspecialidades()
+        adapterEspecialidades = AdapterEspecialidades(this)
         binding.recyclerViewEspecialidades.adapter = adapterEspecialidades
         binding.recyclerViewEspecialidades.layoutManager = LinearLayoutManager(requireContext())
     }
