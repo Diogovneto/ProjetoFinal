@@ -39,6 +39,8 @@ class ListaEspecialidadesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cu
         adapterEspecialidades = AdapterEspecialidades(this)
         binding.recyclerViewEspecialidades.adapter = adapterEspecialidades
         binding.recyclerViewEspecialidades.layoutManager = LinearLayoutManager(requireContext())
+
+        (activity as MainActivity).idMenuAtual = R.menu.menu_lista_especialidades
     }
 
     override fun onDestroyView() {
