@@ -102,6 +102,8 @@ class MainActivity : AppCompatActivity() {
             opcaoProcessadaEspecialidade = (fragment as ListaEspecialidadesFragment).processaOpcaoMenuEspecialidade(item)
         } else if (fragment is InserirEspecialidadeFragment) {
             opcaoProcessadaEspecialidade = (fragment as InserirEspecialidadeFragment).processaOpcaoMenuEspecialidade(item)
+        } else if (fragment is EliminarEspecialidadeFragment) {
+            opcaoProcessada = (fragment as EliminarEspecialidadeFragment).processaOpcaoMenuEspecialidade(item)
         } else {
             opcaoProcessadaEspecialidade = false
         }
