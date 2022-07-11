@@ -15,8 +15,6 @@ class EliminarEspecialidadeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private lateinit var especialidade: Especialidade
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,11 +34,6 @@ class EliminarEspecialidadeFragment : Fragment() {
         val activity = requireActivity() as MainActivity
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_eliminar_especialidade
-
-        especialidade = EliminarEspecialidadeFragmentArgs.fromBundle(requireArguments()).especialidade
-
-        binding.textViewEspecialidade.text = especialidade.especialidade
-
     }
 
     fun processaOpcaoMenuEspecialidade(item: MenuItem): Boolean {
