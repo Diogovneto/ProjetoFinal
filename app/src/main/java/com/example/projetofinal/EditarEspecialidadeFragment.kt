@@ -8,12 +8,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.projetofinal.databinding.FragmentInserirEspecialidadeBinding
+import com.example.projetofinal.databinding.FragmentEditarEspecialidadeBinding
 import com.google.android.material.snackbar.Snackbar
 
 
-class InserirEspecialidadeFragment : Fragment() {
-    private var _binding: FragmentInserirEspecialidadeBinding? = null
+class EditarEspecialidadeFragment : Fragment() {
+    private var _binding: FragmentEditarEspecialidadeBinding? = null
 
     private val binding get() = _binding!!
 
@@ -22,7 +22,7 @@ class InserirEspecialidadeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_inserir_especialidade, container, false)
+        return inflater.inflate(R.layout.fragment_editar_especialidade, container, false)
     }
 
     override fun onDestroyView() {
@@ -53,7 +53,7 @@ class InserirEspecialidadeFragment : Fragment() {
     }
 
     private fun voltaListaEspecialidades() {
-        findNavController().navigate(R.id.action_InserirEspecialidadeFragment_to_ListaEspecialidadeFragment)
+        findNavController().navigate(R.id.action_EditarEspecialidadeFragment_to_ListaEspecialidadeFragment)
     }
 
     private fun guardar() {
@@ -65,7 +65,7 @@ class InserirEspecialidadeFragment : Fragment() {
         }
 
         val especialidade_insere = Especialidade(
-            especialidade// O nome da categoria não interessa porque o que é guardado é a chave estrangeira
+            especialidade
         )
 
         val endereco = requireActivity().contentResolver.insert(

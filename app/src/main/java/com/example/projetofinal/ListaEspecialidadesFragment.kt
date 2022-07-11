@@ -58,7 +58,7 @@ class ListaEspecialidadesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cu
     fun processaOpcaoMenuEspecialidade(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_inserir -> {
-                findNavController().navigate(R.id.action_ListaEspecialidadeFragment_to_InserirEspecialidadeFragment)
+                findNavController().navigate(R.id.action_ListaEspecialidadeFragment_to_EditarEspecialidadeFragment)
                 return true
             }
             R.id.action_alterar -> true

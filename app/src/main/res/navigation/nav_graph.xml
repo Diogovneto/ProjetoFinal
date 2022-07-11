@@ -53,19 +53,19 @@
             android:id="@+id/action_ListaEspecialidadeFragment_to_MenuPrincipalFragment"
             app:destination="@id/MenuprincipalFragment" />
         <action
-            android:id="@+id/action_ListaEspecialidadeFragment_to_InserirEspecialidadeFragment"
-            app:destination="@id/InserirEspecialidadeFragment" />
+            android:id="@+id/action_ListaEspecialidadeFragment_to_EditarEspecialidadeFragment"
+            app:destination="@id/EditarEspecialidadeFragment" />
         <action
             android:id="@+id/action_ListaEspecialidadeFragment_to_eliminarEspecialidadeFragment"
             app:destination="@id/EliminarEspecialidadeFragment" />
     </fragment>
     <fragment
-        android:id="@+id/InserirEspecialidadeFragment"
-        android:name="com.example.projetofinal.InserirEspecialidadeFragment"
-        android:label="@string/inserir_especialidade_label"
-        tools:layout="@layout/fragment_inserir_especialidade" >
+        android:id="@+id/EditarEspecialidadeFragment"
+        android:name="com.example.projetofinal.EditarEspecialidadeFragment"
+        android:label="@string/editar_especialidade_label"
+        tools:layout="@layout/fragment_editar_especialidade" >
         <action
-            android:id="@+id/action_InserirEspecialidadeFragment_to_ListaEspecialidadeFragment"
+            android:id="@+id/action_EditarEspecialidadeFragment_to_ListaEspecialidadeFragment"
             app:destination="@id/ListaEspecialidadeFragment" />
     </fragment>
     <fragment

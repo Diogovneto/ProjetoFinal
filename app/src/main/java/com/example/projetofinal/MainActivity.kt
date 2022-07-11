@@ -65,6 +65,16 @@ class MainActivity : AppCompatActivity() {
             opcaoProcessada = (fragment as EditarMedicosFragment).processaOpcaoMenu(item)
         } else if (fragment is EliminarMedicoFragment) {
             opcaoProcessada = (fragment as EliminarMedicoFragment).processaOpcaoMenu(item)
+        }else if (fragment is ListaEspecialidadesFragment) {
+            opcaoProcessada = (fragment as ListaEspecialidadesFragment).processaOpcaoMenuEspecialidade(item)
+        } else if (fragment is EditarEspecialidadeFragment) {
+            opcaoProcessada = (fragment as EditarEspecialidadeFragment).processaOpcaoMenuEspecialidade(item)
+        } else if (fragment is EliminarEspecialidadeFragment) {
+            opcaoProcessada = (fragment as EliminarEspecialidadeFragment).processaOpcaoMenuEspecialidade(item)
+        }else if (fragment is ListaPacientesFragment) {
+            opcaoProcessada = (fragment as ListaPacientesFragment).processaOpcaoMenuPaciente(item)
+        } else if (fragment is InserirPacienteFragment) {
+            opcaoProcessada = (fragment as InserirPacienteFragment).processaOpcaoMenuPaciente(item)
         }else {
             opcaoProcessada = false
         }
@@ -75,44 +85,6 @@ class MainActivity : AppCompatActivity() {
             super.onOptionsItemSelected(item)
         }
 
-
-        val opcaoProcessadaPaciente : Boolean
-
-        if (fragment is MenuPrincipalFragment) {
-            opcaoProcessadaPaciente = (fragment as MenuPrincipalFragment).processaOpcaoMenuPaciente(item)
-        } else if (fragment is ListaPacientesFragment) {
-            opcaoProcessadaPaciente = (fragment as ListaPacientesFragment).processaOpcaoMenuPaciente(item)
-        } else if (fragment is InserirPacienteFragment) {
-            opcaoProcessadaPaciente = (fragment as InserirPacienteFragment).processaOpcaoMenuPaciente(item)
-        }else {
-            opcaoProcessadaPaciente = false
-        }
-
-        return if (opcaoProcessadaPaciente) {
-            true
-        } else {
-            super.onOptionsItemSelected(item)
-        }
-
-        val opcaoProcessadaEspecialidade : Boolean
-
-        if (fragment is MenuPrincipalFragment) {
-            opcaoProcessadaEspecialidade = (fragment as MenuPrincipalFragment).processaOpcaoMenu(item)
-        } else if (fragment is ListaEspecialidadesFragment) {
-            opcaoProcessadaEspecialidade = (fragment as ListaEspecialidadesFragment).processaOpcaoMenuEspecialidade(item)
-        } else if (fragment is InserirEspecialidadeFragment) {
-            opcaoProcessadaEspecialidade = (fragment as InserirEspecialidadeFragment).processaOpcaoMenuEspecialidade(item)
-        } else if (fragment is EliminarEspecialidadeFragment) {
-            opcaoProcessada = (fragment as EliminarEspecialidadeFragment).processaOpcaoMenuEspecialidade(item)
-        } else {
-            opcaoProcessadaEspecialidade = false
-        }
-
-        return if (opcaoProcessadaEspecialidade) {
-            true
-        } else {
-            super.onOptionsItemSelected(item)
-        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

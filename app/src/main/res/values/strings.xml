@@ -10,7 +10,7 @@
     <string name="eliminar_medico_label">Eliminar Médico</string>
     <string name="alterar_medico_label">Alterar Médico</string>
     <string name="inserir_paciente_label">Novo Paciente</string>
-    <string name="inserir_especialidade_label">Nova Especialidade</string>
+    <string name="editar_especialidade_label">Nova Especialidade</string>
     <string name="eliminar_especialidade_label">Eliminar Especialidade</string>
 
 
