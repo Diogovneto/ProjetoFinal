@@ -93,10 +93,10 @@ class BaseDadosTest {
                     "Masculino",
                     "Rua Teste n285",
                     "3750-598",
-                    938059434,
+                    "938059434",
                     "dvnetoubz@gmail.com",
-                    14537834,
-                    238316050)
+                    "14537834",
+                    "238316050")
             )
 
             db.close()
@@ -125,10 +125,10 @@ class BaseDadosTest {
                 "Masculino",
                 "Rua Teste n285",
                 "3750-598",
-                938059434,
+                "938059434",
                 "dvnetoubz@gmail.com",
-                14537834,
-                238316050
+                "14537834",
+                "238316050"
             )
             inserePaciente(db, paciente)
 
@@ -214,10 +214,10 @@ class BaseDadosTest {
             "Masculino",
             "Rua Teste n285",
             "3750-598",
-            123456789,
+            "123456789",
             "teste@gmail.com",
-            87654321,
-            834729457
+            "87654321",
+            "834729457"
         )
         inserePaciente(db, paciente)
 
@@ -270,10 +270,10 @@ class BaseDadosTest {
             "Masculino",
             "Rua teste n285",
             "3750-598",
-            938059434,
+            "938059434",
             "dvnetoubz@gmail.com",
-            14537834,
-            238316050)
+            "14537834",
+            "238316050")
 
         inserePaciente(db, pacienteCrianca)
 
@@ -284,10 +284,10 @@ class BaseDadosTest {
             "Masculino",
             "Avenida teste Bloco 2",
             "3750-500",
-            933648765,
+            "933648765",
             "ruipedro@gmail.com",
-            15436789,
-            867345095)
+            "15436789",
+            "867345095")
 
         inserePaciente(db, pacienteAdulto)
 
@@ -391,10 +391,10 @@ class BaseDadosTest {
             "Masculino",
             "Rua teste n285",
             "3750-598",
-            938059434,
+            "938059434",
             "dvnetoubz@gmail.com",
-            14537834,
-            238316050)
+            "14537834",
+            "238316050")
 
         inserePaciente(db, paciente)
 
@@ -404,10 +404,10 @@ class BaseDadosTest {
             "Masculino",
             "Avenida teste Bloco 2",
             "3750-500",
-            933648765,
+            "933648765",
             "ruipedro@gmail.com",
-            15436789,
-            867345095)
+            "15436789",
+            "867345095")
 
         inserePaciente(db, paciente2)
 
@@ -442,10 +442,10 @@ class BaseDadosTest {
             "Masculino",
             "Rua teste n285",
             "3750-598",
-            938059434,
+            "938059434",
             "dvnetoubz@gmail.com",
-            14537834,
-            238316050)
+            "14537834",
+            "238316050")
         inserePaciente(db, paciente)
 
         val consulta = Consulta(
@@ -534,10 +534,10 @@ class BaseDadosTest {
             "Masculino",
             "Rua teste n285",
             "3750-598",
-            938059434,
+            "938059434",
             "dvnetoubz@gmail.com",
-            14537834,
-            238316050)
+            "14537834",
+            "238316050")
         inserePaciente(db, paciente)
 
         val cursor = TabelaBDPacientes(db).query(
@@ -572,10 +572,10 @@ class BaseDadosTest {
             "Masculino",
             "Rua teste n285",
             "3750-598",
-            938059434,
+            "938059434",
             "dvnetoubz@gmail.com",
-            14537834,
-            238316050)
+            "14537834",
+            "238316050")
         inserePaciente(db, paciente)
 
         val consulta = Consulta(

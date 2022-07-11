@@ -15,6 +15,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projetofinal.databinding.FragmentListaEspecialidadesBinding
 
 class ListaEspecialidadesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
+    var EspecialidadeSelecionada: Especialidade? = null
+        get() = field
+        set(value) {
+            if (value != field) {
+                field = value
+                (requireActivity() as MainActivity).atualizaOpcoesLista(field != null)
+            }
+        }
 
     private var _binding: FragmentListaEspecialidadesBinding? = null
     private var adapterEspecialidades: AdapterEspecialidades? = null

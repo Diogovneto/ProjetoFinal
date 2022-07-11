@@ -19,7 +19,7 @@
             app:destination="@id/ListaPacientesFragment" />
         <action
             android:id="@+id/action_MenuPrincipalFragment_to_ListaEspecialidadesFragment"
-            app:destination="@id/ListaPacientesFragment" />
+            app:destination="@id/ListaEspecialidadeFragment" />
     </fragment>
     <fragment
         android:id="@+id/ListaPacientesFragment"

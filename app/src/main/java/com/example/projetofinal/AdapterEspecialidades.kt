@@ -15,7 +15,7 @@ class AdapterEspecialidades(val fragment: ListaEspecialidadesFragment) : Recycle
                 notifyDataSetChanged()
             }
         }
-    class ViewHolderEspecialidades(itemEspecialidade: View) : RecyclerView.ViewHolder(itemEspecialidade), View.OnClickListener {
+    inner class ViewHolderEspecialidades(itemEspecialidade: View) : RecyclerView.ViewHolder(itemEspecialidade), View.OnClickListener {
         val textViewEspecialidade = itemEspecialidade.findViewById<TextView>(R.id.textViewEspecialidade)
 
         init {
@@ -38,6 +38,7 @@ class AdapterEspecialidades(val fragment: ListaEspecialidadesFragment) : Recycle
 
         private fun seleciona() {
             seleccionado = this
+            fragment.EspecialidadeSelecionada = especialidade
             itemView.setBackgroundResource(android.R.color.holo_orange_light)
         }
 
@@ -45,9 +46,6 @@ class AdapterEspecialidades(val fragment: ListaEspecialidadesFragment) : Recycle
             itemView.setBackgroundResource(android.R.color.white)
         }
 
-        companion object {
-            var seleccionado : ViewHolderEspecialidades? = null
-        }
     }
 
 
@@ -65,5 +63,9 @@ class AdapterEspecialidades(val fragment: ListaEspecialidadesFragment) : Recycle
         if (cursor == null) return 0
 
         return cursor!!.count
+    }
+
+    companion object {
+        var seleccionado : ViewHolderEspecialidades? = null
     }
 }

@@ -1,8 +1,6 @@
 package com.example.projetofinal
 
-import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
-import android.database.sqlite.SQLiteQueryBuilder
 import android.provider.BaseColumns
 
 class TabelaBDPacientes (db: SQLiteDatabase) : TabelaBD(db, NOME) {
@@ -10,29 +8,15 @@ class TabelaBDPacientes (db: SQLiteDatabase) : TabelaBD(db, NOME) {
     override fun cria() {
         db.execSQL("CREATE TABLE $nome (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "$CAMPO_NOME TEXT NOT NULL," +
-                " $CAMPO_DATA_NASCIMENTO TEXT NOT NULL, " +
+                "$CAMPO_DATA_NASCIMENTO TEXT NOT NULL, " +
                 "$CAMPO_SEXO TEXT NOT NULL, " +
                 "$CAMPO_MORADA TEXT NOT NULL, " +
                 "$CAMPO_CODIGO_POSTAL TEXT NOT NULL, " +
                 "$CAMPO_TELEMOVEL TEXT NOT NULL, " +
                 "$CAMPO_EMAIL TEXT NOT NULL, " +
                 "$CAMPO_CARTAO_CIDADAO TEXT NOT NULL, " +
-                "$CAMPO_CONTRIBUINTE TEXT NOT NULL")
+                "$CAMPO_CONTRIBUINTE TEXT NOT NULL)")
 
-    }
-
-    override fun query(
-        columns: Array<String>,
-        selection: String?,
-        selectionArgs: Array<String>?,
-        groupBy: String?,
-        having: String?,
-        orderBy: String?
-    ): Cursor {
-        val queryBuilder = SQLiteQueryBuilder()
-        queryBuilder.tables = "$NOME INNER JOIN ${TabelaBDPulseiras.NOME} ON ${TabelaBDPulseiras.NOME}.${BaseColumns._ID}"
-
-        return queryBuilder.query(db, columns, selection, selectionArgs, groupBy, having, orderBy)
     }
 
     companion object {
