@@ -55,6 +55,9 @@
         <action
             android:id="@+id/action_ListaEspecialidadeFragment_to_InserirEspecialidadeFragment"
             app:destination="@id/InserirEspecialidadeFragment" />
+        <action
+            android:id="@+id/action_ListaEspecialidadeFragment_to_eliminarEspecialidadeFragment"
+            app:destination="@id/EliminarEspecialidadeFragment" />
     </fragment>
     <fragment
         android:id="@+id/InserirEspecialidadeFragment"
@@ -63,6 +66,15 @@
         tools:layout="@layout/fragment_inserir_especialidade" >
         <action
             android:id="@+id/action_InserirEspecialidadeFragment_to_ListaEspecialidadeFragment"
+            app:destination="@id/ListaEspecialidadeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/EliminarEspecialidadeFragment"
+        android:name="com.example.projetofinal.EliminarEspecialidadeFragment"
+        android:label="@string/eliminar_especialidade_label"
+        tools:layout="@layout/fragment_eliminar_especialidade">
+        <action
+            android:id="@+id/action_eliminarEspecialidadeFragment_to_ListaEspecialidadeFragment"
             app:destination="@id/ListaEspecialidadeFragment" />
     </fragment>
     <fragment
