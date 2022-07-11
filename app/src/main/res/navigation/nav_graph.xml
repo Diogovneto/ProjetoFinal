@@ -62,7 +62,6 @@
     <fragment
         android:id="@+id/EditarEspecialidadeFragment"
         android:name="com.example.projetofinal.EditarEspecialidadeFragment"
-        android:label="@string/editar_especialidade_label"
         tools:layout="@layout/fragment_editar_especialidade" >
         <action
             android:id="@+id/action_EditarEspecialidadeFragment_to_ListaEspecialidadeFragment"

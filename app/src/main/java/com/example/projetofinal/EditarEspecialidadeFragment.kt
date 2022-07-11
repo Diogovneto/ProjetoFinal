@@ -1,5 +1,6 @@
 package com.example.projetofinal
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -46,6 +47,7 @@ class EditarEspecialidadeFragment : Fragment() {
             }
         }
 
+        activity.atualizaTitulo(if (especialidade == null) R.string.editar_especialidade_label else R.string.alterar_especialidade_label)
     }
 
     fun processaOpcaoMenuEspecialidade(item: MenuItem): Boolean {
@@ -74,20 +76,54 @@ class EditarEspecialidadeFragment : Fragment() {
             return
         }
 
-        val especialidade_insere = Especialidade(
-            especialidade
+        if (especialidade == null) {
+            insereEspecialidade(especialidade)
+        } else {
+            alteraEspecialidade(especialidade)
+        }
+    }
+
+    private fun alteraEspecialidade(especialidade_nome: String) {
+        val enderecoEspecialidade = Uri.withAppendedPath(ContentProviderConsultas.ENDERECO_ESPECIALIDADES, "${especialidade!!.id}")
+
+        val especialidade = Especialidade(especialidade_nome)
+
+        val registosAlterados = requireActivity().contentResolver.update(
+            enderecoEspecialidade,
+            especialidade.toContentValues(),
+            null,
+            null
         )
+
+        if (registosAlterados == 1) {
+            Toast.makeText(requireContext(), R.string.especialidade_alterada_sucesso, Toast.LENGTH_LONG).show()
+            voltaListaEspecialidades()
+        } else {
+            Snackbar.make(
+                binding.editTextEspecialidade,
+                R.string.erro_guardar_especialidade,
+                Snackbar.LENGTH_INDEFINITE
+            ).show()
+        }
+    }
+
+    private fun insereEspecialidade(especialidade: String) {
+        val especialidade = Especialidade(especialidade)
 
         val endereco = requireActivity().contentResolver.insert(
             ContentProviderConsultas.ENDERECO_ESPECIALIDADES,
-            especialidade_insere.toContentValues()
+            especialidade.toContentValues()
         )
 
         if (endereco != null) {
             Toast.makeText(requireContext(), R.string.especialidade_inserido_sucesso, Toast.LENGTH_LONG).show()
             voltaListaEspecialidades()
         } else {
-            Snackbar.make(binding.editTextEspecialidade, R.string.erro_inserir_especialidade, Snackbar.LENGTH_INDEFINITE).show()
+            Snackbar.make(
+                binding.editTextEspecialidade,
+                R.string.erro_guardar_especialidade,
+                Snackbar.LENGTH_INDEFINITE
+            ).show()
         }
     }
     

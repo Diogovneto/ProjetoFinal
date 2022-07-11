@@ -135,7 +135,7 @@ class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
     }
 
 
-    private fun alteraMedico(nome: String, telemovel: Long, email: String, sexo: String,cartaocidadao: Long, idEspecialidade: Long) {
+    private fun alteraMedico(nome: String, telemovel: Long, email: String, sexo: String,cartaocidadao: Long,idEspecialidade: Long) {
         val enderecoMedico = Uri.withAppendedPath(ContentProviderConsultas.ENDERECO_MEDICOS, "${medico!!.id}")
 
         val medico = Medico(
@@ -147,7 +147,7 @@ class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
             Especialidade(
                 "",
                 idEspecialidade
-            ) // O nome da categoria não interessa porque o que é guardado é a chave estrangeira
+            )
         )
 
         val registosAlterados = requireActivity().contentResolver.update(

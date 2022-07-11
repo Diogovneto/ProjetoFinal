@@ -18,10 +18,8 @@ class ListaEspecialidadesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cu
     var EspecialidadeSelecionada: Especialidade? = null
         get() = field
         set(value) {
-            if (value != field) {
-                field = value
-                (requireActivity() as MainActivity).atualizaOpcoesLista(field != null)
-            }
+            field = value
+            (requireActivity() as MainActivity).atualizaOpcoesLista(field != null)
         }
 
     private var _binding: FragmentListaEspecialidadesBinding? = null
@@ -100,6 +98,8 @@ class ListaEspecialidadesFragment : Fragment(), LoaderManager.LoaderCallbacks<Cu
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
         adapterEspecialidades!!.cursor = null
+
+        if (_binding == null) return
     }
 
     companion object {

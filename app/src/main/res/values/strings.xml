@@ -12,6 +12,7 @@
     <string name="inserir_paciente_label">Novo Paciente</string>
     <string name="editar_especialidade_label">Nova Especialidade</string>
     <string name="eliminar_especialidade_label">Eliminar Especialidade</string>
+    <string name="alterar_especialidade_label">Alterar Especialidade</string>
 
 
     <string name="Medicos">Médicos</string>
@@ -89,5 +90,8 @@
 
     <string name="titulo_dialogo_apagar_especialidade">Apagar Especialidade</string>
     <string name="confirma_apagar_especialidade">Tem a certeza que quer apagar a especialidade?</string>
+
+    <string name="especialidade_alterada_sucesso">Especialidade alterada com sucesso.</string>
+    <string name="erro_guardar_especialidade">Erro ao guardar especialidade.</string>
 
 </resources>
