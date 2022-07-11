@@ -81,7 +81,13 @@
 
     <string name="especialidade_obrigatoria_especialidade">Preencha a Especialidade</string>
 
-    <string name="especialidade_inserido_sucesso">Livro inserido com sucesso.</string>
-    <string name="erro_inserir_especialidade">Erro ao inserir livro.</string>
+    <string name="especialidade_inserido_sucesso">Especialidade inserida com sucesso.</string>
+    <string name="erro_inserir_especialidade">Erro ao inserir especialidade.</string>
+
+    <string name="especialidade_eliminada_sucesso">Especialidade eliminada com sucesso.</string>
+    <string name="erro_eliminar_especialidade">Erro ao eliminar Especialidade.</string>
+
+    <string name="titulo_dialogo_apagar_especialidade">Apagar Especialidade</string>
+    <string name="confirma_apagar_especialidade">Tem a certeza que quer apagar a especialidade?</string>
 
 </resources>
