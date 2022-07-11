@@ -67,6 +67,11 @@
         <action
             android:id="@+id/action_EditarEspecialidadeFragment_to_ListaEspecialidadeFragment"
             app:destination="@id/ListaEspecialidadeFragment" />
+        <argument
+            android:name="especialidade"
+            app:argType="com.example.projetofinal.Especialidade"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/EliminarEspecialidadeFragment"
