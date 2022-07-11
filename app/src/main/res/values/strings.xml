@@ -78,4 +78,9 @@
     <string name="titulo_dialogo_apagar_medico">Apagar Médico</string>
     <string name="confirma_apagar_medico">Tem a certeza que quer apagar o Médico?</string>
 
+    <string name="especialidade_obrigatoria_especialidade">Preencha a Especialidade</string>
+
+    <string name="especialidade_inserido_sucesso">Livro inserido com sucesso.</string>
+    <string name="erro_inserir_especialidade">Erro ao inserir livro.</string>
+
 </resources>
