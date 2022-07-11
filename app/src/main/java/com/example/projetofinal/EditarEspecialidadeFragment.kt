@@ -17,6 +17,8 @@ class EditarEspecialidadeFragment : Fragment() {
 
     private val binding get() = _binding!!
 
+    private var especialidade: Especialidade? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,6 +38,14 @@ class EditarEspecialidadeFragment : Fragment() {
         val activity = requireActivity() as MainActivity
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_edicao_especialidade
+
+        if (arguments != null) {
+            especialidade = EditarEspecialidadeFragmentArgs.fromBundle(requireArguments()).especialidade
+            if (especialidade != null) {
+                binding.editTextEspecialidade.setText(especialidade!!.especialidade)
+            }
+        }
+
     }
 
     fun processaOpcaoMenuEspecialidade(item: MenuItem): Boolean {
