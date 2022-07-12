@@ -17,7 +17,7 @@ class AdapterPacientes(val fragment: ListaPacientesFragment): RecyclerView.Adapt
             }
         }
 
-    class ViewHolderPacientes(itemPaciente: View) : RecyclerView.ViewHolder(itemPaciente) {
+    class ViewHolderPacientes(itemPaciente: View) : RecyclerView.ViewHolder(itemPaciente), View.OnClickListener {
         val textViewNome = itemPaciente.findViewById<TextView>(R.id.textViewNome)
         val textViewDataNascimento = itemPaciente.findViewById<TextView>(R.id.textViewDataNascimento)
         val textViewSexo = itemPaciente.findViewById<TextView>(R.id.textViewSexo)
@@ -27,6 +27,10 @@ class AdapterPacientes(val fragment: ListaPacientesFragment): RecyclerView.Adapt
         val textViewEmail = itemPaciente.findViewById<TextView>(R.id.textViewEmail)
         val textViewCartaoCidadao = itemPaciente.findViewById<TextView>(R.id.textViewCartaoCidadaoPaciente)
         val textViewContribuinte = itemPaciente.findViewById<TextView>(R.id.textViewContribuinte)
+
+        init {
+            itemPaciente.setOnClickListener(this)
+        }
 
         var paciente: Paciente? = null
             get() = field
@@ -38,11 +42,29 @@ class AdapterPacientes(val fragment: ListaPacientesFragment): RecyclerView.Adapt
                 textViewSexo.text = paciente?.sexo ?: ""
                 textViewMorada.text = paciente?.morada ?: ""
                 textViewCodigoPostal.text = paciente?.codigo_postal ?: ""
-                textViewTelemovel.text = paciente?.telemovel.toString()
+                textViewTelemovel.text = paciente?.telemovel ?: ""
                 textViewEmail.text = paciente?.email ?: ""
-                textViewCartaoCidadao.text = paciente?.cartao_cidadao.toString()
-                textViewContribuinte.text = paciente?.contribuinte.toString()
+                textViewCartaoCidadao.text = paciente?.cartao_cidadao ?: ""
+                textViewContribuinte.text = paciente?.contribuinte ?: ""
             }
+
+        override fun onClick(v: View?) {
+            seleccionado?.desseleciona()
+            this.seleciona()
+        }
+
+        private fun seleciona() {
+            seleccionado = this
+            itemView.setBackgroundResource(android.R.color.holo_orange_light)
+        }
+
+        private fun desseleciona() {
+            itemView.setBackgroundResource(android.R.color.white)
+        }
+
+        companion object {
+            var seleccionado : ViewHolderPacientes? = null
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderPacientes {
