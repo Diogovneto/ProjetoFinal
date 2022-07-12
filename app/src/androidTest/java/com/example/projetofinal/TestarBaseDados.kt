@@ -132,14 +132,16 @@ class BaseDadosTest {
             )
             inserePaciente(db, paciente)
 
+            val pulseira = Pulseira("Amarela")
+            inserePulseira(db, pulseira)
 
             val consulta = Consulta(
-                "07/06/2022",
-                "Infantil",
+                12052022,
                 "Garganta Inflamada",
-                15,
+                "10.00",
                 medico.id,
-                paciente.id
+                paciente.id,
+                pulseira.id
             )
 
             insereConsulta(db, consulta)
@@ -291,18 +293,25 @@ class BaseDadosTest {
 
         inserePaciente(db, pacienteAdulto)
 
+        val pulseira = Pulseira("Amarela")
+        inserePulseira(db, pulseira)
+
+        val pulseira2 = Pulseira("Vermelho")
+        inserePulseira(db, pulseira2)
+
         val consulta = Consulta(
-            "08/06/2022",
-            "Infantil",
+            12_05_2022,
             "Dores de cabeça e febre",
-            10,
+            "10.00",
             medicoDomicilio.id,
-            pacienteCrianca.id)
+            pacienteCrianca.id,
+            pulseira.id)
 
         insereConsulta(db, consulta)
 
         consulta.descricao = "vários sintomas COVID-19"
         medicoDomicilio.id = medicoCirurgiao.id
+        pulseira.id = pulseira2.id
 
 
 
@@ -448,13 +457,16 @@ class BaseDadosTest {
             "238316050")
         inserePaciente(db, paciente)
 
+        val pulseira = Pulseira("Amarela")
+        inserePulseira(db, pulseira)
+
         val consulta = Consulta(
-            "27/07/2022",
-            "Urgência",
+            27_07_2022,
             "Paciente com perna partida",
-            10,
+            "10.00",
             medico.id,
-            paciente.id)
+            paciente.id,
+            pulseira.id)
         insereConsulta(db, consulta)
 
         val registosEliminados = TabelaBDConsultas(db).delete(
@@ -578,13 +590,16 @@ class BaseDadosTest {
             "238316050")
         inserePaciente(db, paciente)
 
+        val pulseira = Pulseira("Amarela")
+        inserePulseira(db, pulseira)
+
         val consulta = Consulta(
-            "27/07/2022",
-            "Urgência",
+            27_07_2022,
             "Paciente com perna partida",
-            10,
+            "10.00",
             medico.id,
-            paciente.id)
+            paciente.id,
+            pulseira.id)
         insereConsulta(db, consulta)
 
         val cursor = TabelaBDConsultas(db).query(
