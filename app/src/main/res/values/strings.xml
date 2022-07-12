@@ -99,5 +99,11 @@
     <string name="especialidade_alterada_sucesso">Especialidade alterada com sucesso.</string>
     <string name="erro_guardar_especialidade">Erro ao guardar especialidade.</string>
 
+    <string name="paciente_eliminado_sucesso">Paciente eliminado com sucesso.</string>
+    <string name="erro_eliminar_paciente">Erro ao eliminar paciente.</string>
+
+    <string name="titulo_dialogo_apagar_paciente">Apagar paciente</string>
+    <string name="confirma_apagar_paciente">Tem a certeza que quer apagar o paciente?</string>
+
 
 </resources>

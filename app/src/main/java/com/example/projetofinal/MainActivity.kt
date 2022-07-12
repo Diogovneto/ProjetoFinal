@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
 
     var fragment : Fragment? = null
 
-
     var idMenuAtual = R.menu.menu_main
         get() = field
         set(value) {
@@ -65,17 +64,19 @@ class MainActivity : AppCompatActivity() {
             opcaoProcessada = (fragment as EditarMedicosFragment).processaOpcaoMenu(item)
         } else if (fragment is EliminarMedicoFragment) {
             opcaoProcessada = (fragment as EliminarMedicoFragment).processaOpcaoMenu(item)
-        }else if (fragment is ListaEspecialidadesFragment) {
+        } else if (fragment is ListaEspecialidadesFragment) {
             opcaoProcessada = (fragment as ListaEspecialidadesFragment).processaOpcaoMenuEspecialidade(item)
         } else if (fragment is EditarEspecialidadeFragment) {
             opcaoProcessada = (fragment as EditarEspecialidadeFragment).processaOpcaoMenuEspecialidade(item)
         } else if (fragment is EliminarEspecialidadeFragment) {
             opcaoProcessada = (fragment as EliminarEspecialidadeFragment).processaOpcaoMenuEspecialidade(item)
-        }else if (fragment is ListaPacientesFragment) {
+        } else if (fragment is ListaPacientesFragment) {
             opcaoProcessada = (fragment as ListaPacientesFragment).processaOpcaoMenuPaciente(item)
         } else if (fragment is InserirPacienteFragment) {
             opcaoProcessada = (fragment as InserirPacienteFragment).processaOpcaoMenuPaciente(item)
-        }else {
+        } else if (fragment is EliminarPacienteFragment) {
+            opcaoProcessada = (fragment as EliminarPacienteFragment).processaOpcaoMenuPaciente(item)
+        } else {
             opcaoProcessada = false
         }
 
@@ -84,7 +85,6 @@ class MainActivity : AppCompatActivity() {
         } else {
             super.onOptionsItemSelected(item)
         }
-
     }
 
     override fun onSupportNavigateUp(): Boolean {
