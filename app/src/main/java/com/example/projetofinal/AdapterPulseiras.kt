@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterPulseira : RecyclerView.Adapter<AdapterPulseira.ViewHolderPulseira>() {
+class AdapterPulseira(val fragment: ListaPulseirasFragment) : RecyclerView.Adapter<AdapterPulseira.ViewHolderPulseira>() {
 
     var cursor: Cursor? = null
         get() = field

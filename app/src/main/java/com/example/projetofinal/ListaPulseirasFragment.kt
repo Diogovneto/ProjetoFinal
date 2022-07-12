@@ -37,7 +37,7 @@ class ListaPulseirasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
 
         LoaderManager.getInstance(this).initLoader(ID_LOADER_PULSEIRAS, null, this)
 
-        adapterPulseira = AdapterPulseira()
+        adapterPulseira = AdapterPulseira(this)
         binding.recyclerViewLivros.adapter = adapterPulseira
         binding.recyclerViewLivros.layoutManager = LinearLayoutManager(requireContext())
     }
