@@ -17,7 +17,7 @@ class AdapterPacientes(val fragment: ListaPacientesFragment): RecyclerView.Adapt
             }
         }
 
-    class ViewHolderPacientes(itemPaciente: View) : RecyclerView.ViewHolder(itemPaciente), View.OnClickListener {
+    inner class ViewHolderPacientes(itemPaciente: View) : RecyclerView.ViewHolder(itemPaciente), View.OnClickListener {
         val textViewNome = itemPaciente.findViewById<TextView>(R.id.textViewNome)
         val textViewDataNascimento = itemPaciente.findViewById<TextView>(R.id.textViewDataNascimento)
         val textViewSexo = itemPaciente.findViewById<TextView>(R.id.textViewSexo)
@@ -55,6 +55,7 @@ class AdapterPacientes(val fragment: ListaPacientesFragment): RecyclerView.Adapt
 
         private fun seleciona() {
             seleccionado = this
+            fragment.pacienteSelecionado = paciente
             itemView.setBackgroundResource(android.R.color.holo_orange_light)
         }
 
@@ -62,9 +63,6 @@ class AdapterPacientes(val fragment: ListaPacientesFragment): RecyclerView.Adapt
             itemView.setBackgroundResource(android.R.color.white)
         }
 
-        companion object {
-            var seleccionado : ViewHolderPacientes? = null
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderPacientes {
@@ -83,5 +81,9 @@ class AdapterPacientes(val fragment: ListaPacientesFragment): RecyclerView.Adapt
         if (cursor == null) return 0
 
         return cursor!!.count
+    }
+
+    companion object {
+        var seleccionado : ViewHolderPacientes? = null
     }
 }
