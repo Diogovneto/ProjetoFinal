@@ -3,13 +3,18 @@
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="menu_principal_label">Menu Principal</string>
+
     <string name="lista_medicos_label">Médicos</string>
     <string name="lista_pacientes_label">Pacientes</string>
     <string name="lista_especialidades_label">Especialidades</string>
+
     <string name="inserir_medico_label">Novo Médico</string>
     <string name="eliminar_medico_label">Eliminar Médico</string>
     <string name="alterar_medico_label">Alterar Médico</string>
+
     <string name="inserir_paciente_label">Novo Paciente</string>
+    <string name="eliminar_paciente_label">Eliminar Paciente</string>
+
     <string name="editar_especialidade_label">Nova Especialidade</string>
     <string name="eliminar_especialidade_label">Eliminar Especialidade</string>
     <string name="alterar_especialidade_label">Alterar Especialidade</string>
@@ -93,5 +98,6 @@
 
     <string name="especialidade_alterada_sucesso">Especialidade alterada com sucesso.</string>
     <string name="erro_guardar_especialidade">Erro ao guardar especialidade.</string>
+
 
 </resources>

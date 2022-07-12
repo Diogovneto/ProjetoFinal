@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_ListaPacienteFragment_to_InserirPacienteFragment"
             app:destination="@id/InserirPacienteFragment" />
+        <action
+            android:id="@+id/action_ListaPacienteFragment_to_eliminarPacienteFragment"
+            app:destination="@id/EliminarPacienteFragment" />
     </fragment>
     <fragment
         android:id="@+id/InserirPacienteFragment"
@@ -40,7 +43,16 @@
         android:label="@string/inserir_paciente_label"
         tools:layout="@layout/fragment_inserir_paciente" >
         <action
-            android:id="@+id/action_InserirPacienteFragment_to_ListaPacienteFragment"
+            android:id="@+id/action_InserirPacienteFragment_to_ListaPacientesFragment"
+            app:destination="@id/ListaPacientesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/EliminarPacienteFragment"
+        android:name="com.example.projetofinal.EliminarPacienteFragment"
+        android:label="@string/eliminar_paciente_label"
+        tools:layout="@layout/fragment_eliminar_paciente">
+        <action
+            android:id="@+id/action_eliminarPacienteFragment_to_ListaPacientesFragment"
             app:destination="@id/ListaPacientesFragment" />
     </fragment>
     <fragment
