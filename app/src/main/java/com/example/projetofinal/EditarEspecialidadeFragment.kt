@@ -24,8 +24,8 @@ class EditarEspecialidadeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_editar_especialidade, container, false)
+        _binding = FragmentEditarEspecialidadeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onDestroyView() {
@@ -36,7 +36,7 @@ class EditarEspecialidadeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val activity = requireActivity() as MainActivity
+        val activity = activity as MainActivity
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_edicao_especialidade
 
@@ -69,24 +69,24 @@ class EditarEspecialidadeFragment : Fragment() {
     }
 
     private fun guardar() {
-        val especialidade = binding.editTextEspecialidade.text.toString()
-        if (especialidade.isBlank()) {
-            binding.editTextEspecialidade.error = getString(R.string.especialidade_obrigatoria_especialidade)
+        val especialidade_nome = binding.editTextEspecialidade.text.toString()
+        if (especialidade_nome.isBlank()) {
+            binding.editTextEspecialidade.error = getString(R.string.especialidade_obrigatoria)
             binding.editTextEspecialidade.requestFocus()
             return
         }
 
         if (especialidade == null) {
-            insereEspecialidade(especialidade)
+            insereEspecialidade(especialidade_nome)
         } else {
-            alteraEspecialidade(especialidade)
+            alteraEspecialidade(especialidade_nome)
         }
     }
 
-    private fun alteraEspecialidade(especialidade_nome: String) {
+    private fun alteraEspecialidade(nome_especialidade: String) {
         val enderecoEspecialidade = Uri.withAppendedPath(ContentProviderConsultas.ENDERECO_ESPECIALIDADES, "${especialidade!!.id}")
 
-        val especialidade = Especialidade(especialidade_nome)
+        val especialidade = Especialidade(nome_especialidade)
 
         val registosAlterados = requireActivity().contentResolver.update(
             enderecoEspecialidade,
@@ -101,7 +101,7 @@ class EditarEspecialidadeFragment : Fragment() {
         } else {
             Snackbar.make(
                 binding.editTextEspecialidade,
-                R.string.erro_guardar_especialidade,
+                R.string.erro_guardar_medico,
                 Snackbar.LENGTH_INDEFINITE
             ).show()
         }

@@ -17,8 +17,6 @@ import com.google.android.material.snackbar.Snackbar
 class EliminarEspecialidadeFragment : Fragment() {
     private var _binding: FragmentEliminarEspecialidadeBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     private lateinit var especialidade: Especialidade
@@ -46,6 +44,7 @@ class EliminarEspecialidadeFragment : Fragment() {
         especialidade = EliminarEspecialidadeFragmentArgs.fromBundle(requireArguments()).especialidade
 
         binding.textViewEspecialidade.text = especialidade.especialidade
+
     }
 
     fun processaOpcaoMenuEspecialidade(item: MenuItem): Boolean {
@@ -67,7 +66,7 @@ class EliminarEspecialidadeFragment : Fragment() {
         alert.setTitle(R.string.titulo_dialogo_apagar_especialidade)
         alert.setMessage(R.string.confirma_apagar_especialidade)
         alert.setNegativeButton(android.R.string.cancel, DialogInterface.OnClickListener { dialog, which ->  })
-        alert.setPositiveButton(R.string.eliminar, DialogInterface.OnClickListener { dialog, which -> confirmaEliminaEspecialidade() })
+        alert.setPositiveButton(R.string.eliminar, DialogInterface.OnClickListener { dialog, which -> eliminaEspecialidade() })
         alert.show()
     }
 
