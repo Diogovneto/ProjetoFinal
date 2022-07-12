@@ -1,6 +1,5 @@
 package com.example.projetofinal
 
-import android.database.Cursor
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -8,19 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.loader.app.LoaderManager
-import androidx.loader.content.CursorLoader
-import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 import com.example.projetofinal.databinding.FragmentEditarPacienteBinding
 import com.google.android.material.snackbar.Snackbar
 
-class EditarPacienteFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
+class EditarPacienteFragment : Fragment() {
     private var _binding: FragmentEditarPacienteBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+    private var paciente: Paciente? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,11 +35,26 @@ class EditarPacienteFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        LoaderManager.getInstance(this).initLoader(ID_LOADER_PULSEIRAS, null, this)
 
         val activity = requireActivity() as MainActivity
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_edicao_paciente
+
+        if (arguments != null) {
+            paciente = EditarPacienteFragmentArgs.fromBundle(requireArguments()).paciente
+            if (paciente != null) {
+                binding.editTextNomePac.setText(paciente!!.nome)
+                binding.editTextDataNascimento.setText(paciente!!.data_nascimento)
+                binding.editTextSexoPac.setText(paciente!!.sexo)
+                binding.editTextMorada.setText(paciente!!.morada)
+                binding.EditTextCodigoPostal.setText(paciente!!.codigo_postal)
+                binding.editTextTelemovelPac.setText(paciente!!.telemovel)
+                binding.editTextEmailPac.setText(paciente!!.email)
+                binding.editTextCartaoCidadaoPac.setText(paciente!!.cartao_cidadao)
+                binding.editTextContribuinte.setText(paciente!!.contribuinte)
+
+            }
+        }
     }
 
     fun processaOpcaoMenuPaciente(item: MenuItem): Boolean {
@@ -150,23 +163,4 @@ class EditarPacienteFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         const val ID_LOADER_PULSEIRAS = 0
     }
 
-
-    override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> =
-        CursorLoader(
-            requireContext(),
-            ContentProviderConsultas.ENDERECO_PULSEIRAS,
-            TabelaBDPulseiras.TODAS_COLUNAS,
-            null,
-            null,
-            TabelaBDPulseiras.CAMPO_PULSEIRA
-        )
-
-
-    override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
-
-    }
-
-    override fun onLoaderReset(loader: Loader<Cursor>) {
-
-    }
 }
