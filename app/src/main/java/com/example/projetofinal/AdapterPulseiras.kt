@@ -32,7 +32,8 @@ class AdapterPulseira(val fragment: ListaPulseirasFragment) : RecyclerView.Adapt
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderPulseira {
-        TODO("Not yet implemented")
+        val itemLivro = fragment.layoutInflater.inflate(R.layout.item_pulseira, parent, false)
+        return ViewHolderPulseira(itemLivro)
     }
 
 

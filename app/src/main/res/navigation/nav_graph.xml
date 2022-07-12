@@ -33,6 +33,18 @@
         <action
             android:id="@+id/action_ListaPulseirasFragment_to_MenuPrincipalFragment"
             app:destination="@id/MenuprincipalFragment" />
+        <action
+            android:id="@+id/action_ListaPulseirasFragment_to_EditarPulseiraFragment"
+            app:destination="@id/EditarPulseiraFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/EditarPulseiraFragment"
+        android:name="com.example.projetofinal.EditarPulseiraFragment"
+        android:label="fragment_editar_pulseira"
+        tools:layout="@layout/fragment_editar_pulseira" >
+        <action
+            android:id="@+id/action_EditarPulseiraFragment_to_ListaPulseirasFragment"
+            app:destination="@id/ListaPulseirasFragment" />
     </fragment>
     <fragment
         android:id="@+id/ListaPacientesFragment"
