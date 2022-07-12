@@ -31,20 +31,25 @@
             android:id="@+id/action_ListaPacienteFragment_to_MenuPrincipalFragment"
             app:destination="@id/MenuprincipalFragment" />
         <action
-            android:id="@+id/action_ListaPacienteFragment_to_InserirPacienteFragment"
-            app:destination="@id/InserirPacienteFragment" />
+            android:id="@+id/action_ListaPacienteFragment_to_EditarPacienteFragment"
+            app:destination="@id/EditarPacienteFragment" />
         <action
             android:id="@+id/action_ListaPacienteFragment_to_eliminarPacienteFragment"
             app:destination="@id/EliminarPacienteFragment" />
     </fragment>
     <fragment
-        android:id="@+id/InserirPacienteFragment"
-        android:name="com.example.projetofinal.InserirPacienteFragment"
+        android:id="@+id/EditarPacienteFragment"
+        android:name="com.example.projetofinal.EditarPacienteFragment"
         android:label="@string/inserir_paciente_label"
-        tools:layout="@layout/fragment_inserir_paciente" >
+        tools:layout="@layout/fragment_editar_paciente" >
         <action
-            android:id="@+id/action_InserirPacienteFragment_to_ListaPacientesFragment"
+            android:id="@+id/action_EditarPacienteFragment_to_ListaPacientesFragment"
             app:destination="@id/ListaPacientesFragment" />
+        <argument
+            android:name="paciente"
+            app:argType="com.example.projetofinal.Paciente"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/EliminarPacienteFragment"

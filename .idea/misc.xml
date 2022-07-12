@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/layout/content_main.xml" value="0.2604166666666667" />
         <entry key="app/src/main/res/layout/fragment_editar_especialidade.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/fragment_editar_medico.xml" value="0.18958333333333333" />
+        <entry key="app/src/main/res/layout/fragment_editar_paciente.xml" value="0.37907608695652173" />
         <entry key="app/src/main/res/layout/fragment_eliminar_especialidade.xml" value="0.20364583333333333" />
         <entry key="app/src/main/res/layout/fragment_eliminar_medico.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_eliminar_paciente.xml" value="0.37907608695652173" />

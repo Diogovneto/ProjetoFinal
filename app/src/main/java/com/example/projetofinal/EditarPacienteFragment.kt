@@ -12,11 +12,11 @@ import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
-import com.example.projetofinal.databinding.FragmentInserirPacienteBinding
+import com.example.projetofinal.databinding.FragmentEditarPacienteBinding
 import com.google.android.material.snackbar.Snackbar
 
-class InserirPacienteFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
-    private var _binding: FragmentInserirPacienteBinding? = null
+class EditarPacienteFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
+    private var _binding: FragmentEditarPacienteBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -26,7 +26,7 @@ class InserirPacienteFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentInserirPacienteBinding.inflate(inflater, container, false)
+        _binding = FragmentEditarPacienteBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -59,7 +59,7 @@ class InserirPacienteFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
     }
 
     private fun voltaListaPacientes() {
-        findNavController().navigate(R.id.action_InserirPacienteFragment_to_ListaPacientesFragment)
+        findNavController().navigate(R.id.action_EditarPacienteFragment_to_ListaPacientesFragment)
     }
 
     private fun guardar() {
