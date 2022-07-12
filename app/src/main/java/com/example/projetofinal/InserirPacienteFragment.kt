@@ -46,7 +46,7 @@ class InserirPacienteFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
 
     fun processaOpcaoMenuPaciente(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_guardar -> {
+            R.id.action_eliminar -> {
                 guardar()
                 true
             }
@@ -59,7 +59,7 @@ class InserirPacienteFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor
     }
 
     private fun voltaListaPacientes() {
-        findNavController().navigate(R.id.action_InserirPacienteFragment_to_ListaPacienteFragment)
+        findNavController().navigate(R.id.action_InserirPacienteFragment_to_ListaPacientesFragment)
     }
 
     private fun guardar() {
