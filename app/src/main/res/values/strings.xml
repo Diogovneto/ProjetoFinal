@@ -20,6 +20,8 @@
     <string name="eliminar_especialidade_label">Eliminar Especialidade</string>
     <string name="alterar_especialidade_label">Alterar Especialidade</string>
 
+    <string name="lista_pulseiras_label">Pulseiras</string>
+
 
     <string name="Medicos">Médicos</string>
     <string name="Pacientes">Pacientes</string>

@@ -49,6 +49,10 @@ class MenuPrincipalFragment : Fragment() {
             findNavController().navigate(R.id.action_MenuPrincipalFragment_to_ListaEspecialidadesFragment)
         }
 
+        binding.buttonPulseiras.setOnClickListener {
+            findNavController().navigate(R.id.action_MenuPrincipalFragment_to_ListaPulseirasFragment)
+        }
+
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {

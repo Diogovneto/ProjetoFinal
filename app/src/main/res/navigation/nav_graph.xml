@@ -20,6 +20,19 @@
         <action
             android:id="@+id/action_MenuPrincipalFragment_to_ListaEspecialidadesFragment"
             app:destination="@id/ListaEspecialidadeFragment" />
+        <action
+            android:id="@+id/action_MenuPrincipalFragment_to_ListaPulseirasFragment"
+            app:destination="@id/ListaPulseirasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ListaPulseirasFragment"
+        android:name="com.example.projetofinal.ListaPulseirasFragment"
+        android:label="@string/lista_pulseiras_label"
+        tools:layout="@layout/fragment_lista_pulseiras">
+
+        <action
+            android:id="@+id/action_ListaPulseirasFragment_to_MenuPrincipalFragment"
+            app:destination="@id/MenuprincipalFragment" />
     </fragment>
     <fragment
         android:id="@+id/ListaPacientesFragment"
