@@ -40,6 +40,8 @@ class ListaPulseirasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         adapterPulseira = AdapterPulseira(this)
         binding.recyclerViewLivros.adapter = adapterPulseira
         binding.recyclerViewLivros.layoutManager = LinearLayoutManager(requireContext())
+
+        (activity as MainActivity).idMenuAtual = R.menu.menu_lista_pulseiras
     }
 
     override fun onDestroyView() {
