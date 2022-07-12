@@ -3,6 +3,7 @@ package com.example.projetofinal
 import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class AdapterPulseira(val fragment: ListaPulseirasFragment) : RecyclerView.Adapter<AdapterPulseira.ViewHolderPulseira>() {
@@ -17,6 +18,15 @@ class AdapterPulseira(val fragment: ListaPulseirasFragment) : RecyclerView.Adapt
         }
 
     class ViewHolderPulseira(itemPulseira: View) : RecyclerView.ViewHolder(itemPulseira) {
+        val textViewPulseira = itemPulseira.findViewById<TextView>(R.id.textViewPulseira)
+
+        var pulseira: Pulseira? = null
+            get() = field
+            set(value) {
+                field = value
+
+                textViewPulseira.text = pulseira?.pulseira ?: ""
+            }
     }
 
 
@@ -27,7 +37,8 @@ class AdapterPulseira(val fragment: ListaPulseirasFragment) : RecyclerView.Adapt
 
 
     override fun onBindViewHolder(holder: ViewHolderPulseira, position: Int) {
-        TODO("Not yet implemented")
+        cursor!!.moveToPosition(position)
+        holder.pulseira = Pulseira.fromCursor(cursor!!)
     }
 
 
