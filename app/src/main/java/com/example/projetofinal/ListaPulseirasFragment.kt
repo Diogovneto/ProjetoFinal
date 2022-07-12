@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
+import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import com.example.projetofinal.databinding.FragmentListaPulseirasBinding
 
@@ -31,9 +32,7 @@ class ListaPulseirasFragment : Fragment() , LoaderManager.LoaderCallbacks<Cursor
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //binding.buttonSecond.setOnClickListener {
-        //    findNavController().navigate(R.id.action_ListaLivrosFragment_to_MenuPrincipalFragment)
-        //}
+        LoaderManager.getInstance(this).initLoader(ID_LOADER_PULSEIRAS, null, this)
     }
 
     override fun onDestroyView() {
@@ -41,9 +40,15 @@ class ListaPulseirasFragment : Fragment() , LoaderManager.LoaderCallbacks<Cursor
         _binding = null
     }
 
-    override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
-        TODO("Not yet implemented")
-    }
+    override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> =
+        CursorLoader(
+            requireContext(),
+            ContentProviderConsultas.ENDERECO_PULSEIRAS,
+            TabelaBDPulseiras.TODAS_COLUNAS,
+            null,
+            null,
+            TabelaBDPulseiras.CAMPO_PULSEIRA
+        )
 
 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
@@ -53,5 +58,9 @@ class ListaPulseirasFragment : Fragment() , LoaderManager.LoaderCallbacks<Cursor
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
         TODO("Not yet implemented")
+    }
+
+    companion object {
+        const val ID_LOADER_PULSEIRAS = 0
     }
 }
