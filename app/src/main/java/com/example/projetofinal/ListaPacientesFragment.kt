@@ -62,7 +62,11 @@ class ListaPacientesFragment: Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
                 return true
             }
             R.id.action_alterar -> true
-            R.id.action_eliminar -> true
+            R.id.action_eliminar -> {
+                val acao = ListaPacientesFragmentDirections.actionListaPacienteFragmentToEliminarPacienteFragment(pacienteSelecionado!!)
+                findNavController().navigate(acao)
+                true
+            }
             else -> false
         }
     }
