@@ -9,11 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projetofinal.databinding.FragmentListaPulseirasBinding
 
-class ListaPulseirasFragment : Fragment() , LoaderManager.LoaderCallbacks<Cursor> {
+class ListaPulseirasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
     private var _binding: FragmentListaPulseirasBinding? = null
+
+    private var adapterPulseira: AdapterPulseira? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -33,6 +36,10 @@ class ListaPulseirasFragment : Fragment() , LoaderManager.LoaderCallbacks<Cursor
         super.onViewCreated(view, savedInstanceState)
 
         LoaderManager.getInstance(this).initLoader(ID_LOADER_PULSEIRAS, null, this)
+
+        adapterPulseira = AdapterPulseira()
+        binding.recyclerViewLivros.adapter = adapterPulseira
+        binding.recyclerViewLivros.layoutManager = LinearLayoutManager(requireContext())
     }
 
     override fun onDestroyView() {
