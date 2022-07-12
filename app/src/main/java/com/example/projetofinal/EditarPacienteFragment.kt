@@ -56,6 +56,7 @@ class EditarPacienteFragment : Fragment() {
 
             }
         }
+        activity.atualizaTitulo(if (paciente == null) R.string.inserir_paciente_label else R.string.alterar_paciente_label)
     }
 
     fun processaOpcaoMenuPaciente(item: MenuItem): Boolean {

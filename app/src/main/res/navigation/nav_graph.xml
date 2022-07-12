@@ -40,7 +40,6 @@
     <fragment
         android:id="@+id/EditarPacienteFragment"
         android:name="com.example.projetofinal.EditarPacienteFragment"
-        android:label="@string/inserir_paciente_label"
         tools:layout="@layout/fragment_editar_paciente" >
         <action
             android:id="@+id/action_EditarPacienteFragment_to_ListaPacientesFragment"
