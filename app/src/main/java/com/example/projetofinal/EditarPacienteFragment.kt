@@ -1,5 +1,6 @@
 package com.example.projetofinal
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -132,19 +133,73 @@ class EditarPacienteFragment : Fragment() {
             return
         }
 
+        if (paciente == null) {
+            inserePaciente(nome, datanascimento, sexo, morada, codigopostal, telemovel, email, cartaocidadao, contribuinte)
+        } else {
+            alteraPaciente(nome, datanascimento, sexo, morada, codigopostal, telemovel, email, cartaocidadao, contribuinte)
+        }
+    }
+
+    private fun alteraPaciente(
+        nome: String,
+        data_nascimento: String,
+        sexo: String,
+        morada: String,
+        codigo_postal: String,
+        telemovel: String,
+        email: String,
+        cartao_cidadao: String,
+        contribuinte: String) {
+        val enderecoPaciente =
+            Uri.withAppendedPath(ContentProviderConsultas.ENDERECO_PACIENTES, "${paciente!!.id}")
 
         val paciente = Paciente(
             nome,
-            datanascimento,
+            data_nascimento,
             sexo,
             morada,
-            codigopostal,
+            codigo_postal,
             telemovel,
             email,
-            cartaocidadao,
-            contribuinte,
-
+            cartao_cidadao,
+            contribuinte
         )
+
+        val registosAlterados = requireActivity().contentResolver.update(
+            enderecoPaciente,
+            paciente.toContentValues(),
+            null,
+            null
+        )
+
+        if (registosAlterados == 1) {
+            Toast.makeText(requireContext(), R.string.paciente_alterado_sucesso, Toast.LENGTH_LONG)
+                .show()
+            voltaListaPacientes()
+        } else {
+            Snackbar.make(
+                binding.editTextDataNascimento,
+                R.string.erro_guardar_paciente,
+                Snackbar.LENGTH_INDEFINITE
+            ).show()
+        }
+
+    }
+
+
+
+    private fun inserePaciente(
+            nome: String,
+            data_nascimento: String,
+            sexo: String,
+            morada: String,
+            codigo_postal: String,
+            telemovel: String,
+            email: String,
+            cartao_cidadao: String,
+            contribuinte: String) {
+
+        val paciente = Paciente(nome, data_nascimento, sexo, morada, codigo_postal, telemovel, email, cartao_cidadao, contribuinte)
 
         val endereco = requireActivity().contentResolver.insert(
             ContentProviderConsultas.ENDERECO_PACIENTES,
@@ -155,12 +210,13 @@ class EditarPacienteFragment : Fragment() {
             Toast.makeText(requireContext(), R.string.paciente_inserido_sucesso, Toast.LENGTH_LONG).show()
             voltaListaPacientes()
         } else {
-            Snackbar.make(binding.editTextNomePac, R.string.erro_inserir_paciente, Snackbar.LENGTH_INDEFINITE).show()
+            Snackbar.make(
+                binding.editTextNomePac,
+                R.string.erro_guardar_paciente,
+                Snackbar.LENGTH_INDEFINITE
+            ).show()
         }
     }
 
-    companion object {
-        const val ID_LOADER_PULSEIRAS = 0
-    }
 
 }

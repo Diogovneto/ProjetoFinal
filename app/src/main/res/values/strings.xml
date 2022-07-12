@@ -105,5 +105,8 @@
     <string name="titulo_dialogo_apagar_paciente">Apagar paciente</string>
     <string name="confirma_apagar_paciente">Tem a certeza que quer apagar o paciente?</string>
 
+    <string name="paciente_alterado_sucesso">Paciente alterado com sucesso.</string>
+    <string name="erro_guardar_paciente">Erro ao guardar paciente.</string>
+
 
 </resources>
