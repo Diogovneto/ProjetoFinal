@@ -8,15 +8,18 @@
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.191" />
         <entry key="app/src/main/res/drawable/ic_add_especialidade.xml" value="0.265" />
         <entry key="app/src/main/res/drawable/ic_add_pacientes.xml" value="0.265" />
+        <entry key="app/src/main/res/drawable/ic_add_pulseira.xml" value="0.2155" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.225" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.2604166666666667" />
         <entry key="app/src/main/res/layout/fragment_editar_especialidade.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/fragment_editar_medico.xml" value="0.18958333333333333" />
         <entry key="app/src/main/res/layout/fragment_editar_paciente.xml" value="0.37907608695652173" />
+        <entry key="app/src/main/res/layout/fragment_editar_pulseira.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/fragment_eliminar_especialidade.xml" value="0.20364583333333333" />
         <entry key="app/src/main/res/layout/fragment_eliminar_medico.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_eliminar_paciente.xml" value="0.37907608695652173" />
+        <entry key="app/src/main/res/layout/fragment_eliminar_pulseira.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/fragment_inserir_especialidade.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/fragment_inserir_medico.xml" value="0.25" />
@@ -24,22 +27,27 @@
         <entry key="app/src/main/res/layout/fragment_lista_especialidades.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/fragment_lista_medicos.xml" value="0.3740942028985507" />
         <entry key="app/src/main/res/layout/fragment_lista_pacientes.xml" value="0.37907608695652173" />
+        <entry key="app/src/main/res/layout/fragment_lista_pulseiras.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/fragment_medicos_label.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/fragment_menu_principal.xml" value="0.2572463768115942" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.3858695652173913" />
         <entry key="app/src/main/res/layout/item_especialidade.xml" value="0.37907608695652173" />
         <entry key="app/src/main/res/layout/item_medico.xml" value="0.3890625" />
         <entry key="app/src/main/res/layout/item_paciente.xml" value="0.37907608695652173" />
+        <entry key="app/src/main/res/layout/item_pulseira.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/teste.xml" value="0.335" />
         <entry key="app/src/main/res/menu/menu_edicao.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/menu/menu_edicao_especialidade.xml" value="0.3890625" />
         <entry key="app/src/main/res/menu/menu_edicao_paciente.xml" value="0.20833333333333334" />
+        <entry key="app/src/main/res/menu/menu_edicao_pulseira.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/menu/menu_eliminar.xml" value="0.375" />
         <entry key="app/src/main/res/menu/menu_eliminar_especialidade.xml" value="0.20364583333333333" />
         <entry key="app/src/main/res/menu/menu_eliminar_paciente.xml" value="0.3890625" />
+        <entry key="app/src/main/res/menu/menu_eliminar_pulseira.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/menu/menu_lista.xml" value="0.3890625" />
         <entry key="app/src/main/res/menu/menu_lista_especialidades.xml" value="0.3890625" />
         <entry key="app/src/main/res/menu/menu_lista_pacientes.xml" value="0.3890625" />
+        <entry key="app/src/main/res/menu/menu_lista_pulseiras.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.21822916666666667" />
       </map>
     </option>
