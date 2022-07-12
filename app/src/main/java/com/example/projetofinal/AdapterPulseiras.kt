@@ -1,10 +1,21 @@
 package com.example.projetofinal
 
+import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 class AdapterPulseira : RecyclerView.Adapter<AdapterPulseira.ViewHolderPulseira>() {
+
+    var cursor: Cursor? = null
+        get() = field
+        set(value) {
+            if (field != value) {
+                field = value
+                notifyDataSetChanged()
+            }
+        }
+
     class ViewHolderPulseira(itemPulseira: View) : RecyclerView.ViewHolder(itemPulseira) {
     }
 
@@ -21,6 +32,8 @@ class AdapterPulseira : RecyclerView.Adapter<AdapterPulseira.ViewHolderPulseira>
 
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        if (cursor == null) return 0
+
+        return cursor!!.count
     }
 }
