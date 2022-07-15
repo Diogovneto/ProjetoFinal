@@ -17,7 +17,7 @@ class AdapterPulseira(val fragment: ListaPulseirasFragment) : RecyclerView.Adapt
             }
         }
 
-    class ViewHolderPulseira(itemPulseira: View) : RecyclerView.ViewHolder(itemPulseira), View.OnClickListener {
+    inner class ViewHolderPulseira(itemPulseira: View) : RecyclerView.ViewHolder(itemPulseira), View.OnClickListener {
         val textViewPulseira = itemPulseira.findViewById<TextView>(R.id.textViewPulseira)
 
         init {
@@ -46,9 +46,6 @@ class AdapterPulseira(val fragment: ListaPulseirasFragment) : RecyclerView.Adapt
             itemView.setBackgroundResource(android.R.color.white)
         }
 
-        companion object {
-            var seleccionado : ViewHolderPulseira? = null
-        }
 
     }
 
@@ -70,5 +67,9 @@ class AdapterPulseira(val fragment: ListaPulseirasFragment) : RecyclerView.Adapt
         if (cursor == null) return 0
 
         return cursor!!.count
+    }
+
+    companion object {
+        var seleccionado : ViewHolderPulseira? = null
     }
 }

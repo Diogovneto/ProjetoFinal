@@ -15,6 +15,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projetofinal.databinding.FragmentListaPulseirasBinding
 
 class ListaPulseirasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
+    var pulseiraSelecionada: Pulseira? = null
+        get() = field
+        set(value) {
+            if (value != field) {
+                field = value
+                (requireActivity() as MainActivity).atualizaOpcoesLista(field != null)
+            }
+        }
 
     private var _binding: FragmentListaPulseirasBinding? = null
 
@@ -43,7 +51,7 @@ class ListaPulseirasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         binding.recyclerViewLivros.adapter = adapterPulseira
         binding.recyclerViewLivros.layoutManager = LinearLayoutManager(requireContext())
 
-        val activity = activity as MainActivity
+        val activity = requireActivity() as MainActivity
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_lista_pulseiras
     }
