@@ -23,6 +23,7 @@
     <string name="lista_pulseiras_label">Pulseiras</string>
     <string name="editar_pulseira_label">Nova Pulseira</string>
     <string name="eliminar_pulseira_label">Eliminar Pulseira</string>
+    <string name="alterar_pulseira_label">Alterar Pulseira</string>
 
 
     <string name="Medicos">Médicos</string>

@@ -45,7 +45,7 @@ class EditarPulseiraFragment : Fragment() {
                 binding.editTextPulseira.setText(pulseira!!.pulseira)
             }
         }
-
+        activity.atualizaTitulo(if (pulseira == null) R.string.editar_pulseira_label else R.string.alterar_pulseira_label)
     }
 
     fun processaOpcaoMenuPulseira(item: MenuItem): Boolean {
