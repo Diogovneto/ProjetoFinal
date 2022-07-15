@@ -39,6 +39,7 @@ class AdapterPulseira(val fragment: ListaPulseirasFragment) : RecyclerView.Adapt
 
         private fun seleciona() {
             seleccionado = this
+            fragment.pulseiraSelecionada = pulseira
             itemView.setBackgroundResource(android.R.color.holo_orange_light)
         }
 

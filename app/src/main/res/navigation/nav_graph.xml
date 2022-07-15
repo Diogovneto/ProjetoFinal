@@ -36,6 +36,9 @@
         <action
             android:id="@+id/action_ListaPulseirasFragment_to_EditarPulseiraFragment"
             app:destination="@id/EditarPulseiraFragment" />
+        <action
+            android:id="@+id/action_ListaPulseirasFragment_to_eliminarPulseiraFragment"
+            app:destination="@id/EliminarPulseiraFragment" />
     </fragment>
     <fragment
         android:id="@+id/EditarPulseiraFragment"
@@ -44,6 +47,15 @@
         tools:layout="@layout/fragment_editar_pulseira" >
         <action
             android:id="@+id/action_EditarPulseiraFragment_to_ListaPulseirasFragment"
+            app:destination="@id/ListaPulseirasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/EliminarPulseiraFragment"
+        android:name="com.example.projetofinal.EliminarPulseiraFragment"
+        android:label="@string/eliminar_pulseira_label"
+        tools:layout="@layout/fragment_eliminar_pulseira">
+        <action
+            android:id="@+id/action_eliminarLivroFragment_to_ListaLivrosFragment"
             app:destination="@id/ListaPulseirasFragment" />
     </fragment>
     <fragment

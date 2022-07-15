@@ -21,7 +21,8 @@
     <string name="alterar_especialidade_label">Alterar Especialidade</string>
 
     <string name="lista_pulseiras_label">Pulseiras</string>
-    <string name="editar_pulseira_label">Pulseiras</string>
+    <string name="editar_pulseira_label">Nova Pulseira</string>
+    <string name="eliminar_pulseira_label">Eliminar Pulseira</string>
 
 
     <string name="Medicos">Médicos</string>
