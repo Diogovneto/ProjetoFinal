@@ -113,5 +113,10 @@
     <string name="paciente_alterado_sucesso">Paciente alterado com sucesso.</string>
     <string name="erro_guardar_paciente">Erro ao guardar paciente.</string>
 
+    <string name="pulseira_obrigatoria">Preencha a pulseira</string>
+
+    <string name="pulseira_inserida_sucesso">Pulseira inserida com sucesso.</string>
+    <string name="erro_inserir_pulseira">Erro ao inserir pulseira.</string>
+
 
 </resources>
