@@ -101,7 +101,7 @@ class EditarEspecialidadeFragment : Fragment() {
         } else {
             Snackbar.make(
                 binding.editTextEspecialidade,
-                R.string.erro_guardar_medico,
+                R.string.erro_guardar_especialidade,
                 Snackbar.LENGTH_INDEFINITE
             ).show()
         }

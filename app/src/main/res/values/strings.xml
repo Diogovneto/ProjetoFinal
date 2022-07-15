@@ -125,5 +125,8 @@
     <string name="titulo_dialogo_apagar_pulseira">Apagar pulseira</string>
     <string name="confirma_apagar_pulseira">Tem a certeza que quer apagar a Pulseira?</string>
 
+    <string name="pulseira_alterada_sucesso">Pulseira alterada com sucesso.</string>
+    <string name="erro_guardar_pulseira">Erro ao guardar pulseira.</string>
+
 
 </resources>
