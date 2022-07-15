@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterConsultas : RecyclerView.Adapter<AdapterConsultas.ViewHolderConsultas>() {
+class AdapterConsultas(val fragment: ListaConsultasFragment) : RecyclerView.Adapter<AdapterConsultas.ViewHolderConsultas>() {
     var cursor: Cursor? = null
         get() = field
         set(value) {
@@ -20,7 +20,8 @@ class AdapterConsultas : RecyclerView.Adapter<AdapterConsultas.ViewHolderConsult
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderConsultas {
-        TODO("Not yet implemented")
+        val itemConsulta = fragment.layoutInflater.inflate(R.layout.item_consulta, parent, false)
+        return ViewHolderConsultas(itemConsulta)
     }
 
 
