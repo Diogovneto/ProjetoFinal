@@ -59,10 +59,15 @@ class ListaPulseirasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
     fun processaOpcaoMenuPulseira(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_inserir -> {
-                findNavController().navigate(R.id.action_ListaPulseirasFragment_to_EditarPulseiraFragment)
+                val acao = ListaPulseirasFragmentDirections.actionListaPulseirasFragmentToEditarPulseiraFragment()
+                findNavController().navigate(acao)
                 return true
             }
-            R.id.action_alterar -> true
+            R.id.action_alterar -> {
+                val acao = ListaPulseirasFragmentDirections.actionListaPulseirasFragmentToEditarPulseiraFragment(pulseiraSelecionada)
+                findNavController().navigate(acao)
+                return true
+            }
             R.id.action_eliminar -> {
                 val acao = ListaPulseirasFragmentDirections.actionListaPulseirasFragmentToEliminarPulseiraFragment(pulseiraSelecionada!!)
                 findNavController().navigate(acao)
