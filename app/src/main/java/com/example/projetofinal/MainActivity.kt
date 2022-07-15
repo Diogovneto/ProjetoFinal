@@ -80,6 +80,8 @@ class MainActivity : AppCompatActivity() {
             opcaoProcessada = (fragment as ListaPulseirasFragment).processaOpcaoMenuPulseira(item)
         } else if (fragment is EditarPulseiraFragment) {
             opcaoProcessada = (fragment as EditarPulseiraFragment).processaOpcaoMenuPulseira(item)
+        } else if (fragment is EliminarPulseiraFragment) {
+            opcaoProcessada = (fragment as EliminarPulseiraFragment).processaOpcaoMenuPulseira(item)
         }else {
             opcaoProcessada = false
         }

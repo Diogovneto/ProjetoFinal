@@ -119,5 +119,11 @@
     <string name="pulseira_inserida_sucesso">Pulseira inserida com sucesso.</string>
     <string name="erro_inserir_pulseira">Erro ao inserir pulseira.</string>
 
+    <string name="pulseira_eliminada_sucesso">Pulseira eliminada com sucesso.</string>
+    <string name="erro_eliminar_pulseira">Erro ao eliminar pulseira.</string>
+
+    <string name="titulo_dialogo_apagar_pulseira">Apagar pulseira</string>
+    <string name="confirma_apagar_pulseira">Tem a certeza que quer apagar a Pulseira?</string>
+
 
 </resources>
