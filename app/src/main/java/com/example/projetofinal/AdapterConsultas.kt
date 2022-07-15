@@ -3,6 +3,7 @@ package com.example.projetofinal
 import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class AdapterConsultas(val fragment: ListaConsultasFragment) : RecyclerView.Adapter<AdapterConsultas.ViewHolderConsultas>() {
@@ -16,6 +17,25 @@ class AdapterConsultas(val fragment: ListaConsultasFragment) : RecyclerView.Adap
         }
 
     class ViewHolderConsultas(itemConsulta: View) : RecyclerView.ViewHolder(itemConsulta) {
+        val textViewDataConsulta = itemConsulta.findViewById<TextView>(R.id.textViewData)
+        val textViewDescricaoConsulta = itemConsulta.findViewById<TextView>(R.id.textViewDescricao)
+        val textViewPrecoConsulta = itemConsulta.findViewById<TextView>(R.id.textViewPreco)
+        val textViewMedicoConsulta = itemConsulta.findViewById<TextView>(R.id.textViewMedicoConsulta)
+        val textViewPacienteConsulta = itemConsulta.findViewById<TextView>(R.id.textViewPacienteConsulta)
+        val textViewPulseiraConsulta = itemConsulta.findViewById<TextView>(R.id.textViewPulseiraParaConsulta)
+
+        var consulta: Consulta? = null
+            get() = field
+            set(value) {
+                field = value
+
+                textViewDataConsulta.text = consulta?.data.toString()
+                textViewDescricaoConsulta.text = consulta?.descricao ?: ""
+                textViewPrecoConsulta.text = consulta?.preco ?: ""
+                textViewMedicoConsulta.text = "${consulta?.id_medico}"
+                textViewPacienteConsulta.text = "${consulta?.id_paciente}"
+                textViewPulseiraConsulta.text = "${consulta?.id_pulseira}"
+            }
     }
 
 
@@ -26,7 +46,8 @@ class AdapterConsultas(val fragment: ListaConsultasFragment) : RecyclerView.Adap
 
 
     override fun onBindViewHolder(holder: ViewHolderConsultas, position: Int) {
-        TODO("Not yet implemented")
+        cursor!!.moveToPosition(position)
+        holder.consulta = Consulta.fromCursor(cursor!!)
     }
 
 
