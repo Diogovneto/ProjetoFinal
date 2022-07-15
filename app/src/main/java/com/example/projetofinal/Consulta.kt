@@ -28,6 +28,7 @@ class Consulta(
         valores.put(TabelaBDConsultas.CAMPO_PULSEIRA_ID, id_pulseira)
 
 
+
         return valores
     }
 
