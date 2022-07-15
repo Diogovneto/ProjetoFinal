@@ -25,6 +25,8 @@
     <string name="eliminar_pulseira_label">Eliminar Pulseira</string>
     <string name="alterar_pulseira_label">Alterar Pulseira</string>
 
+    <string name="lista_consultas_label">Consultas</string>
+
 
     <string name="Medicos">Médicos</string>
     <string name="Pacientes">Pacientes</string>

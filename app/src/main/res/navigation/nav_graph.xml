@@ -23,6 +23,19 @@
         <action
             android:id="@+id/action_MenuPrincipalFragment_to_ListaPulseirasFragment"
             app:destination="@id/ListaPulseirasFragment" />
+        <action
+            android:id="@+id/action_MenuPrincipalFragment_to_ListaConsultasFragment"
+            app:destination="@id/ListaConsultasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ListaConsultasFragment"
+        android:name="com.example.projetofinal.ListaConsultasFragment"
+        android:label="@string/lista_consultas_label"
+        tools:layout="@layout/fragment_lista_consultas">
+
+        <action
+            android:id="@+id/action_ListaConsultasFragment_to_MenuPrincipalFragment"
+            app:destination="@id/MenuprincipalFragment" />
     </fragment>
     <fragment
         android:id="@+id/ListaPulseirasFragment"
