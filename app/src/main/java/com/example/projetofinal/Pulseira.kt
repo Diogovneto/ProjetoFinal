@@ -3,8 +3,9 @@ package com.example.projetofinal
 import android.content.ContentValues
 import android.database.Cursor
 import android.provider.BaseColumns
+import java.io.Serializable
 
-class Pulseira(var pulseira: String, var id: Long = -1) {
+class Pulseira(var pulseira: String, var id: Long = -1)  : Serializable {
     fun toContentValues() : ContentValues {
         val valores = ContentValues()
 

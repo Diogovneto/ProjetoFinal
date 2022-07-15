@@ -57,6 +57,9 @@
         <action
             android:id="@+id/action_eliminarLivroFragment_to_ListaLivrosFragment"
             app:destination="@id/ListaPulseirasFragment" />
+        <argument
+            android:name="pulseira"
+            app:argType="com.example.projetofinal.Pulseira" />
     </fragment>
     <fragment
         android:id="@+id/ListaPacientesFragment"
