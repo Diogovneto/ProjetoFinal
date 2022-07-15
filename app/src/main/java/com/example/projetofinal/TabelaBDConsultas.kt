@@ -27,18 +27,10 @@ class TabelaBDConsultas(db: SQLiteDatabase) : TabelaBD(db, NOME) {
         having: String?,
         orderBy: String?
     ): Cursor {
-        val queryBuilderMedicos = SQLiteQueryBuilder()
-        queryBuilderMedicos.tables = "$NOME INNER JOIN ${TabelaBDMedicos.NOME} ON ${TabelaBDMedicos.NOME}.${BaseColumns._ID} = $CAMPO_MEDICO_ID"
+        val queryBuilderConsultas = SQLiteQueryBuilder()
+        queryBuilderConsultas.tables = "$NOME INNER JOIN ${TabelaBDMedicos.NOME} ON ${TabelaBDMedicos.NOME}.${BaseColumns._ID} = $CAMPO_MEDICO_ID INNER JOIN ${TabelaBDPacientes.NOME} ON ${TabelaBDPacientes.NOME}.${BaseColumns._ID} = $CAMPO_PACIENTE_ID INNER JOIN ${TabelaBDPulseiras.NOME} ON ${TabelaBDPulseiras.NOME}.${BaseColumns._ID} = $CAMPO_PULSEIRA_ID"
 
-        val queryBuilderPacientes = SQLiteQueryBuilder()
-        queryBuilderPacientes.tables = "$NOME INNER JOIN ${TabelaBDPacientes.NOME} ON ${TabelaBDPacientes.NOME}.${BaseColumns._ID} = $CAMPO_PACIENTE_ID"
-
-        val queryBuilderPulseiras = SQLiteQueryBuilder()
-        queryBuilderPulseiras.tables = "$NOME INNER JOIN ${TabelaBDPulseiras.NOME} ON ${TabelaBDPulseiras.NOME}.${BaseColumns._ID} = $CAMPO_PULSEIRA_ID"
-
-        return queryBuilderMedicos.query(db, columns, selection, selectionArgs, groupBy, having, orderBy)
-        return queryBuilderPacientes.query(db, columns, selection, selectionArgs, groupBy, having, orderBy)
-        return queryBuilderPulseiras.query(db, columns, selection, selectionArgs, groupBy, having, orderBy)
+        return queryBuilderConsultas.query(db, columns, selection, selectionArgs, groupBy, having, orderBy)
     }
 
     companion object {

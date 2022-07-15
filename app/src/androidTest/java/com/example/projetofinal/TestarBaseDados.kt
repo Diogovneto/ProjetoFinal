@@ -424,7 +424,7 @@ class BaseDadosTest {
             "${TabelaBDPacientes.CAMPO_ID}=?",
             arrayOf("${paciente.id}"))
 
-        Assert.assertEquals(1, registosEliminados)
+        assertEquals(1, registosEliminados)
 
         db.close()
     }
@@ -473,7 +473,7 @@ class BaseDadosTest {
             "${TabelaBDConsultas.CAMPO_ID}=?",
             arrayOf("${consulta.id}"))
 
-        Assert.assertEquals(1, registosEliminados)
+        assertEquals(1, registosEliminados)
 
         db.close()
     }

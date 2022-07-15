@@ -20,7 +20,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:hint="@string/nome"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColorHint="#616161" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
