@@ -12,6 +12,9 @@ class Consulta(
     var id_medico: Long = -1,
     var id_paciente: Long = -1,
     var id_pulseira: Long = -1,
+    var medico: Medico? = null,
+    var paciente: Paciente? = null,
+    var pulseira: Pulseira? = null,
     var id: Long = -1) {
 
     fun toContentValues() : ContentValues {
@@ -46,7 +49,52 @@ class Consulta(
             val id_paciente = cursor.getLong(posIdPaciente)
             val id_pulseira = cursor.getLong(posIdPulseira)
 
-            return Consulta(data, descricao, preco, id_medico, id_paciente,id_pulseira, id)
+            val posNomeMedico = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_NOME)
+            val posTelemovelMedico = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_TELEMOVEL)
+            val posEmailMedico = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_EMAIL)
+            val posSexoMedico = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_SEXO)
+            val posCartaoCidadaoMedico = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_CARTAO_CIDADAO)
+            val posIdEspecialidadeMedico = cursor.getColumnIndex(TabelaBDMedicos.CAMPO_ESPECIALIDADE_ID)
+            val posNomeEspecialidadeMedico = cursor.getColumnIndex(TabelaBDEspecialidades.CAMPO_ESPECIALIDADE)
+
+            val nome_medico = cursor.getString(posNomeMedico)
+            val telemovel_medico = cursor.getLong(posTelemovelMedico)
+            val email_medico = cursor.getString(posEmailMedico)
+            val sexo_medico = cursor.getString(posSexoMedico)
+            val cartao_cidadao_medico = cursor.getLong(posCartaoCidadaoMedico)
+            val especialidade_id_medico = cursor.getLong(posIdEspecialidadeMedico)
+            val nome_especialidade_medico = cursor.getString(posNomeEspecialidadeMedico)
+
+            val posNomePaciente = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_NOME)
+            val posDataNascimentoPaciente = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_DATA_NASCIMENTO)
+            val posSexoPaciente = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_SEXO)
+            val posMorada = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_MORADA)
+            val posCodigoPostal = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_CODIGO_POSTAL)
+            val posTelemovelPaciente = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_TELEMOVEL)
+            val posEmailPaciente = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_EMAIL)
+            val posCartaoCidadaoPaciente = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_CARTAO_CIDADAO)
+            val posContribuinte = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_CONTRIBUINTE)
+
+            val nome_paciente = cursor.getString(posNomePaciente)
+            val data_nascimento_paciente = cursor.getString(posDataNascimentoPaciente)
+            val sexo_paciente = cursor.getString(posSexoPaciente)
+            val morada = cursor.getString(posMorada)
+            val codigo_postal = cursor.getString(posCodigoPostal)
+            val telemovel_paciente = cursor.getString(posTelemovelPaciente)
+            val email_paciente = cursor.getString(posEmailPaciente)
+            val cartao_cidadao_paciente = cursor.getString(posCartaoCidadaoPaciente)
+            val contribuinte = cursor.getString(posContribuinte)
+
+            val posPulseiraConsulta = cursor.getColumnIndex(TabelaBDPulseiras.CAMPO_PULSEIRA)
+
+            val pulseira_consulta = cursor.getString(posPulseiraConsulta)
+
+            val especialidade_medico = Especialidade(nome_especialidade_medico, especialidade_id_medico)
+            val medico = Medico(nome_medico, telemovel_medico, email_medico, sexo_medico, cartao_cidadao_medico, especialidade_medico)
+            val paciente = Paciente(nome_paciente, data_nascimento_paciente, sexo_paciente, morada, codigo_postal, telemovel_paciente, email_paciente, cartao_cidadao_paciente, contribuinte)
+            val pulseira = Pulseira(pulseira_consulta)
+
+            return Consulta(data, descricao, preco, id_medico, id_paciente,id_pulseira, medico, paciente, pulseira, id)
         }
     }
 
