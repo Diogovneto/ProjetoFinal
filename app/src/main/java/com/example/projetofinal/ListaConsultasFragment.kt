@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projetofinal.databinding.FragmentListaConsultasBinding
 
 class ListaConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
@@ -16,6 +17,8 @@ class ListaConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
     private var _binding: FragmentListaConsultasBinding? = null
 
     private val binding get() = _binding!!
+
+    private var adapterConsultas: AdapterConsultas? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +34,10 @@ class ListaConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         super.onViewCreated(view, savedInstanceState)
 
         LoaderManager.getInstance(this).initLoader(ID_LOADER_CONSULTAS, null, this)
+
+        adapterConsultas = AdapterConsultas()
+        binding.recyclerViewLivros.adapter = adapterConsultas
+        binding.recyclerViewLivros.layoutManager = LinearLayoutManager(requireContext())
     }
 
     override fun onDestroyView() {
