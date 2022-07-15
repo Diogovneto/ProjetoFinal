@@ -48,6 +48,11 @@
         <action
             android:id="@+id/action_EditarPulseiraFragment_to_ListaPulseirasFragment"
             app:destination="@id/ListaPulseirasFragment" />
+        <argument
+            android:name="pulseira"
+            app:argType="com.example.projetofinal.Pulseira"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/EliminarPulseiraFragment"
