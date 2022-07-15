@@ -12,6 +12,8 @@ class EliminarPulseiraFragment : Fragment() {
     private var _binding: FragmentEliminarPulseiraBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var pulseira: Pulseira
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,6 +33,10 @@ class EliminarPulseiraFragment : Fragment() {
         val activity = requireActivity() as MainActivity
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_eliminar_pulseira
+
+        pulseira = EliminarPulseiraFragmentArgs.fromBundle(requireArguments()).pulseira
+
+        binding.textViewPulseira.text = pulseira.pulseira
     }
 
     fun processaOpcaoMenuPulseira(item: MenuItem): Boolean {
