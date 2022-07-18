@@ -9,12 +9,9 @@ class Consulta(
     var data: Long,
     var descricao: String,
     var preco: String,
-    var id_medico: Long = -1,
-    var id_paciente: Long = -1,
-    var id_pulseira: Long = -1,
-    var medico: Medico? = null,
-    var paciente: Paciente? = null,
-    var pulseira: Pulseira? = null,
+    var medico: Medico,
+    var paciente: Paciente,
+    var pulseira: Pulseira,
     var id: Long = -1) {
 
     fun toContentValues() : ContentValues {
@@ -23,9 +20,9 @@ class Consulta(
         valores.put(TabelaBDConsultas.CAMPO_DATA, data)
         valores.put(TabelaBDConsultas.CAMPO_DESCRICAO, descricao)
         valores.put(TabelaBDConsultas.CAMPO_PRECO, preco)
-        valores.put(TabelaBDConsultas.CAMPO_MEDICO_ID, id_medico)
-        valores.put(TabelaBDConsultas.CAMPO_PACIENTE_ID, id_paciente)
-        valores.put(TabelaBDConsultas.CAMPO_PULSEIRA_ID, id_pulseira)
+        valores.put(TabelaBDConsultas.CAMPO_MEDICO_ID, medico.id)
+        valores.put(TabelaBDConsultas.CAMPO_PACIENTE_ID, paciente.id)
+        valores.put(TabelaBDConsultas.CAMPO_PULSEIRA_ID, pulseira.id)
 
 
 
@@ -59,10 +56,10 @@ class Consulta(
             val posNomeEspecialidadeMedico = cursor.getColumnIndex(TabelaBDEspecialidades.CAMPO_ESPECIALIDADE)
 
             val nome_medico = cursor.getString(posNomeMedico)
-            val telemovel_medico = cursor.getLong(posTelemovelMedico)
+            val telemovel_medico = cursor.getString(posTelemovelMedico)
             val email_medico = cursor.getString(posEmailMedico)
             val sexo_medico = cursor.getString(posSexoMedico)
-            val cartao_cidadao_medico = cursor.getLong(posCartaoCidadaoMedico)
+            val cartao_cidadao_medico = cursor.getString(posCartaoCidadaoMedico)
             val especialidade_id_medico = cursor.getLong(posIdEspecialidadeMedico)
             val nome_especialidade_medico = cursor.getString(posNomeEspecialidadeMedico)
 
@@ -91,11 +88,11 @@ class Consulta(
             val pulseira_consulta = cursor.getString(posPulseiraConsulta)
 
             val especialidade_medico = Especialidade(nome_especialidade_medico, especialidade_id_medico)
-            val medico = Medico(nome_medico, telemovel_medico, email_medico, sexo_medico, cartao_cidadao_medico, especialidade_medico)
-            val paciente = Paciente(nome_paciente, data_nascimento_paciente, sexo_paciente, morada, codigo_postal, telemovel_paciente, email_paciente, cartao_cidadao_paciente, contribuinte)
-            val pulseira = Pulseira(pulseira_consulta)
+            val medico = Medico(nome_medico, telemovel_medico, email_medico, sexo_medico, cartao_cidadao_medico, especialidade_medico, id_medico)
+            val paciente = Paciente(nome_paciente, data_nascimento_paciente, sexo_paciente, morada, codigo_postal, telemovel_paciente, email_paciente, cartao_cidadao_paciente, contribuinte, id_paciente)
+            val pulseira = Pulseira(pulseira_consulta, id_pulseira)
 
-            return Consulta(data, descricao, preco, id_medico, id_paciente,id_pulseira, medico, paciente, pulseira, id)
+            return Consulta(data, descricao, preco, medico, paciente, pulseira, id)
         }
     }
 

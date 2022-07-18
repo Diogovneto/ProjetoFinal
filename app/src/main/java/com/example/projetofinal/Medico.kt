@@ -7,10 +7,10 @@ import java.io.Serializable
 
 data class Medico(
     var nome: String? = null,
-    var telemovel: Long,
+    var telemovel: String,
     var email: String,
     var sexo: String,
-    var cartao_cidadao: Long,
+    var cartao_cidadao: String,
     var especialidade: Especialidade,
     var id: Long = -1
 ): Serializable {
@@ -41,10 +41,10 @@ data class Medico(
 
             val id = cursor.getLong(posId)
             val nome = cursor.getString(posNome)
-            val telemovel = cursor.getLong(posTelemovel)
+            val telemovel = cursor.getString(posTelemovel)
             val email = cursor.getString(posEmail)
             val sexo = cursor.getString(posSexo)
-            val cartao_cidadao = cursor.getLong(posCartaoCidadao)
+            val cartao_cidadao = cursor.getString(posCartaoCidadao)
             val id_especialidade = cursor.getLong(posIdEspecialidade)
             val nomeEspecialidade = cursor.getString(posNomeEspecialidade)
 

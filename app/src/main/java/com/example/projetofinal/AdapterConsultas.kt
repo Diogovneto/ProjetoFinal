@@ -32,9 +32,9 @@ class AdapterConsultas(val fragment: ListaConsultasFragment) : RecyclerView.Adap
                 textViewDataConsulta.text = consulta?.data.toString()
                 textViewDescricaoConsulta.text = consulta?.descricao ?: ""
                 textViewPrecoConsulta.text = consulta?.preco ?: ""
-                textViewMedicoConsulta.text = "${consulta?.id_medico}"
-                textViewPacienteConsulta.text = "${consulta?.id_paciente}"
-                textViewPulseiraConsulta.text = "${consulta?.id_pulseira}"
+                textViewMedicoConsulta.text = consulta?.medico?.nome ?: ""
+                textViewPacienteConsulta.text = consulta?.paciente?.nome ?: ""
+                textViewPulseiraConsulta.text = consulta?.pulseira?.pulseira ?: ""
             }
     }
 

@@ -73,10 +73,10 @@ class BaseDadosTest {
         insereMedico(
             db, Medico(
                 "Teste 1",
-                934563467,
+                "934563467",
                 "teste@gmail.com",
                 "Masculino",
-                14537834,
+                "14765478",
                 especialidade
             )
         )
@@ -111,10 +111,10 @@ class BaseDadosTest {
 
             val medico = Medico(
                 "Teste 1",
-                928754328,
+                "934563467",
                 "teste@gmail.com",
                 "Masculino",
-                14537834,
+                "14765478",
                 especialidade
             )
             insereMedico(db, medico)
@@ -139,9 +139,9 @@ class BaseDadosTest {
                 12052022,
                 "Garganta Inflamada",
                 "10.00",
-                medico.id,
-                paciente.id,
-                pulseira.id
+                medico,
+                paciente,
+                pulseira
             )
 
             insereConsulta(db, consulta)
@@ -184,10 +184,10 @@ class BaseDadosTest {
 
             val medico = Medico(
                 "Teste",
-                999999999,
+                "934563467",
                 "asd@gmail.com",
                 "Feminino",
-                11111111,
+                "14765478",
                 especialidade_cardiologista
             )
             insereMedico(db, medico)
@@ -246,10 +246,10 @@ class BaseDadosTest {
 
         val medicoDomicilio = Medico(
             "João Tavares",
-            123456789,
+            "934563467",
             "teste@gmail.com",
             "Masculino",
-            13579246,
+            "14765478",
             especialidade_domicilio)
         insereMedico(db, medicoDomicilio)
 
@@ -258,10 +258,10 @@ class BaseDadosTest {
 
         val medicoCirurgiao = Medico(
             "José Santos",
-            987654321,
+            "934563467",
             "teste123@gmail.com",
             "Masculino",
-            24680135,
+            "14765478",
         especialidade_cirurgiao)
 
         insereMedico(db, medicoCirurgiao)
@@ -300,12 +300,12 @@ class BaseDadosTest {
         inserePulseira(db, pulseira2)
 
         val consulta = Consulta(
-            12_05_2022,
+            12052022,
             "Dores de cabeça e febre",
             "10.00",
-            medicoDomicilio.id,
-            pacienteCrianca.id,
-            pulseira.id)
+            medicoDomicilio,
+            pacienteCrianca,
+            pulseira)
 
         insereConsulta(db, consulta)
 
@@ -362,10 +362,10 @@ class BaseDadosTest {
 
         val medico = Medico(
             "João Tavares",
-            123456789,
+            "934563467",
             "teste@gmail.com",
             "Masculino",
-            13579246,
+            "14765478",
             especialidade_cardiologista)
         insereMedico(db, medico)
 
@@ -374,10 +374,10 @@ class BaseDadosTest {
 
         val medico2 = Medico(
             "José Santos",
-            987654321,
+            "934563467",
             "teste123@gmail.com",
             "Masculino",
-            24680135,
+            "14765478",
             especialidade_cirurgiao)
         insereMedico(db, medico2)
 
@@ -438,10 +438,10 @@ class BaseDadosTest {
 
         val medico = Medico(
             "João Tavares",
-            123456789,
+            "934563467",
             "teste@gmail.com",
             "Masculino",
-            13579246,
+            "14765478",
             especialidade)
         insereMedico(db, medico)
 
@@ -461,12 +461,12 @@ class BaseDadosTest {
         inserePulseira(db, pulseira)
 
         val consulta = Consulta(
-            27_07_2022,
+            27072022,
             "Paciente com perna partida",
             "10.00",
-            medico.id,
-            paciente.id,
-            pulseira.id)
+            medico,
+            paciente,
+            pulseira)
         insereConsulta(db, consulta)
 
         val registosEliminados = TabelaBDConsultas(db).delete(
@@ -518,10 +518,10 @@ class BaseDadosTest {
         insereEspecialidade(db,especialidade)
 
         val medico = Medico("Diogo Neto",
-        934765437,
+            "934563467",
         "rogerioalvez@gmail.com",
         "Masculino",
-        14765478,
+            "14765478",
         especialidade)
         insereMedico(db, medico)
 
@@ -571,10 +571,10 @@ class BaseDadosTest {
         insereEspecialidade(db, especialidade)
 
         val medico = Medico("Rogério Alves",
-            934765437,
+            "934563467",
             "rogerioalvez@gmail.com",
             "Masculino",
-            14765478,
+            "14765478",
             especialidade)
         insereMedico(db, medico)
 
@@ -594,12 +594,12 @@ class BaseDadosTest {
         inserePulseira(db, pulseira)
 
         val consulta = Consulta(
-            27_07_2022,
+            12052022,
             "Paciente com perna partida",
             "10.00",
-            medico.id,
-            paciente.id,
-            pulseira.id)
+            medico,
+            paciente,
+            pulseira)
         insereConsulta(db, consulta)
 
         val cursor = TabelaBDConsultas(db).query(

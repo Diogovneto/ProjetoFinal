@@ -128,14 +128,14 @@ class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
             return
         }
         if (medico == null) {
-            insereMedico(nome, telemovel.toLong(), email, sexo, cartaocidadao.toLong(), idEspecialidade)
+            insereMedico(nome, telemovel, email, sexo, cartaocidadao, idEspecialidade)
         } else {
-            alteraMedico(nome, telemovel.toLong(), email, sexo, cartaocidadao.toLong(), idEspecialidade)
+            alteraMedico(nome, telemovel, email, sexo, cartaocidadao, idEspecialidade)
         }
     }
 
 
-    private fun alteraMedico(nome: String, telemovel: Long, email: String, sexo: String,cartaocidadao: Long,idEspecialidade: Long) {
+    private fun alteraMedico(nome: String, telemovel: String, email: String, sexo: String,cartaocidadao: String,idEspecialidade: Long) {
         val enderecoMedico = Uri.withAppendedPath(ContentProviderConsultas.ENDERECO_MEDICOS, "${medico!!.id}")
 
         val medico = Medico(
@@ -169,7 +169,7 @@ class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         }
     }
 
-    private fun insereMedico(nome: String, telemovel: Long, email: String, sexo: String,cartaocidadao: Long, idEspecialidade: Long){
+    private fun insereMedico(nome: String, telemovel: String, email: String, sexo: String,cartaocidadao: String, idEspecialidade: Long){
         val medico = Medico(
             nome,
             telemovel,

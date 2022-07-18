@@ -51,7 +51,10 @@ class TabelaBDConsultas(db: SQLiteDatabase) : TabelaBD(db, NOME) {
             CAMPO_PRECO,
             CAMPO_MEDICO_ID,
             CAMPO_PACIENTE_ID,
-            CAMPO_PULSEIRA_ID)
+            CAMPO_PULSEIRA_ID,
+            TabelaBDMedicos.CAMPO_NOME,
+            TabelaBDPacientes.CAMPO_NOME,
+            TabelaBDPulseiras.CAMPO_PULSEIRA)
 
     }
 }

@@ -38,7 +38,7 @@ class AdapterPacientes(val fragment: ListaPacientesFragment): RecyclerView.Adapt
                 field = value
 
                 textViewNome.text = paciente?.nome ?: ""
-                textViewDataNascimento.text = paciente?.data_nascimento ?: ""
+                textViewDataNascimento.text = paciente?.data_nascimento.toString()
                 textViewSexo.text = paciente?.sexo ?: ""
                 textViewMorada.text = paciente?.morada ?: ""
                 textViewCodigoPostal.text = paciente?.codigo_postal ?: ""
