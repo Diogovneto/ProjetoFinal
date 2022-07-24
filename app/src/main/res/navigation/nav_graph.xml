@@ -37,7 +37,7 @@
             android:id="@+id/action_ListaConsultasFragment_to_MenuPrincipalFragment"
             app:destination="@id/MenuprincipalFragment" />
         <action
-            android:id="@+id/action_ListaLivrosFragment_to_InserirLivroFragment"
+            android:id="@+id/action_ListaConsultasFragment_to_EditarConsultaFragment"
             app:destination="@id/InserirConsultaFragment" />
     </fragment>
     <fragment
@@ -46,7 +46,7 @@
         android:label="@string/editar_consulta_label"
         tools:layout="@layout/fragment_editar_consulta" >
         <action
-            android:id="@+id/action_InserirLivroFragment_to_ListaLivrosFragment"
+            android:id="@+id/action_EditarConsultaFragment_to_ListaConsultasFragment"
             app:destination="@id/ListaConsultasFragment" />
     </fragment>
     <fragment

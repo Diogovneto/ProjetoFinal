@@ -3,12 +3,14 @@ package com.example.projetofinal
 import android.database.Cursor
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projetofinal.databinding.FragmentListaConsultasBinding
 
@@ -39,7 +41,21 @@ class ListaConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         binding.recyclerViewLivros.adapter = adapterConsultas
         binding.recyclerViewLivros.layoutManager = LinearLayoutManager(requireContext())
 
-        (activity as MainActivity).idMenuAtual = R.menu.menu_lista_consultas
+        val activity = activity as MainActivity
+        activity.fragment = this
+        activity.idMenuAtual = R.menu.menu_lista_consultas
+    }
+
+    fun processaOpcaoMenuConsultas(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_inserir -> {
+                findNavController().navigate(R.id.action_ListaConsultasFragment_to_EditarConsultaFragment)
+                return true
+            }
+            R.id.action_alterar -> true
+            R.id.action_eliminar -> true
+            else -> false
+        }
     }
 
     override fun onDestroyView() {
