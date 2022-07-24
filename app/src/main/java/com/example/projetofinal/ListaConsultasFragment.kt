@@ -38,6 +38,8 @@ class ListaConsultasFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
         adapterConsultas = AdapterConsultas(this)
         binding.recyclerViewLivros.adapter = adapterConsultas
         binding.recyclerViewLivros.layoutManager = LinearLayoutManager(requireContext())
+
+        (activity as MainActivity).idMenuAtual = R.menu.menu_lista_consultas
     }
 
     override fun onDestroyView() {
