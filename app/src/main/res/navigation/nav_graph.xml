@@ -36,6 +36,18 @@
         <action
             android:id="@+id/action_ListaConsultasFragment_to_MenuPrincipalFragment"
             app:destination="@id/MenuprincipalFragment" />
+        <action
+            android:id="@+id/action_ListaLivrosFragment_to_InserirLivroFragment"
+            app:destination="@id/InserirConsultaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/InserirConsultaFragment"
+        android:name="com.example.projetofinal.EditarConsultaFragment"
+        android:label="fragment_inserir_livro"
+        tools:layout="@layout/fragment_editar_consulta" >
+        <action
+            android:id="@+id/action_InserirLivroFragment_to_ListaLivrosFragment"
+            app:destination="@id/ListaConsultasFragment" />
     </fragment>
     <fragment
         android:id="@+id/ListaPulseirasFragment"
