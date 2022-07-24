@@ -45,7 +45,7 @@
         tools:text="Preço" />
 
     <TextView
-        android:id="@+id/textViewMedico"
+        android:id="@+id/textViewPulseira"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -60,13 +60,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textColor="@color/teal_700"
-        app:layout_constraintEnd_toEndOf="@+id/textViewMedico"
-        app:layout_constraintStart_toStartOf="@+id/textViewMedico"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMedico"
+        app:layout_constraintEnd_toEndOf="@+id/textViewPulseira"
+        app:layout_constraintStart_toStartOf="@+id/textViewPulseira"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPulseira"
         tools:text="João Tavares" />
 
     <TextView
-        android:id="@+id/textViewPaciente"
+        android:id="@+id/textViewMedico"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -81,9 +81,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textColor="@color/teal_700"
-        app:layout_constraintEnd_toEndOf="@+id/textViewPaciente"
-        app:layout_constraintStart_toStartOf="@+id/textViewPaciente"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPaciente"
+        app:layout_constraintEnd_toEndOf="@+id/textViewMedico"
+        app:layout_constraintStart_toStartOf="@+id/textViewMedico"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMedico"
         tools:text="Diogo Neto" />
 
     <TextView

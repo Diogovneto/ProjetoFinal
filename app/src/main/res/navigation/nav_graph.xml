@@ -43,7 +43,7 @@
     <fragment
         android:id="@+id/InserirConsultaFragment"
         android:name="com.example.projetofinal.EditarConsultaFragment"
-        android:label="fragment_inserir_livro"
+        android:label="@string/editar_consulta_label"
         tools:layout="@layout/fragment_editar_consulta" >
         <action
             android:id="@+id/action_InserirLivroFragment_to_ListaLivrosFragment"

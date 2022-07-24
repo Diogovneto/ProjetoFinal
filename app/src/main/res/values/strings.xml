@@ -26,6 +26,7 @@
     <string name="alterar_pulseira_label">Alterar Pulseira</string>
 
     <string name="lista_consultas_label">Consultas</string>
+    <string name="editar_consulta_label">Consulta</string>
 
 
     <string name="Medicos">Médicos</string>
@@ -70,6 +71,13 @@
     <string name="sexo_obrigatorio">Preencha o sexo</string>
     <string name="cartao_cidadao_obrigatorio">Preencha o sexo</string>
     <string name="especialidade_obrigatoria">Escolha a especialidade</string>
+
+    <string name="data">Data</string>
+    <string name="descricao">Descrição</string>
+    <string name="preco">Preço</string>
+    <string name="medico_consulta">Médico</string>
+    <string name="paciente_consulta">Paciente</string>
+    <string name="pulseira_consulta">Pulseira</string>
 
     <string name="nomeP_obrigatorio">Preencha o nome</string>
     <string name="data_nascimento_obrigatoria">Preencha a data de nascimento </string>

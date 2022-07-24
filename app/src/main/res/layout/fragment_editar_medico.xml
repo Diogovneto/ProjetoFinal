@@ -88,7 +88,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/textViewEspecialidade"
+        android:id="@+id/textViewPulseira"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -97,13 +97,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout6" />
 
     <Spinner
-        android:id="@+id/spinnerEspecialidades"
+        android:id="@+id/spinnerPulseira"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:contentDescription="@string/Especialidades"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEspecialidade" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewPulseira" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

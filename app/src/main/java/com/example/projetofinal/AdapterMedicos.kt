@@ -23,7 +23,7 @@ class AdapterMedicos(val fragment: ListaMedicosFragment) : RecyclerView.Adapter<
         val textViewEmail = itemMedico.findViewById<TextView>(R.id.textViewEmail)
         val textViewSexo = itemMedico.findViewById<TextView>(R.id.textViewSexo)
         val textViewCartaoCidadao = itemMedico.findViewById<TextView>(R.id.textViewCartaoCidadao)
-        val textViewEspecialidade = itemMedico.findViewById<TextView>(R.id.textViewEspecialidade)
+        val textViewEspecialidade = itemMedico.findViewById<TextView>(R.id.textViewPulseira)
 
         init {
             itemMedico.setOnClickListener(this)
