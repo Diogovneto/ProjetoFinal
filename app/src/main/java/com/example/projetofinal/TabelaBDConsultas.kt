@@ -28,7 +28,7 @@ class TabelaBDConsultas(db: SQLiteDatabase) : TabelaBD(db, NOME) {
         orderBy: String?
     ): Cursor {
         val queryBuilderConsultas = SQLiteQueryBuilder()
-        queryBuilderConsultas.tables = "$NOME INNER JOIN ${TabelaBDMedicos.NOME} ON ${TabelaBDMedicos.NOME}.${BaseColumns._ID} = $CAMPO_MEDICO_ID INNER JOIN ${TabelaBDPacientes.NOME} ON ${TabelaBDPacientes.NOME}.${BaseColumns._ID} = $CAMPO_PACIENTE_ID INNER JOIN ${TabelaBDPulseiras.NOME} ON ${TabelaBDPulseiras.NOME}.${BaseColumns._ID} = $CAMPO_PULSEIRA_ID"
+        queryBuilderConsultas.tables = "$NOME LEFT JOIN ${TabelaBDMedicos.NOME} ON ${TabelaBDMedicos.NOME}.${BaseColumns._ID} = $CAMPO_MEDICO_ID LEFT JOIN ${TabelaBDPacientes.NOME} ON ${TabelaBDPacientes.NOME}.${BaseColumns._ID} = $CAMPO_PACIENTE_ID LEFT JOIN ${TabelaBDPulseiras.NOME} ON ${TabelaBDPulseiras.NOME}.${BaseColumns._ID} = $CAMPO_PULSEIRA_ID LEFT JOIN ${TabelaBDEspecialidades.NOME} ON ${TabelaBDMedicos.NOME}.${TabelaBDMedicos.CAMPO_ESPECIALIDADE_ID} = ${TabelaBDEspecialidades.CAMPO_ID}"
 
         return queryBuilderConsultas.query(db, columns, selection, selectionArgs, groupBy, having, orderBy)
     }
@@ -53,8 +53,29 @@ class TabelaBDConsultas(db: SQLiteDatabase) : TabelaBD(db, NOME) {
             CAMPO_PACIENTE_ID,
             CAMPO_PULSEIRA_ID,
             TabelaBDMedicos.CAMPO_NOME,
+            TabelaBDMedicos.CAMPO_TELEMOVEL,
+            TabelaBDMedicos.CAMPO_ESPECIALIDADE_ID,
+            TabelaBDMedicos.CAMPO_EMAIL,
+            TabelaBDMedicos.CAMPO_SEXO,
+            TabelaBDMedicos.CAMPO_CARTAO_CIDADAO,
+            TabelaBDMedicos.CAMPO_ESPECIALIDADE_ID,
+            TabelaBDMedicos.CAMPO_ID,
             TabelaBDPacientes.CAMPO_NOME,
-            TabelaBDPulseiras.CAMPO_PULSEIRA)
+            TabelaBDPacientes.CAMPO_DATA_NASCIMENTO,
+            TabelaBDPacientes.CAMPO_SEXO,
+            TabelaBDPacientes.CAMPO_MORADA,
+            TabelaBDPacientes.CAMPO_CODIGO_POSTAL,
+            TabelaBDPacientes.CAMPO_TELEMOVEL,
+            TabelaBDPacientes.CAMPO_EMAIL,
+            TabelaBDPacientes.CAMPO_CARTAO_CIDADAO,
+            TabelaBDPacientes.CAMPO_CONTRIBUINTE,
+            TabelaBDPacientes.CAMPO_ID,
+            TabelaBDPulseiras.CAMPO_PULSEIRA,
+            TabelaBDPulseiras.CAMPO_ID,
+            TabelaBDEspecialidades.CAMPO_ESPECIALIDADE,
+            TabelaBDEspecialidades.CAMPO_ID)
+
+
 
     }
 }

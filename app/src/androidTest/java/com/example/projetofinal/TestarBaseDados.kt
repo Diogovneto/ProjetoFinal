@@ -80,6 +80,7 @@ class BaseDadosTest {
                 especialidade
             )
         )
+        db.close()
     }
 
         @Test

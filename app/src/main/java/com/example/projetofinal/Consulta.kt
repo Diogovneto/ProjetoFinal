@@ -26,6 +26,7 @@ class Consulta(
 
 
 
+
         return valores
     }
 

@@ -36,11 +36,11 @@ class TabelaBDMedicos(db: SQLiteDatabase) : TabelaBD(db, NOME) {
         const val NOME = "medicos"
 
         const val CAMPO_ID = "$NOME.${BaseColumns._ID}"
-        const val CAMPO_NOME = "nome"
-        const val CAMPO_TELEMOVEL = "telemovel"
-        const val CAMPO_EMAIL = "email"
-        const val CAMPO_SEXO = "sexo"
-        const val CAMPO_CARTAO_CIDADAO = "cartaocidadao"
+        const val CAMPO_NOME = "nomeMedico"
+        const val CAMPO_TELEMOVEL = "telemovelMedico"
+        const val CAMPO_EMAIL = "emailMedico"
+        const val CAMPO_SEXO = "sexoMedico"
+        const val CAMPO_CARTAO_CIDADAO = "cartaocidadaoMedico"
         const val CAMPO_ESPECIALIDADE_ID = "Especialidadeid"
 
         val TODAS_COLUNAS = arrayOf(CAMPO_ID, CAMPO_NOME, CAMPO_TELEMOVEL, CAMPO_EMAIL, CAMPO_SEXO, CAMPO_CARTAO_CIDADAO, CAMPO_ESPECIALIDADE_ID, TabelaBDEspecialidades.CAMPO_ESPECIALIDADE)

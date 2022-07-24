@@ -20,8 +20,11 @@ class AdapterConsultas(val fragment: ListaConsultasFragment) : RecyclerView.Adap
         val textViewDataConsulta = itemConsulta.findViewById<TextView>(R.id.textViewData)
         val textViewDescricaoConsulta = itemConsulta.findViewById<TextView>(R.id.textViewDescricao)
         val textViewPrecoConsulta = itemConsulta.findViewById<TextView>(R.id.textViewPreco)
+        val textViewMedico = itemConsulta.findViewById<TextView>(R.id.textViewMedico)
         val textViewMedicoConsulta = itemConsulta.findViewById<TextView>(R.id.textViewMedicoConsulta)
+        val textViewPaciente = itemConsulta.findViewById<TextView>(R.id.textViewPaciente)
         val textViewPacienteConsulta = itemConsulta.findViewById<TextView>(R.id.textViewPacienteConsulta)
+        val textViewPulseira = itemConsulta.findViewById<TextView>(R.id.textViewPulseira)
         val textViewPulseiraConsulta = itemConsulta.findViewById<TextView>(R.id.textViewPulseiraParaConsulta)
 
         var consulta: Consulta? = null
@@ -32,8 +35,11 @@ class AdapterConsultas(val fragment: ListaConsultasFragment) : RecyclerView.Adap
                 textViewDataConsulta.text = consulta?.data.toString()
                 textViewDescricaoConsulta.text = consulta?.descricao ?: ""
                 textViewPrecoConsulta.text = consulta?.preco ?: ""
+                textViewMedico.text = "Médico"
                 textViewMedicoConsulta.text = consulta?.medico?.nome ?: ""
+                textViewPaciente.text = "Paciente"
                 textViewPacienteConsulta.text = consulta?.paciente?.nome ?: ""
+                textViewPulseira.text = "Pulseira"
                 textViewPulseiraConsulta.text = consulta?.pulseira?.pulseira ?: ""
             }
     }
