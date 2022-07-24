@@ -43,7 +43,7 @@ class EliminarEspecialidadeFragment : Fragment() {
 
         especialidade = EliminarEspecialidadeFragmentArgs.fromBundle(requireArguments()).especialidade
 
-        binding.textViewEspecialidade.text = especialidade.especialidade
+        binding.textViewPulseira.text = especialidade.especialidade
 
     }
 
@@ -79,7 +79,7 @@ class EliminarEspecialidadeFragment : Fragment() {
             Toast.makeText(requireContext(), R.string.especialidade_eliminada_sucesso, Toast.LENGTH_LONG).show()
             voltaListaEspecialidades()
         } else {
-            Snackbar.make(binding.textViewEspecialidade, R.string.erro_eliminar_especialidade, Snackbar.LENGTH_INDEFINITE).show()
+            Snackbar.make(binding.textViewPulseira, R.string.erro_eliminar_especialidade, Snackbar.LENGTH_INDEFINITE).show()
         }
     }
 

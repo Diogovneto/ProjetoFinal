@@ -20,12 +20,12 @@ class AdapterConsultas(val fragment: ListaConsultasFragment) : RecyclerView.Adap
         val textViewDataConsulta = itemConsulta.findViewById<TextView>(R.id.textViewData)
         val textViewDescricaoConsulta = itemConsulta.findViewById<TextView>(R.id.textViewDescricao)
         val textViewPrecoConsulta = itemConsulta.findViewById<TextView>(R.id.textViewPreco)
-        val textViewMedico = itemConsulta.findViewById<TextView>(R.id.textViewPulseira)
-        val textViewMedicoConsulta = itemConsulta.findViewById<TextView>(R.id.textViewMedicoConsulta)
-        val textViewPaciente = itemConsulta.findViewById<TextView>(R.id.textViewMedico)
-        val textViewPacienteConsulta = itemConsulta.findViewById<TextView>(R.id.textViewPacienteConsulta)
-        val textViewPulseira = itemConsulta.findViewById<TextView>(R.id.textViewPulseira)
-        val textViewPulseiraConsulta = itemConsulta.findViewById<TextView>(R.id.textViewPulseiraParaConsulta)
+        val textViewPulseiraConsultaTitulo = itemConsulta.findViewById<TextView>(R.id.textViewPulseiraConsultaTitulo)
+        val textViewPulseiraConsultaItem = itemConsulta.findViewById<TextView>(R.id.textViewPulseiraConsultaItem)
+        val textViewMedicoConsultaTitulo = itemConsulta.findViewById<TextView>(R.id.textViewMedicoConsultaTitulo)
+        val textViewMedicoConsultaItem = itemConsulta.findViewById<TextView>(R.id.textViewMedicoConsultaItem)
+        val textViewPacienteConsultaTitulo = itemConsulta.findViewById<TextView>(R.id.textViewPacienteConsultaTitulo)
+        val textViewPacienteConsultaItem = itemConsulta.findViewById<TextView>(R.id.textViewPacienteConsultaItem)
 
         var consulta: Consulta? = null
             get() = field
@@ -35,12 +35,12 @@ class AdapterConsultas(val fragment: ListaConsultasFragment) : RecyclerView.Adap
                 textViewDataConsulta.text = consulta?.data.toString()
                 textViewDescricaoConsulta.text = consulta?.descricao ?: ""
                 textViewPrecoConsulta.text = consulta?.preco ?: ""
-                textViewMedico.text = "Médico"
-                textViewMedicoConsulta.text = consulta?.medico?.nome ?: ""
-                textViewPaciente.text = "Paciente"
-                textViewPacienteConsulta.text = consulta?.paciente?.nome ?: ""
-                textViewPulseira.text = "Pulseira"
-                textViewPulseiraConsulta.text = consulta?.pulseira?.pulseira ?: ""
+                textViewPulseiraConsultaTitulo.text = "Pulseira"
+                textViewPulseiraConsultaItem.text = consulta?.medico?.nome ?: ""
+                textViewMedicoConsultaTitulo.text = "Médico"
+                textViewMedicoConsultaItem.text = consulta?.paciente?.nome ?: ""
+                textViewPacienteConsultaTitulo.text = "Paciente"
+                textViewPacienteConsultaItem.text = consulta?.pulseira?.pulseira ?: ""
             }
     }
 

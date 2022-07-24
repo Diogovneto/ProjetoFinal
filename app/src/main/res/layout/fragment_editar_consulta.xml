@@ -7,10 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".EditarConsultaFragment">
 
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
+        android:id="@+id/textInputLayout11"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -18,112 +20,91 @@
             android:id="@+id/editTextData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:hint="@string/data"
-            android:inputType="datetime"
-            android:textColorHint="#616161" />
+            android:hint="data" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout3"
+        android:id="@+id/textInputLayout15"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout11">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextDescricao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:hint="@string/descricao"
-            android:inputType="phone" />
+            android:layout_marginTop="32dp"
+            android:hint="@string/descricao" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout4"
+        android:id="@+id/textInputLayout17"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout15">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextPreco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:hint="@string/preco"
-            android:inputType="textEmailAddress" />
+            android:layout_marginTop="32dp"
+            android:hint="@string/preco" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout5"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"/>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout6"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5"/>
-
     <TextView
-        android:id="@+id/textViewPulseira"
+        android:id="@+id/textViewPulseiraConsulta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/pulseira_consulta"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout6" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout17" />
 
     <Spinner
-        android:id="@+id/spinnerPulseira"
+        android:id="@+id/spinnerPulseiraConsulta"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:contentDescription="@string/pulseira_consulta"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPulseira" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewPulseiraConsulta" />
 
     <TextView
-        android:id="@+id/textViewMedico"
+        android:id="@+id/textViewMedicoConsulta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Médico"
+        android:text="@string/medico_consulta"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerPulseira" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerPulseiraConsulta" />
 
     <Spinner
-        android:id="@+id/spinnerMedico"
+        android:id="@+id/spinnerMedicoConsulta"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:contentDescription="@string/medico_consulta"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMedico" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewMedicoConsulta" />
 
     <TextView
-        android:id="@+id/textViewPaciente"
+        android:id="@+id/textViewPacienteConsulta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/paciente_consulta"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerMedico" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerMedicoConsulta" />
 
     <Spinner
-        android:id="@+id/spinnerPacientes"
+        android:id="@+id/spinnerPacienteConsulta"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:contentDescription="@string/paciente_consulta"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPaciente" />
-
+        app:layout_constraintTop_toBottomOf="@+id/textViewPacienteConsulta" />
 </androidx.constraintlayout.widget.ConstraintLayout>

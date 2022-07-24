@@ -45,7 +45,7 @@
         tools:text="Preço" />
 
     <TextView
-        android:id="@+id/textViewPulseira"
+        android:id="@+id/textViewPulseiraConsultaTitulo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -53,57 +53,57 @@
         app:layout_constraintEnd_toEndOf="@+id/textViewPreco"
         app:layout_constraintStart_toStartOf="@+id/textViewPreco"
         app:layout_constraintTop_toBottomOf="@+id/textViewPreco"
-        tools:text="Médico" />
-
-    <TextView
-        android:id="@+id/textViewMedicoConsulta"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textColor="@color/teal_700"
-        app:layout_constraintEnd_toEndOf="@+id/textViewPulseira"
-        app:layout_constraintStart_toStartOf="@+id/textViewPulseira"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPulseira"
-        tools:text="João Tavares" />
-
-    <TextView
-        android:id="@+id/textViewMedico"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textColor="@color/purple_700"
-        app:layout_constraintEnd_toEndOf="@+id/textViewMedicoConsulta"
-        app:layout_constraintStart_toStartOf="@+id/textViewMedicoConsulta"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMedicoConsulta"
-        tools:text="Paciente" />
-
-    <TextView
-        android:id="@+id/textViewPacienteConsulta"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textColor="@color/teal_700"
-        app:layout_constraintEnd_toEndOf="@+id/textViewMedico"
-        app:layout_constraintStart_toStartOf="@+id/textViewMedico"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMedico"
-        tools:text="Diogo Neto" />
-
-    <TextView
-        android:id="@+id/textViewPulseira"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textColor="@color/purple_700"
-        app:layout_constraintEnd_toEndOf="@+id/textViewPacienteConsulta"
-        app:layout_constraintStart_toStartOf="@+id/textViewPacienteConsulta"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPacienteConsulta"
         tools:text="Pulseira" />
 
     <TextView
-        android:id="@+id/textViewPulseiraParaConsulta"
+        android:id="@+id/textViewPulseiraConsultaItem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textColor="@color/teal_700"
-        app:layout_constraintEnd_toEndOf="@+id/textViewPulseira"
-        app:layout_constraintStart_toStartOf="@+id/textViewPulseira"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPulseira"
-        tools:text="Verde" />
+        app:layout_constraintEnd_toEndOf="@+id/textViewPulseiraConsultaTitulo"
+        app:layout_constraintStart_toStartOf="@+id/textViewPulseiraConsultaTitulo"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPulseiraConsultaTitulo"
+        tools:text="Vermelho" />
+
+    <TextView
+        android:id="@+id/textViewMedicoConsultaTitulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/purple_700"
+        app:layout_constraintEnd_toEndOf="@+id/textViewPulseiraConsultaItem"
+        app:layout_constraintStart_toStartOf="@+id/textViewPulseiraConsultaItem"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPulseiraConsultaItem"
+        tools:text="Médico" />
+
+    <TextView
+        android:id="@+id/textViewMedicoConsultaItem"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_700"
+        app:layout_constraintEnd_toEndOf="@+id/textViewMedicoConsultaTitulo"
+        app:layout_constraintStart_toStartOf="@+id/textViewMedicoConsultaTitulo"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMedicoConsultaTitulo"
+        tools:text="João Tavares" />
+
+    <TextView
+        android:id="@+id/textViewPacienteConsultaTitulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/purple_700"
+        app:layout_constraintEnd_toEndOf="@+id/textViewMedicoConsultaItem"
+        app:layout_constraintStart_toStartOf="@+id/textViewMedicoConsultaItem"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMedicoConsultaItem"
+        tools:text="Paciente" />
+
+    <TextView
+        android:id="@+id/textViewPacienteConsultaItem"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/teal_700"
+        app:layout_constraintEnd_toEndOf="@+id/textViewPacienteConsultaTitulo"
+        app:layout_constraintStart_toStartOf="@+id/textViewPacienteConsultaTitulo"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPacienteConsultaTitulo"
+        tools:text="Diogo Neto" />
 </androidx.constraintlayout.widget.ConstraintLayout>
