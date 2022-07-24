@@ -137,7 +137,7 @@ class BaseDadosTest {
             inserePulseira(db, pulseira)
 
             val consulta = Consulta(
-                12052022,
+                "27/07/2022",
                 "Garganta Inflamada",
                 "10.00",
                 medico,
@@ -301,7 +301,7 @@ class BaseDadosTest {
         inserePulseira(db, pulseira2)
 
         val consulta = Consulta(
-            12052022,
+            "27/07/2022",
             "Dores de cabeça e febre",
             "10.00",
             medicoDomicilio,
@@ -462,7 +462,7 @@ class BaseDadosTest {
         inserePulseira(db, pulseira)
 
         val consulta = Consulta(
-            27072022,
+            "27/07/2022",
             "Paciente com perna partida",
             "10.00",
             medico,
@@ -595,7 +595,7 @@ class BaseDadosTest {
         inserePulseira(db, pulseira)
 
         val consulta = Consulta(
-            12052022,
+            "27/07/2022",
             "Paciente com perna partida",
             "10.00",
             medico,

@@ -6,7 +6,7 @@ import android.provider.BaseColumns
 
 
 class Consulta(
-    var data: Long,
+    var data: String,
     var descricao: String,
     var preco: String,
     var medico: Medico,
@@ -41,7 +41,7 @@ class Consulta(
             val posIdPulseira = cursor.getColumnIndex(TabelaBDConsultas.CAMPO_PULSEIRA_ID)
 
             val id = cursor.getLong(posId)
-            val data = cursor.getLong(posData)
+            val data = cursor.getString(posData)
             val descricao = cursor.getString(posDescricao)
             val preco = cursor.getString(posPreco)
             val id_medico = cursor.getLong(posIdMedico)
