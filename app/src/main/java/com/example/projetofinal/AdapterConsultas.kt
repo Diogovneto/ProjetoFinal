@@ -32,7 +32,7 @@ class AdapterConsultas(val fragment: ListaConsultasFragment) : RecyclerView.Adap
             set(value) {
                 field = value
 
-                textViewDataConsulta.text = consulta?.data.toString()
+                textViewDataConsulta.text = consulta?.data ?: ""
                 textViewDescricaoConsulta.text = consulta?.descricao ?: ""
                 textViewPrecoConsulta.text = consulta?.preco ?: ""
                 textViewPulseiraConsultaTitulo.text = "Pulseira"

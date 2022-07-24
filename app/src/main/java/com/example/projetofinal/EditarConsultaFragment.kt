@@ -6,36 +6,32 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SimpleCursorAdapter
 import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
-
-
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import com.example.projetofinal.databinding.FragmentEditarConsultaBinding
 
 
 class EditarConsultaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding: FragmentEditarConsultaBinding? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_editar_consulta, container, false)
+        _binding = FragmentEditarConsultaBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -68,12 +64,20 @@ class EditarConsultaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
     }
 
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> =
-        when (id) {
+        CursorLoader(
+            requireContext(),
+            ContentProviderConsultas.ENDERECO_PULSEIRAS,
+            TabelaBDPulseiras.TODAS_COLUNAS,
+            null,
+            null,
+            TabelaBDPulseiras.CAMPO_PULSEIRA
+        )
+        /*when (id) {
             ID_LOADER_PULSEIRAS -> {
                 CursorLoader(
                     requireContext(),
                     ContentProviderConsultas.ENDERECO_PULSEIRAS,
-                    TabelaBDConsultas.TODAS_COLUNAS,
+                    TabelaBDPulseiras.TODAS_COLUNAS,
                     null,
                     null,
                     TabelaBDPulseiras.CAMPO_PULSEIRA
@@ -83,7 +87,7 @@ class EditarConsultaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
                 CursorLoader(
                     requireContext(),
                     ContentProviderConsultas.ENDERECO_MEDICOS,
-                    TabelaBDConsultas.TODAS_COLUNAS,
+                    TabelaBDMedicos.TODAS_COLUNAS,
                     null,
                     null,
                     TabelaBDMedicos.CAMPO_NOME
@@ -93,7 +97,7 @@ class EditarConsultaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
                 CursorLoader(
                     requireContext(),
                     ContentProviderConsultas.ENDERECO_PACIENTES,
-                    TabelaBDConsultas.TODAS_COLUNAS,
+                    TabelaBDPacientes.TODAS_COLUNAS,
                     null,
                     null,
                     TabelaBDPacientes.CAMPO_NOME
@@ -101,20 +105,47 @@ class EditarConsultaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor>
             }
             else -> CursorLoader(requireContext(),
                 ContentProviderConsultas.ENDERECO_ESPECIALIDADES,
-                TabelaBDConsultas.TODAS_COLUNAS,
+                TabelaBDEspecialidades.TODAS_COLUNAS,
                 null,
                 null,
                 null)
-        }
+        }*/
 
 
 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
-        TODO("Not yet implemented")
+        binding.spinnerPulseiraConsulta.adapter = SimpleCursorAdapter(
+            requireContext(),
+            android.R.layout.simple_list_item_1,
+            data,
+            arrayOf(TabelaBDPulseiras.CAMPO_PULSEIRA),
+            intArrayOf(android.R.id.text1),
+            0
+        )
+
+        binding.spinnerMedicoConsulta.adapter = SimpleCursorAdapter(
+            requireContext(),
+            android.R.layout.simple_list_item_1,
+            data,
+            arrayOf(TabelaBDMedicos.CAMPO_NOME),
+            intArrayOf(android.R.id.text1),
+            0
+        )
+
+        binding.spinnerPacienteConsulta.adapter = SimpleCursorAdapter(
+            requireContext(),
+            android.R.layout.simple_list_item_1,
+            data,
+            arrayOf(TabelaBDPacientes.CAMPO_NOME),
+            intArrayOf(android.R.id.text1),
+            0
+        )
     }
 
     override fun onLoaderReset(loader: Loader<Cursor>) {
-        TODO("Not yet implemented")
+        binding.spinnerPulseiraConsulta.adapter = null
+        binding.spinnerMedicoConsulta.adapter = null
+        binding.spinnerPacienteConsulta.adapter = null
     }
 
 }
