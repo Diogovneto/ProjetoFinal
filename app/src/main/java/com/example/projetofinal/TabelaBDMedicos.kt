@@ -12,7 +12,7 @@ class TabelaBDMedicos(db: SQLiteDatabase) : TabelaBD(db, NOME) {
                 "$CAMPO_NOME TEXT NOT NULL, " +
                 "$CAMPO_TELEMOVEL INTEGER NOT NULL, " +
                 "$CAMPO_EMAIL TEXT NOT NULL, " +
-                "$CAMPO_SEXO TEXT NOT NULL, " +
+                "$CAMPO_GENERO TEXT NOT NULL, " +
                 "$CAMPO_CARTAO_CIDADAO INTEGER NOT NULL," +
                 "$CAMPO_ESPECIALIDADE_ID INTEGER NOT NULL," +
                 "FOREIGN KEY ($CAMPO_ESPECIALIDADE_ID) REFERENCES ${TabelaBDEspecialidades.NOME}(${BaseColumns._ID}) ON DELETE RESTRICT)")
@@ -39,11 +39,11 @@ class TabelaBDMedicos(db: SQLiteDatabase) : TabelaBD(db, NOME) {
         const val CAMPO_NOME = "nomeMedico"
         const val CAMPO_TELEMOVEL = "telemovelMedico"
         const val CAMPO_EMAIL = "emailMedico"
-        const val CAMPO_SEXO = "sexoMedico"
+        const val CAMPO_GENERO = "generoMedico"
         const val CAMPO_CARTAO_CIDADAO = "cartaocidadaoMedico"
         const val CAMPO_ESPECIALIDADE_ID = "Especialidadeid"
 
-        val TODAS_COLUNAS = arrayOf(CAMPO_ID, CAMPO_NOME, CAMPO_TELEMOVEL, CAMPO_EMAIL, CAMPO_SEXO, CAMPO_CARTAO_CIDADAO, CAMPO_ESPECIALIDADE_ID, TabelaBDEspecialidades.CAMPO_ESPECIALIDADE)
+        val TODAS_COLUNAS = arrayOf(CAMPO_ID, CAMPO_NOME, CAMPO_TELEMOVEL, CAMPO_EMAIL, CAMPO_GENERO, CAMPO_CARTAO_CIDADAO, CAMPO_ESPECIALIDADE_ID, TabelaBDEspecialidades.CAMPO_ESPECIALIDADE)
     }
 }
 

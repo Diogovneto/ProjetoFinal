@@ -46,7 +46,7 @@ class EliminarMedicoFragment : Fragment() {
             binding.textViewNome.text = medico.nome
             binding.textViewTelemovel.text = medico.telemovel.toString()
             binding.textViewEmail.text = medico.email
-            binding.textViewSexo.text = medico.sexo
+            binding.textViewGenero.text = medico.genero
             binding.textViewCartaoCidadao.text = medico.cartao_cidadao.toString()
             binding.textViewEspecialidade.text = medico.especialidade.especialidade
         }

@@ -45,13 +45,13 @@
     <string name="nome">Nome</string>
     <string name="telemovel">Telemovel</string>
     <string name="email">Email</string>
-    <string name="sexo">Sexo</string>
+    <string name="genero">Genero</string>
     <string name="cartaocidadao">Cartao Cidadao</string>
     <string name="especialidade">Especialidade</string>
 
     <string name="nome_paciente">Nome</string>
     <string name="data_nacimento_paciente">Data Nascimento</string>
-    <string name="sexo_paciente">Sexo</string>
+    <string name="genero_paciente">Genero</string>
     <string name="morada">Morada</string>
     <string name="codigo_postal">Código Postal</string>
     <string name="telemovel_paciente">telemóvel</string>
@@ -68,8 +68,8 @@
     <string name="nome_obrigatorio">Preencha o nome</string>
     <string name="telemovel_obrigatorio">Preencha o telemovel</string>
     <string name="email_obrigatorio">Preencha o email</string>
-    <string name="sexo_obrigatorio">Preencha o sexo</string>
-    <string name="cartao_cidadao_obrigatorio">Preencha o sexo</string>
+    <string name="genero_obrigatorio">Preencha o genero</string>
+    <string name="cartao_cidadao_obrigatorio">Preencha o cartao de cidadão</string>
     <string name="especialidade_obrigatoria">Escolha a especialidade</string>
 
     <string name="data">Data</string>
@@ -81,7 +81,7 @@
 
     <string name="nomeP_obrigatorio">Preencha o nome</string>
     <string name="data_nascimento_obrigatoria">Preencha a data de nascimento </string>
-    <string name="sexoP_obrigatorio">Preencha o seco</string>
+    <string name="generoP_obrigatorio">Preencha o genero</string>
     <string name="morada_obrigatoria">Preencha a morada</string>
     <string name="codigo_postal_obrigatorio">Preencha o código postal</string>
     <string name="telemovelP_obrigatorio">Preencha o telemóvel</string>

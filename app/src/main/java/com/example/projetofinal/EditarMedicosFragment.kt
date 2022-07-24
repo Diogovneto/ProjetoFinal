@@ -60,7 +60,7 @@ class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
                 binding.editTextNome.setText(medico!!.nome)
                 binding.editTextTelemovel.setText(medico!!.telemovel.toString())
                 binding.editTextEmail.setText(medico!!.email)
-                binding.editTextSexo.setText(medico!!.sexo)
+                binding.editTextGenero.setText(medico!!.genero)
                 binding.editTextCartaoCidadao.setText(medico!!.cartao_cidadao.toString())
             }
         }
@@ -109,10 +109,10 @@ class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
             binding.editTextEmail.requestFocus()
         }
 
-        val sexo = binding.editTextSexo.text.toString()
-        if (sexo.isBlank()) {
-            binding.editTextSexo.error = getString(R.string.sexo_obrigatorio)
-            binding.editTextSexo.requestFocus()
+        val genero = binding.editTextGenero.text.toString()
+        if (genero.isBlank()) {
+            binding.editTextGenero.error = getString(R.string.genero_obrigatorio)
+            binding.editTextGenero.requestFocus()
         }
 
         val cartaocidadao = binding.editTextCartaoCidadao.text.toString()
@@ -128,21 +128,21 @@ class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
             return
         }
         if (medico == null) {
-            insereMedico(nome, telemovel, email, sexo, cartaocidadao, idEspecialidade)
+            insereMedico(nome, telemovel, email, genero, cartaocidadao, idEspecialidade)
         } else {
-            alteraMedico(nome, telemovel, email, sexo, cartaocidadao, idEspecialidade)
+            alteraMedico(nome, telemovel, email, genero, cartaocidadao, idEspecialidade)
         }
     }
 
 
-    private fun alteraMedico(nome: String, telemovel: String, email: String, sexo: String,cartaocidadao: String,idEspecialidade: Long) {
+    private fun alteraMedico(nome: String, telemovel: String, email: String, genero: String,cartaocidadao: String,idEspecialidade: Long) {
         val enderecoMedico = Uri.withAppendedPath(ContentProviderConsultas.ENDERECO_MEDICOS, "${medico!!.id}")
 
         val medico = Medico(
             nome,
             telemovel,
             email,
-            sexo,
+            genero,
             cartaocidadao,
             Especialidade(
                 "",
@@ -169,12 +169,12 @@ class EditarMedicosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         }
     }
 
-    private fun insereMedico(nome: String, telemovel: String, email: String, sexo: String,cartaocidadao: String, idEspecialidade: Long){
+    private fun insereMedico(nome: String, telemovel: String, email: String, genero: String,cartaocidadao: String, idEspecialidade: Long){
         val medico = Medico(
             nome,
             telemovel,
             email,
-            sexo,
+            genero,
             cartaocidadao,
             Especialidade(
                 "",

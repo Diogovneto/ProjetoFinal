@@ -91,7 +91,7 @@
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sexo"
+            android:text="@string/genero"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="16dp"
@@ -99,7 +99,7 @@
             android:textColor="@color/purple_500" />
 
         <TextView
-            android:id="@+id/textViewSexo"
+            android:id="@+id/textViewGenero"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

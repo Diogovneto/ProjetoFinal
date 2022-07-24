@@ -44,7 +44,7 @@
         tools:text="dvnetoubz@gmail.com" />
 
     <TextView
-        android:id="@+id/textViewSexo"
+        android:id="@+id/textViewGenero"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -60,9 +60,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:textColor="@color/teal_700"
-        app:layout_constraintEnd_toEndOf="@+id/textViewSexo"
-        app:layout_constraintStart_toStartOf="@+id/textViewSexo"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSexo"
+        app:layout_constraintEnd_toEndOf="@+id/textViewGenero"
+        app:layout_constraintStart_toStartOf="@+id/textViewGenero"
+        app:layout_constraintTop_toBottomOf="@+id/textViewGenero"
         tools:text="14537834" />
 
     <TextView

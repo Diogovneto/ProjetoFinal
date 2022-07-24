@@ -12,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.projetofinal.databinding.FragmentEditarPulseiraBinding
 import com.google.android.material.snackbar.Snackbar
 
-class EditarPulseiraFragment : Fragment() {
+class EditarPulseiraFragment : Fragment(){
     private var _binding: FragmentEditarPulseiraBinding? = null
 
     private val binding get() = _binding!!
@@ -124,5 +124,7 @@ class EditarPulseiraFragment : Fragment() {
             ).show()
         }
     }
+
+
 
 }

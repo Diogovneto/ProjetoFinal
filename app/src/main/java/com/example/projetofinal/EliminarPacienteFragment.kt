@@ -47,7 +47,7 @@ class EliminarPacienteFragment : Fragment() {
 
         binding.textViewNomePaciente.text = paciente.nome
         binding.textViewDataNascimentoPaciente.text = paciente.data_nascimento
-        binding.textViewSexoPaciente.text = paciente.sexo
+        binding.textViewGeneroPaciente.text = paciente.genero
         binding.textViewMorada.text = paciente.morada
         binding.textViewCodigoPostal.text = paciente.codigo_postal
         binding.textViewTelemovelPaciente.text = paciente.telemovel

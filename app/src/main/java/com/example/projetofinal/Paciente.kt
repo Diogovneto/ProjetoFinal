@@ -8,7 +8,7 @@ import java.io.Serializable
 class Paciente(
     var nome: String,
     var data_nascimento: String,
-    var sexo: String,
+    var genero: String,
     var morada: String,
     var codigo_postal: String,
     var telemovel: String,
@@ -22,7 +22,7 @@ class Paciente(
 
         valores.put(TabelaBDPacientes.CAMPO_NOME, nome)
         valores.put(TabelaBDPacientes.CAMPO_DATA_NASCIMENTO, data_nascimento)
-        valores.put(TabelaBDPacientes.CAMPO_SEXO, sexo)
+        valores.put(TabelaBDPacientes.CAMPO_GENERO, genero)
         valores.put(TabelaBDPacientes.CAMPO_MORADA, morada)
         valores.put(TabelaBDPacientes.CAMPO_CODIGO_POSTAL, codigo_postal)
         valores.put(TabelaBDPacientes.CAMPO_TELEMOVEL, telemovel)
@@ -39,7 +39,7 @@ class Paciente(
             val posId = cursor.getColumnIndex(BaseColumns._ID)
             val posNome = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_NOME)
             val posDataNascimento = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_DATA_NASCIMENTO)
-            val posSexo = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_SEXO)
+            val posGenero = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_GENERO)
             val posMorada = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_MORADA)
             val posCodigoPostal = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_CODIGO_POSTAL)
             val postelemovel = cursor.getColumnIndex(TabelaBDPacientes.CAMPO_TELEMOVEL)
@@ -51,7 +51,7 @@ class Paciente(
             val id = cursor.getLong(posId)
             val nome = cursor.getString(posNome)
             val data_nascimento = cursor.getString(posDataNascimento)
-            val sexo = cursor.getString(posSexo)
+            val genero = cursor.getString(posGenero)
             val morada = cursor.getString(posMorada)
             val codigo_postal = cursor.getString(posCodigoPostal)
             val telemovel = cursor.getString(postelemovel)
@@ -59,7 +59,7 @@ class Paciente(
             val cartao_cidadao = cursor.getString(posCartaoCidadao)
             val contribuinte = cursor.getString(posContribuinte)
 
-            return Paciente(nome, data_nascimento, sexo, morada, codigo_postal, telemovel, email, cartao_cidadao, contribuinte, id)
+            return Paciente(nome, data_nascimento, genero, morada, codigo_postal, telemovel, email, cartao_cidadao, contribuinte, id)
         }
     }
 

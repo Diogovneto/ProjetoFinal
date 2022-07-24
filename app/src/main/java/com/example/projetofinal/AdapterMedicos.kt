@@ -21,7 +21,7 @@ class AdapterMedicos(val fragment: ListaMedicosFragment) : RecyclerView.Adapter<
         val textViewNome = itemMedico.findViewById<TextView>(R.id.textViewNome)
         val textViewTelemovel = itemMedico.findViewById<TextView>(R.id.textViewTelemovel)
         val textViewEmail = itemMedico.findViewById<TextView>(R.id.textViewEmail)
-        val textViewSexo = itemMedico.findViewById<TextView>(R.id.textViewSexo)
+        val textViewGenero = itemMedico.findViewById<TextView>(R.id.textViewGenero)
         val textViewCartaoCidadao = itemMedico.findViewById<TextView>(R.id.textViewCartaoCidadao)
         val textViewEspecialidade = itemMedico.findViewById<TextView>(R.id.textViewPulseira)
 
@@ -37,7 +37,7 @@ class AdapterMedicos(val fragment: ListaMedicosFragment) : RecyclerView.Adapter<
                 textViewNome.text = medico?.nome ?: ""
                 textViewTelemovel.text = medico?.telemovel.toString()
                 textViewEmail.text = medico?.email ?: ""
-                textViewSexo.text = medico?.sexo ?: ""
+                textViewGenero.text = medico?.genero ?: ""
                 textViewCartaoCidadao.text = medico?.cartao_cidadao.toString()
                 textViewEspecialidade.text = medico?.especialidade?.especialidade ?: ""
 

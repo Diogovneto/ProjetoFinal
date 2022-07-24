@@ -46,7 +46,7 @@ class EditarPacienteFragment : Fragment() {
             if (paciente != null) {
                 binding.editTextNomePac.setText(paciente!!.nome)
                 binding.editTextDataNascimento.setText(paciente!!.data_nascimento)
-                binding.editTextSexoPac.setText(paciente!!.sexo)
+                binding.editTextGeneroPac.setText(paciente!!.genero)
                 binding.editTextMorada.setText(paciente!!.morada)
                 binding.EditTextCodigoPostal.setText(paciente!!.codigo_postal)
                 binding.editTextTelemovelPac.setText(paciente!!.telemovel)
@@ -91,10 +91,10 @@ class EditarPacienteFragment : Fragment() {
             binding.editTextDataNascimento.requestFocus()
             return
         }
-        val sexo = binding.editTextSexoPac.text.toString()
-        if (sexo.isBlank()) {
-            binding.editTextSexoPac.error = getString(R.string.sexo_obrigatorio)
-            binding.editTextSexoPac.requestFocus()
+        val genero = binding.editTextGeneroPac.text.toString()
+        if (genero.isBlank()) {
+            binding.editTextGeneroPac.error = getString(R.string.genero_obrigatorio)
+            binding.editTextGeneroPac.requestFocus()
             return
         }
         val morada = binding.editTextMorada.text.toString()
@@ -135,16 +135,16 @@ class EditarPacienteFragment : Fragment() {
         }
 
         if (paciente == null) {
-            inserePaciente(nome, datanascimento, sexo, morada, codigopostal, telemovel, email, cartaocidadao, contribuinte)
+            inserePaciente(nome, datanascimento, genero, morada, codigopostal, telemovel, email, cartaocidadao, contribuinte)
         } else {
-            alteraPaciente(nome, datanascimento, sexo, morada, codigopostal, telemovel, email, cartaocidadao, contribuinte)
+            alteraPaciente(nome, datanascimento, genero, morada, codigopostal, telemovel, email, cartaocidadao, contribuinte)
         }
     }
 
     private fun alteraPaciente(
         nome: String,
         data_nascimento: String,
-        sexo: String,
+        genero: String,
         morada: String,
         codigo_postal: String,
         telemovel: String,
@@ -157,7 +157,7 @@ class EditarPacienteFragment : Fragment() {
         val paciente = Paciente(
             nome,
             data_nascimento,
-            sexo,
+            genero,
             morada,
             codigo_postal,
             telemovel,
@@ -192,7 +192,7 @@ class EditarPacienteFragment : Fragment() {
     private fun inserePaciente(
             nome: String,
             data_nascimento: String,
-            sexo: String,
+            genero: String,
             morada: String,
             codigo_postal: String,
             telemovel: String,
@@ -200,7 +200,7 @@ class EditarPacienteFragment : Fragment() {
             cartao_cidadao: String,
             contribuinte: String) {
 
-        val paciente = Paciente(nome, data_nascimento, sexo, morada, codigo_postal, telemovel, email, cartao_cidadao, contribuinte)
+        val paciente = Paciente(nome, data_nascimento, genero, morada, codigo_postal, telemovel, email, cartao_cidadao, contribuinte)
 
         val endereco = requireActivity().contentResolver.insert(
             ContentProviderConsultas.ENDERECO_PACIENTES,
